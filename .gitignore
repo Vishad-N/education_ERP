@@ -1,0 +1,51 @@
+# Runtime and local configuration
+.env
+.env.*
+!.env.example
+sites/
+logs/
+*.log
+*.pid
+*.socket
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.docker-cli/
+
+# Frappe/Bench
+apps/frappe/
+apps/erpnext/
+apps/education/
+apps/crm/
+env/
+config/pids/
+
+# Generated artifacts and local state
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Secrets and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/

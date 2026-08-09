@@ -1,0 +1,5 @@
+AGENTS.md
+README.md
+docs/**/*.md
+node_modules/
+apps/university_erp/node_modules/

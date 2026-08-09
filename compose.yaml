@@ -1,0 +1,113 @@
+name: education-erp
+
+services:
+  mariadb:
+    image: mariadb:11.8
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-admin}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  redis-cache:
+    image: redis:7-alpine
+    command: redis-server --save "" --appendonly no
+    volumes:
+      - redis-cache-data:/data
+
+  redis-queue:
+    image: redis:7-alpine
+    command: redis-server --save "" --appendonly no
+    volumes:
+      - redis-queue-data:/data
+
+  redis-socketio:
+    image: redis:7-alpine
+    command: redis-server --save "" --appendonly no
+    volumes:
+      - redis-socketio-data:/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        FRAPPE_VERSION: ${FRAPPE_VERSION:-v16.19.0}
+        ERPNEXT_VERSION: ${ERPNEXT_VERSION:-v16.22.0}
+        EDUCATION_REF: ${EDUCATION_REF:-version-16}
+        CRM_VERSION: ${CRM_VERSION:-v1.72.0}
+    image: education-erp-local:dev
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis-cache:
+        condition: service_started
+      redis-queue:
+        condition: service_started
+      redis-socketio:
+        condition: service_started
+    environment:
+      SITE_NAME: ${SITE_NAME:-erp.localhost}
+      DB_HOST: mariadb
+      DB_PORT: "3306"
+      REDIS_CACHE: redis-cache:6379
+      REDIS_QUEUE: redis-queue:6379
+      REDIS_SOCKETIO: redis-socketio:6379
+      SOCKETIO_PORT: "9000"
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - ./apps/university_erp:/home/frappe/frappe-bench/apps/university_erp
+    ports:
+      - "8000:8000"
+    command: ["bench", "serve", "--port", "8000"]
+
+  websocket:
+    image: education-erp-local:dev
+    depends_on:
+      - backend
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - ./apps/university_erp:/home/frappe/frappe-bench/apps/university_erp
+    command: ["node", "/home/frappe/frappe-bench/apps/frappe/socketio.js"]
+
+  scheduler:
+    image: education-erp-local:dev
+    depends_on:
+      - backend
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - ./apps/university_erp:/home/frappe/frappe-bench/apps/university_erp
+    command: ["bench", "schedule"]
+
+  worker-short:
+    image: education-erp-local:dev
+    depends_on:
+      - backend
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - ./apps/university_erp:/home/frappe/frappe-bench/apps/university_erp
+    command: ["bench", "worker", "--queue", "short"]
+
+  worker-long:
+    image: education-erp-local:dev
+    depends_on:
+      - backend
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - ./apps/university_erp:/home/frappe/frappe-bench/apps/university_erp
+    command: ["bench", "worker", "--queue", "long"]
+
+volumes:
+  mariadb-data:
+  redis-cache-data:
+  redis-queue-data:
+  redis-socketio-data:
+  sites-data:

@@ -1,0 +1,14 @@
+{
+  "name": "education-erp-project",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Repository tooling for the University ERP project.",
+  "scripts": {
+    "check:repo": "powershell -ExecutionPolicy Bypass -File scripts/ci/verify-repository.ps1",
+    "format:docs": "prettier --write \"**/*.{md,json,yml,yaml}\"",
+    "lint:docs": "prettier --check \"**/*.{md,json,yml,yaml}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
