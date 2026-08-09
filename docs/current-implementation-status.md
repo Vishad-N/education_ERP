@@ -8,8 +8,8 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 0 baseline complete; functional implementation remains unstarted |
-| Roadmap state | `P1.1` is the next governing execution step in `PROJECT_IMPLEMENTATION_PLAN.md` |
+| Product state | Phase 1 repository structure baseline complete; functional implementation remains unstarted |
+| Roadmap state | `P1.2` is the next governing execution step in `PROJECT_IMPLEMENTATION_PLAN.md` |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
 | Custom Frappe app | Directory skeleton exists; Bench-generated app is not complete |
@@ -24,6 +24,7 @@ This document distinguishes files that currently exist from capabilities that ar
 - Phase 0 source baseline manifest at `docs/releases/p0-source-baseline.md`.
 - Phase 0 provider ownership ADR at `docs/adr/0012-institution-owned-provider-accounts.md`.
 - Pilot scope baseline at `docs/requirements/pilot-scope.md`.
+- Phase 1 repository-structure evidence at `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`.
 - Root tooling configuration and documentation formatting scripts.
 - `apps.json` containing intended Frappe, ERPNext, Education, CRM, Payments and custom-app sources.
 - Local upstream source checkouts under `apps/`:
@@ -40,7 +41,7 @@ This document distinguishes files that currently exist from capabilities that ar
 - Placeholder infrastructure, migration, operations, contract, E2E, performance and security folders.
 - Previous local Docker Compose containers and network were removed on 2026-08-09; named project volumes were intentionally retained.
 
-## Known gaps that block `S1.1` completion
+## Known gaps before local platform bootstrap completion
 
 - Dockerfile uses a concrete `frappe/bench:v5.31.0` bootstrap tag, but the final production image digest/SBOM is not recorded yet.
 - Docker build still depends on network fetches, although it now checks out/verifies exact app SHAs.
@@ -64,4 +65,4 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Immediate next action
 
-Follow `PROJECT_IMPLEMENTATION_PLAN.md` starting at `P1.1`. Phase 0 is complete; the next work is to finish the product repository structure, then generate and install the Bench-created `university_erp` app in Phase 1.
+Follow `PROJECT_IMPLEMENTATION_PLAN.md` starting at `P1.2`. The next work is to generate the real Bench-created `university_erp` app files, including `hooks.py`, `modules.txt`, and `patches.txt`.

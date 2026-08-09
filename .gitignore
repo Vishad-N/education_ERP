@@ -33,8 +33,17 @@ apps/frappe/
 apps/erpnext/
 apps/education/
 apps/crm/
+apps/payments/
+apps/frappe_docker/
 env/
 config/pids/
+config/logs/
+config/supervisor.conf
+Procfile
+site_config.json
+currentsite.txt
+*.sql.gz
+*.tgz
 
 # Generated artifacts and local state
 *.bak

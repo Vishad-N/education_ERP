@@ -3,7 +3,7 @@
 > Status: Active execution plan
 > Current completion: 0 percent functional implementation
 > Current phase: Phase 1 - local platform bootstrap
-> Current next step: P1.1 - create product repository structure
+> Current next step: P1.2 - generate `university_erp` through Bench
 > Last updated: 2026-08-09
 
 This file controls execution order for agents and engineers building the Education ERP from the pulled Frappe repositories into a production-ready product.
@@ -128,7 +128,7 @@ Exit gate:
 
 ### P1.1 - Create Product Repository Structure
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -505,7 +505,7 @@ Exit gate:
 
 ## Current Execution State
 
-Current next step: P1.1 - create product repository structure.
+Current next step: P1.2 - generate `university_erp` through Bench.
 
 Blocked by:
 
@@ -531,3 +531,4 @@ Not allowed yet:
 | 2026-08-09 | P0.1         | Complete | `docs/releases/p0-source-baseline.md`, `apps.json`, `docker/Dockerfile`, `.env.example`, `compose.yaml`       | Upstream source paths, remotes, SHAs, Docker build refs and local cleanup state recorded.                                       |
 | 2026-08-09 | P0.2         | Complete | `docs/adr/0012-institution-owned-provider-accounts.md`, `docs/operations/production-readiness-checklist.md`   | Institution-owned provider account model approved for Phase 0 baseline; real credentials still require explicit later approval. |
 | 2026-08-09 | P0.3         | Complete | `docs/requirements/pilot-scope.md`, `docs/architecture/capacity-plan.md`, `docs/requirements/traceability.md` | Pilot scope, deferrals, bilingual UX baseline and workload assumptions recorded.                                                |
+| 2026-08-09 | P1.1         | Complete | `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`, `.gitignore`, `.env.example`, `compose.yaml`   | Product repository structure, source/runtime separation, and fake-provider local defaults verified.                             |
