@@ -57,10 +57,9 @@ Every checked item links to evidence, owner, release/image digest and approval d
 
 | Role | Name | Decision | Date | Evidence/conditions |
 |---|---|---|---|---|
-| Product owner | TBD | Pending | TBD | |
-| Institution owner | TBD | Pending | TBD | |
-| Finance owner | TBD | Pending | TBD | |
-| Security/privacy owner | TBD | Pending | TBD | |
-| Engineering owner | TBD | Pending | TBD | |
-| Operations owner | TBD | Pending | TBD | |
-
+| Product owner | Project founder, interim until pilot institution signs | Phase 0 baseline approved | 2026-08-09 | `PROJECT_IMPLEMENTATION_PLAN.md`, `docs/requirements/pilot-scope.md` |
+| Institution owner | Pilot institution authorized signer, named before UAT | Pending for go-live | TBD | Required before production credentials, migration or launch |
+| Finance owner | Institution finance owner, named before payment setup | Pending for go-live | TBD | ADR-0012 requires institution-owned Razorpay settlement |
+| Security/privacy owner | Project founder, interim until delegated | Phase 0 baseline approved | 2026-08-09 | ADR-0012; production approval still pending |
+| Engineering owner | Engineering agent/team for repository bootstrap | Phase 0 baseline approved | 2026-08-09 | `docs/releases/p0-source-baseline.md` |
+| Operations owner | Project founder, interim until production operator is named | Phase 0 baseline approved | 2026-08-09 | Production setup remains blocked until later approval |

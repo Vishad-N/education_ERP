@@ -19,6 +19,21 @@ The initial scope excludes high-volume daily attendance, examinations, LMS conte
 
 ## Pilot sizing
 
+Phase 0 pilot planning values:
+
+| Metric | Pilot planning value | Owner/source | Review trigger |
+|---|---:|---|---|
+| Active students | 600-800 | Product baseline for small-township high school | Replace with pilot institution count before migration |
+| Guardians | 900-1,200 | 1.5 guardians per student planning factor | Replace after admission/user data review |
+| Staff accounts | 40-60 | Product baseline | Replace after role matrix approval |
+| Annual applications | 70-120 | Product baseline | Replace before admission-cycle load test |
+| Normal concurrent users | 5-15 | Engineering planning assumption | Validate in local/staging load test |
+| Peak concurrent users | 15-30 | Engineering planning assumption | Validate before go-live |
+| Initial private object storage | 5-10 GB | Document upload planning assumption | Replace after document matrix approval |
+| Annual SMS volume | 5,000-15,000 | Notification planning assumption | Replace after template/trigger approval |
+| Annual email volume | 3,000-10,000 | Notification planning assumption | Replace after template/trigger approval |
+| Annual online payment transactions | 100-300 | Finance/admission planning assumption | Replace after fee policy approval |
+
 Recommended production pilot:
 
 - Hostinger KVM 8 application VPS: reverse proxy, Frappe web, WebSocket, scheduler and workers.
@@ -90,4 +105,3 @@ Record dataset, image digest, site count, virtual users, traffic mix, P50/P95/P9
 - Async exports with expiration and R2 lifecycle policy.
 - Archive policies for obsolete generated files.
 - Scale pods from measured demand rather than provisioning all 100 institutions on day one.
-

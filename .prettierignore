@@ -1,5 +1,12 @@
 AGENTS.md
 README.md
 docs/**/*.md
+.history/
 node_modules/
+apps/frappe/
+apps/erpnext/
+apps/education/
+apps/crm/
+apps/payments/
+apps/frappe_docker/
 apps/university_erp/node_modules/

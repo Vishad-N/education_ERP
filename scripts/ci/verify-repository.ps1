@@ -29,10 +29,25 @@ $secretPatterns = @(
   "(?i)(secret|token|api[_-]?key)\s*=\s*['""][^'""]{8,}"
 )
 
+$thirdPartyAppDirs = @(
+  "apps\frappe",
+  "apps\erpnext",
+  "apps\education",
+  "apps\crm",
+  "apps\payments",
+  "apps\frappe_docker"
+) | ForEach-Object {
+  if (Test-Path $_) {
+    [regex]::Escape((Resolve-Path $_).Path)
+  }
+}
+
 $files = Get-ChildItem -Recurse -File |
   Where-Object {
+    $fullName = $_.FullName
     $_.FullName -notmatch "\\node_modules\\" -and
-    $_.FullName -notmatch "\\.git\\"
+    $_.FullName -notmatch "\\.git\\" -and
+    -not ($thirdPartyAppDirs | Where-Object { $_ -and $fullName -match "^$_" })
   }
 
 foreach ($file in $files) {

@@ -12,6 +12,8 @@ No requirement reaches `Ready` without measurable acceptance criteria. No requir
 
 ## Coverage register
 
+Phase 0 pilot scope baseline: [pilot-scope.md](pilot-scope.md).
+
 | Requirement IDs | Capability | Design owner | Primary specification | Minimum verification | Status |
 |---|---|---|---|---|---|
 | `BRD-US-001..010` | Institution hierarchy and governance | Institution | Database and security architecture | Hierarchy, history, lock, clone, permissions | Clarification |
@@ -53,4 +55,3 @@ Assign stable `BRD-FEE-###` IDs during Sprint 0 for fee policy/versioning, appli
 ## Acceptance evidence
 
 Evidence must identify release, site/data set, test identity, result, reviewer, and timestamp. Screenshots alone are insufficient for financial reconciliation, concurrency, permission, security, backup, restore, or performance acceptance.
-

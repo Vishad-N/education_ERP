@@ -27,6 +27,7 @@ ADRs capture decisions that are expensive to reverse or affect multiple domains.
 | [0006](0006-immutable-container-releases.md) | Immutable container releases | Accepted |
 | [0007](0007-hostinger-vps-platform.md) | Hostinger VPS pilot and pod platform | Accepted |
 | [0008](0008-cloudflare-r2-storage.md) | Cloudflare R2 private object storage | Accepted |
-| [0009](0009-razorpay-initial-payments.md) | Razorpay initial payment provider | Accepted with open settlement decision |
-| [0010](0010-initial-messaging-providers.md) | MSG91 SMS and Hostinger SMTP | Accepted with open DLT ownership decision |
+| [0009](0009-razorpay-initial-payments.md) | Razorpay initial payment provider | Accepted; ownership resolved by ADR-0012 |
+| [0010](0010-initial-messaging-providers.md) | MSG91 SMS and Hostinger SMTP | Accepted; ownership resolved by ADR-0012 |
 | [0011](0011-bilingual-low-literacy-pwa.md) | English/Hindi low-literacy PWA | Accepted |
+| [0012](0012-institution-owned-provider-accounts.md) | Institution-owned provider accounts for money, SMS, and email identity | Accepted |

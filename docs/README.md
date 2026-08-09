@@ -18,8 +18,11 @@
 
 | Document | Purpose |
 |---|---|
+| [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 0 is complete and `P1.1` is the next step |
 | [Project execution roadmap](../PROJECT_EXECUTION_ROADMAP.md) | Current step, prerequisites, completion gates, next-step state machine |
 | [Current implementation status](current-implementation-status.md) | Honest inventory of scaffolded, missing, and production-blocking components |
+| [Phase 0 source baseline](releases/p0-source-baseline.md) | Pinned upstream repositories, Docker build refs, and local cleanup evidence |
+| [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |
 | [Phase-1 delivery plan](requirements/phase-1-delivery-plan.md) | Workstreams, dependencies, gates, deliverables |

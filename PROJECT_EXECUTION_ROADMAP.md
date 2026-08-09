@@ -4,14 +4,14 @@ This file is the execution state machine for building the University ERP from do
 
 ## Current execution state
 
-| Field | Value |
-|---|---|
-| Current phase | Phase 0 - decisions and pilot definition |
-| Last completed step | None |
-| Next executable step | `S0.1` Confirm unresolved commercial and compliance ownership |
-| Current release target | Production-ready pilot for one township high school |
-| Current repository state | Pre-bootstrap scaffold exists; exact pins, generated app, CI, tests, integrations, and production infrastructure are incomplete |
-| Last updated | 2026-08-02; synchronized with the production documentation baseline |
+| Field                    | Value                                                                                                                                                                                                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Current phase            | Phase 1 - executable repository and open-source stack                                                                                                                                                                                                                                      |
+| Last completed step      | Phase 0 planning baseline completed through `PROJECT_IMPLEMENTATION_PLAN.md`                                                                                                                                                                                                               |
+| Next executable step     | `P1.1` Create product repository structure                                                                                                                                                                                                                                                 |
+| Current release target   | Production-ready pilot for one township high school                                                                                                                                                                                                                                        |
+| Current repository state | Upstream Frappe/ERPNext/Education/CRM/Payments/frappe_docker source checkouts are present under `apps/`; Phase 0 source, ownership, pilot scope and workload baselines are recorded; generated app, CI, tests, integrations, immutable image, and production infrastructure are incomplete |
+| Last updated             | 2026-08-09; Phase 0 completed in `PROJECT_IMPLEMENTATION_PLAN.md`                                                                                                                                                                                                                          |
 
 Update this table whenever a step is completed or blocked. Do not mark a phase complete until its exit gate passes.
 
@@ -42,22 +42,22 @@ If a prerequisite is missing, mark the step `BLOCKED`, name the exact missing in
 
 ## Confirmed product and platform decisions
 
-| Decision | Baseline |
-|---|---|
-| Hosting | Hostinger self-managed VPS |
-| Edge and DNS | Cloudflare |
-| File/object storage | Cloudflare R2 through private S3-compatible access |
-| Payments | Razorpay initially |
-| SMS | MSG91 recommended, pending sender/DLT ownership decision |
-| Email | Hostinger Business Email SMTP initially |
-| Languages | English and Hindi initially |
-| Tenancy | One Frappe site and database per independently governed institution |
-| Initial scale target | 100 institutions through controlled rollout |
-| Pilot | One small-township high school |
-| UX priority | Guardian-first, mobile-first, extremely simple for low digital literacy |
-| Backend | Python 3.14, Frappe v16, ERPNext v16, Education v16, CRM v1.x, MariaDB, Redis/Valkey |
-| Frontend | Frappe Desk for staff; Vue 3, TypeScript, Frappe UI and Vite for public portal |
-| Deployment | Pinned immutable Docker image based on official `frappe_docker` |
+| Decision             | Baseline                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| Hosting              | Hostinger self-managed VPS                                                           |
+| Edge and DNS         | Cloudflare                                                                           |
+| File/object storage  | Cloudflare R2 through private S3-compatible access                                   |
+| Payments             | Razorpay initially                                                                   |
+| SMS                  | MSG91 recommended, pending sender/DLT ownership decision                             |
+| Email                | Hostinger Business Email SMTP initially                                              |
+| Languages            | English and Hindi initially                                                          |
+| Tenancy              | One Frappe site and database per independently governed institution                  |
+| Initial scale target | 100 institutions through controlled rollout                                          |
+| Pilot                | One small-township high school                                                       |
+| UX priority          | Guardian-first, mobile-first, extremely simple for low digital literacy              |
+| Backend              | Python 3.14, Frappe v16, ERPNext v16, Education v16, CRM v1.x, MariaDB, Redis/Valkey |
+| Frontend             | Frappe Desk for staff; Vue 3, TypeScript, Frappe UI and Vite for public portal       |
+| Deployment           | Pinned immutable Docker image based on official `frappe_docker`                      |
 
 Read `docs/current-implementation-status.md` before execution. The presence of a folder, placeholder file, Docker Compose service, or document does not satisfy a roadmap completion gate; only the listed artifact and verification evidence does.
 
@@ -322,14 +322,14 @@ Credentials must be supplied through approved secret/environment mechanisms, nev
 
 Execute in this order unless a step explicitly permits parallel work.
 
-| Step | Status | Capability | Prerequisite | Completion gate | Next |
-|---|---|---|---|---|---|
-| `S5.1` | PENDING | Audit events and correlation IDs | `G4` | Sensitive actions produce immutable, sanitized audit evidence | `S5.2` |
-| `S5.2` | PENDING | Transactional outbox and idempotent jobs | `S5.1` | retry/duplicate/rollback tests pass | `S5.3` |
-| `S5.3` | PENDING | Provider adapter framework | `S5.2` | fake R2/Razorpay/MSG91/SMTP adapters pass contracts | `S5.4` |
-| `S5.4` | PENDING | Private file/quarantine/scan service | `S5.3` | authorization and malware failure tests pass | `S5.5` |
-| `S5.5` | PENDING | Bilingual portal shell and auth | `G3`, `S5.1` | OTP/session, language, accessibility, mobile tests pass | `S5.6` |
-| `S5.6` | PENDING | Bulk-job and export framework | `S5.2` | resumable row-level processing and private exports pass | `G5` |
+| Step   | Status  | Capability                               | Prerequisite | Completion gate                                               | Next   |
+| ------ | ------- | ---------------------------------------- | ------------ | ------------------------------------------------------------- | ------ |
+| `S5.1` | PENDING | Audit events and correlation IDs         | `G4`         | Sensitive actions produce immutable, sanitized audit evidence | `S5.2` |
+| `S5.2` | PENDING | Transactional outbox and idempotent jobs | `S5.1`       | retry/duplicate/rollback tests pass                           | `S5.3` |
+| `S5.3` | PENDING | Provider adapter framework               | `S5.2`       | fake R2/Razorpay/MSG91/SMTP adapters pass contracts           | `S5.4` |
+| `S5.4` | PENDING | Private file/quarantine/scan service     | `S5.3`       | authorization and malware failure tests pass                  | `S5.5` |
+| `S5.5` | PENDING | Bilingual portal shell and auth          | `G3`, `S5.1` | OTP/session, language, accessibility, mobile tests pass       | `S5.6` |
+| `S5.6` | PENDING | Bulk-job and export framework            | `S5.2`       | resumable row-level processing and private exports pass       | `G5`   |
 
 ### `G5` Shared-platform gate
 
@@ -341,13 +341,13 @@ Execute in this order unless a step explicitly permits parallel work.
 
 ## Phase 6 - Phase 1A masters and identity
 
-| Step | Status | Capability | Required outcome | Next |
-|---|---|---|---|---|
-| `S6.1` | PENDING | Institution hierarchy | active/inactive history, reporting scope, locks, clone | `S6.2` |
-| `S6.2` | PENDING | Academic calendar and offering | year/term, grade/program, class, section, publish/version | `S6.3` |
-| `S6.3` | PENDING | Curriculum, timetable and capacity | subject, faculty, clash/workload, intake/reservation | `S6.4` |
-| `S6.4` | PENDING | Applicant/student identity | IDs, guardians, dedupe, status, corrections, consent | `S6.5` |
-| `S6.5` | PENDING | Fee masters | fee codes/groups, applicability, installments, accounting mapping | `G6` |
+| Step   | Status  | Capability                         | Required outcome                                                  | Next   |
+| ------ | ------- | ---------------------------------- | ----------------------------------------------------------------- | ------ |
+| `S6.1` | PENDING | Institution hierarchy              | active/inactive history, reporting scope, locks, clone            | `S6.2` |
+| `S6.2` | PENDING | Academic calendar and offering     | year/term, grade/program, class, section, publish/version         | `S6.3` |
+| `S6.3` | PENDING | Curriculum, timetable and capacity | subject, faculty, clash/workload, intake/reservation              | `S6.4` |
+| `S6.4` | PENDING | Applicant/student identity         | IDs, guardians, dedupe, status, corrections, consent              | `S6.5` |
+| `S6.5` | PENDING | Fee masters                        | fee codes/groups, applicability, installments, accounting mapping | `G6`   |
 
 Every step requires unit, integration, permission, audit, migration, and report tests.
 
@@ -361,16 +361,16 @@ Every step requires unit, integration, permission, audit, migration, and report 
 
 ## Phase 7 - Phase 1B vertical business journey
 
-| Step | Status | Capability | Required outcome | Next |
-|---|---|---|---|---|
-| `S7.1` | PENDING | Application portal | register, draft, save/resume, program choice, submit | `S7.2` |
-| `S7.2` | PENDING | Eligibility and scrutiny | explainable rules, documents, controlled override | `S7.3` |
-| `S7.3` | PENDING | Application fee | Razorpay/offline, receipt, duplicate safety, reconcile | `S7.4` |
-| `S7.4` | PENDING | Merit and seat allocation | deterministic merit, capacity, waitlist, offer expiry | `S7.5` |
-| `S7.5` | PENDING | Confirmation and conversion | acceptance/cancellation, one Student/enrollment | `S7.6` |
-| `S7.6` | PENDING | Day-1 fees and payments | demand, invoice, installment, partial, fine, concession | `S7.7` |
-| `S7.7` | PENDING | Refund and reconciliation | reversal, refund, settlement, bank/GL reconciliation | `S7.8` |
-| `S7.8` | PENDING | Notifications and dashboards | consent, SMS/email, retries, reports, exports | `G7` |
+| Step   | Status  | Capability                   | Required outcome                                        | Next   |
+| ------ | ------- | ---------------------------- | ------------------------------------------------------- | ------ |
+| `S7.1` | PENDING | Application portal           | register, draft, save/resume, program choice, submit    | `S7.2` |
+| `S7.2` | PENDING | Eligibility and scrutiny     | explainable rules, documents, controlled override       | `S7.3` |
+| `S7.3` | PENDING | Application fee              | Razorpay/offline, receipt, duplicate safety, reconcile  | `S7.4` |
+| `S7.4` | PENDING | Merit and seat allocation    | deterministic merit, capacity, waitlist, offer expiry   | `S7.5` |
+| `S7.5` | PENDING | Confirmation and conversion  | acceptance/cancellation, one Student/enrollment         | `S7.6` |
+| `S7.6` | PENDING | Day-1 fees and payments      | demand, invoice, installment, partial, fine, concession | `S7.7` |
+| `S7.7` | PENDING | Refund and reconciliation    | reversal, refund, settlement, bank/GL reconciliation    | `S7.8` |
+| `S7.8` | PENDING | Notifications and dashboards | consent, SMS/email, retries, reports, exports           | `G7`   |
 
 ### `G7` Functional gate
 
@@ -382,14 +382,14 @@ Every step requires unit, integration, permission, audit, migration, and report 
 
 ## Phase 8 - Quality, migration, and production hardening
 
-| Step | Status | Work | Completion gate | Next |
-|---|---|---|---|---|
-| `S8.1` | PENDING | Full regression and browser E2E | all critical journeys and both languages pass | `S8.2` |
-| `S8.2` | PENDING | Accessibility and low-bandwidth testing | approved usability/performance budgets pass | `S8.3` |
-| `S8.3` | PENDING | Concurrency and performance | seat/payment/idempotency and SLO load profile pass | `S8.4` |
-| `S8.4` | PENDING | Security and penetration testing | no unaccepted critical/high findings | `S8.5` |
-| `S8.5` | PENDING | Migration rehearsal | counts, references, documents, fees and GL reconcile | `S8.6` |
-| `S8.6` | PENDING | Backup/restore and DR exercise | RPO 15 minutes and RTO 2 hours demonstrated | `G8` |
+| Step   | Status  | Work                                    | Completion gate                                      | Next   |
+| ------ | ------- | --------------------------------------- | ---------------------------------------------------- | ------ |
+| `S8.1` | PENDING | Full regression and browser E2E         | all critical journeys and both languages pass        | `S8.2` |
+| `S8.2` | PENDING | Accessibility and low-bandwidth testing | approved usability/performance budgets pass          | `S8.3` |
+| `S8.3` | PENDING | Concurrency and performance             | seat/payment/idempotency and SLO load profile pass   | `S8.4` |
+| `S8.4` | PENDING | Security and penetration testing        | no unaccepted critical/high findings                 | `S8.5` |
+| `S8.5` | PENDING | Migration rehearsal                     | counts, references, documents, fees and GL reconcile | `S8.6` |
+| `S8.6` | PENDING | Backup/restore and DR exercise          | RPO 15 minutes and RTO 2 hours demonstrated          | `G8`   |
 
 ### `G8` Release-candidate gate
 
@@ -443,14 +443,14 @@ Every step requires unit, integration, permission, audit, migration, and report 
 
 ## Phase 10 - Pilot migration, UAT, and launch
 
-| Step | Status | Work | Completion gate | Next |
-|---|---|---|---|---|
-| `S10.1` | PENDING | Pilot data mapping and cleansing | approved mappings, rejects, ownership, privacy | `S10.2` |
-| `S10.2` | PENDING | Production-sized trial migration | duration and reconciliation fit cutover | `S10.3` |
-| `S10.3` | PENDING | Staff training and bilingual UAT | signed institution, product, finance acceptance | `S10.4` |
-| `S10.4` | PENDING | Production readiness review | checklist approved by all owners | `S10.5` |
-| `S10.5` | PENDING | Final cutover and smoke tests | explicit deployment approval; all smoke/reconcile checks pass | `S10.6` |
-| `S10.6` | PENDING | Two-week hypercare | stable SLOs, backups, support, finance and incident review | `G10` |
+| Step    | Status  | Work                             | Completion gate                                               | Next    |
+| ------- | ------- | -------------------------------- | ------------------------------------------------------------- | ------- |
+| `S10.1` | PENDING | Pilot data mapping and cleansing | approved mappings, rejects, ownership, privacy                | `S10.2` |
+| `S10.2` | PENDING | Production-sized trial migration | duration and reconciliation fit cutover                       | `S10.3` |
+| `S10.3` | PENDING | Staff training and bilingual UAT | signed institution, product, finance acceptance               | `S10.4` |
+| `S10.4` | PENDING | Production readiness review      | checklist approved by all owners                              | `S10.5` |
+| `S10.5` | PENDING | Final cutover and smoke tests    | explicit deployment approval; all smoke/reconcile checks pass | `S10.6` |
+| `S10.6` | PENDING | Two-week hypercare               | stable SLOs, backups, support, finance and incident review    | `G10`   |
 
 ### `G10` Pilot acceptance gate
 
@@ -464,12 +464,12 @@ Every step requires unit, integration, permission, audit, migration, and report 
 
 Never advance a wave only because the calendar says so. Advance after capacity, support, backup, upgrade, finance, and incident gates pass.
 
-| Step | Status | Target | Required gate | Next |
-|---|---|---:|---|---|
-| `S11.1` | PENDING | 5 institutions | pilot lessons closed; onboarding automation proven | `S11.2` |
-| `S11.2` | PENDING | 20 institutions | first production pod capacity and upgrade test pass | `S11.3` |
-| `S11.3` | PENDING | 50 institutions | multiple pods, fleet inventory, quotas and support scale pass | `S11.4` |
-| `S11.4` | PENDING | 100 institutions | pod isolation, DR, security, finance and operations review pass | `G11` |
+| Step    | Status  |           Target | Required gate                                                   | Next    |
+| ------- | ------- | ---------------: | --------------------------------------------------------------- | ------- |
+| `S11.1` | PENDING |   5 institutions | pilot lessons closed; onboarding automation proven              | `S11.2` |
+| `S11.2` | PENDING |  20 institutions | first production pod capacity and upgrade test pass             | `S11.3` |
+| `S11.3` | PENDING |  50 institutions | multiple pods, fleet inventory, quotas and support scale pass   | `S11.4` |
+| `S11.4` | PENDING | 100 institutions | pod isolation, DR, security, finance and operations review pass | `G11`   |
 
 Target pod size is approximately 20-25 institution sites, adjusted by measured workload. Do not place all 100 institutions on one VPS or one database server.
 
@@ -497,7 +497,9 @@ No step is `DONE` unless:
 
 Append concise entries after completed or blocked steps:
 
-| Date | Step | Result | Evidence | Next step |
-|---|---|---|---|---|
-| 2026-08-02 | Roadmap created | Execution has not started | This document | `S0.1` |
-| 2026-08-02 | Documentation synchronized | Hostinger/R2/Razorpay/messaging/UX/capacity baseline recorded; implementation remains unstarted | `docs/README.md`, ADR-0007 through ADR-0011 | `S0.1` |
+| Date       | Step                       | Result                                                                                                                                                                                                                                                    | Evidence                                                                                                              | Next step |
+| ---------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
+| 2026-08-02 | Roadmap created            | Execution has not started                                                                                                                                                                                                                                 | This document                                                                                                         | `S0.1`    |
+| 2026-08-02 | Documentation synchronized | Hostinger/R2/Razorpay/messaging/UX/capacity baseline recorded; implementation remains unstarted                                                                                                                                                           | `docs/README.md`, ADR-0007 through ADR-0011                                                                           | `S0.1`    |
+| 2026-08-09 | Upstream source checkout   | Official Frappe, ERPNext, Education, CRM, Payments, and frappe_docker repositories pulled into `apps/` at pinned commits; previous Compose containers and network removed while volumes were retained; roadmap execution remains before `S0.1` completion | `apps/`, `docs/current-implementation-status.md`                                                                      | `S0.1`    |
+| 2026-08-09 | Phase 0 baseline           | Source pins, provider ownership, pilot scope and workload assumptions recorded through the active implementation plan                                                                                                                                     | `PROJECT_IMPLEMENTATION_PLAN.md`, `docs/releases/p0-source-baseline.md`, ADR-0012, `docs/requirements/pilot-scope.md` | `P1.1`    |
