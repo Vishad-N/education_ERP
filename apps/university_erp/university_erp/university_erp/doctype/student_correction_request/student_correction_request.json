@@ -1,0 +1,106 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SCR-{identity_profile}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "identity_profile",
+    "field_name",
+    "status",
+    "column_break_1",
+    "current_value",
+    "requested_value",
+    "reason"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_profile",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Identity Profile",
+      "options": "Student Identity Profile",
+      "reqd": 1
+    },
+    {
+      "fieldname": "field_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Field Name",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nApproved\nRejected\nCancelled",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "current_value",
+      "fieldtype": "Small Text",
+      "label": "Current Value"
+    },
+    {
+      "fieldname": "requested_value",
+      "fieldtype": "Small Text",
+      "label": "Requested Value",
+      "reqd": 1
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Small Text",
+      "label": "Reason",
+      "reqd": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Correction Request",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "identity_profile,field_name,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

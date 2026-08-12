@@ -1,0 +1,109 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SDAL-{identity_profile}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "identity_profile",
+    "access_type",
+    "accessed_by",
+    "column_break_1",
+    "accessed_on",
+    "masked_output",
+    "purpose",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_profile",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Identity Profile",
+      "options": "Student Identity Profile",
+      "reqd": 1
+    },
+    {
+      "fieldname": "access_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Access Type",
+      "options": "View\nExport\nMask\nCorrection",
+      "reqd": 1
+    },
+    {
+      "fieldname": "accessed_by",
+      "fieldtype": "Link",
+      "label": "Accessed By",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "accessed_on",
+      "fieldtype": "Datetime",
+      "label": "Accessed On",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "masked_output",
+      "fieldtype": "Check",
+      "label": "Masked Output"
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Small Text",
+      "label": "Purpose",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Data Access Log",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "identity_profile,access_type,accessed_by",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

@@ -1,0 +1,124 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "field:offering_code",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "offering_code",
+    "program_version",
+    "program",
+    "status",
+    "column_break_1",
+    "institution_node",
+    "academic_year",
+    "academic_term",
+    "description"
+  ],
+  "fields": [
+    {
+      "fieldname": "offering_code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Offering Code",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "program_version",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Program Version",
+      "options": "Program Version",
+      "reqd": 1
+    },
+    {
+      "fieldname": "program",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Program",
+      "options": "Program",
+      "read_only": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nOpen\nLocked\nClosed",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "institution_node",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Institution Node",
+      "options": "Education Institution Node",
+      "reqd": 1
+    },
+    {
+      "fieldname": "academic_year",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Academic Year",
+      "options": "Academic Year",
+      "reqd": 1
+    },
+    {
+      "fieldname": "academic_term",
+      "fieldtype": "Link",
+      "label": "Academic Term",
+      "options": "Academic Term"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Program Offering",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "program,institution_node,academic_year,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

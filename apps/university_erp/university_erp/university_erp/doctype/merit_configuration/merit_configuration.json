@@ -1,0 +1,96 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "field:configuration_code",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "configuration_code",
+    "program",
+    "academic_year",
+    "status",
+    "tie_breaker_json",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "configuration_code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Configuration Code",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "program",
+      "fieldtype": "Link",
+      "label": "Program",
+      "options": "Program",
+      "reqd": 1
+    },
+    {
+      "fieldname": "academic_year",
+      "fieldtype": "Link",
+      "label": "Academic Year",
+      "options": "Academic Year",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nActive\nRetired",
+      "reqd": 1
+    },
+    {
+      "fieldname": "tie_breaker_json",
+      "fieldtype": "Code",
+      "label": "Tie Breaker JSON",
+      "options": "JSON",
+      "reqd": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Merit Configuration",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "configuration_code,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

@@ -1,0 +1,103 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:ASP-{academic_year}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "academic_year",
+    "status",
+    "column_break_1",
+    "admission_open_date",
+    "admission_close_date",
+    "published_on",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "academic_year",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Academic Year",
+      "options": "Academic Year",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPublished\nLocked\nCancelled",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "admission_open_date",
+      "fieldtype": "Date",
+      "label": "Admission Open Date"
+    },
+    {
+      "fieldname": "admission_close_date",
+      "fieldtype": "Date",
+      "label": "Admission Close Date"
+    },
+    {
+      "fieldname": "published_on",
+      "fieldtype": "Date",
+      "label": "Published On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Academic Session Policy",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "academic_year,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

@@ -1,0 +1,168 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SFD-{student}-{policy_version}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student",
+    "program_enrollment",
+    "policy_version",
+    "status",
+    "column_break_1",
+    "gross_amount",
+    "concession_amount",
+    "scholarship_amount",
+    "fine_amount",
+    "waiver_amount",
+    "net_amount",
+    "due_date",
+    "fee_schedule",
+    "sales_invoice",
+    "idempotency_key",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student",
+      "options": "Student",
+      "reqd": 1
+    },
+    {
+      "fieldname": "program_enrollment",
+      "fieldtype": "Link",
+      "label": "Program Enrollment",
+      "options": "Program Enrollment",
+      "reqd": 1
+    },
+    {
+      "fieldname": "policy_version",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Policy Version",
+      "options": "Education Fee Policy Version",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nGenerated\nCancelled",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "gross_amount",
+      "fieldtype": "Currency",
+      "label": "Gross Amount",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "concession_amount",
+      "fieldtype": "Currency",
+      "label": "Concession Amount"
+    },
+    {
+      "default": "0",
+      "fieldname": "scholarship_amount",
+      "fieldtype": "Currency",
+      "label": "Scholarship Amount"
+    },
+    {
+      "default": "0",
+      "fieldname": "fine_amount",
+      "fieldtype": "Currency",
+      "label": "Fine Amount"
+    },
+    {
+      "default": "0",
+      "fieldname": "waiver_amount",
+      "fieldtype": "Currency",
+      "label": "Waiver Amount"
+    },
+    {
+      "fieldname": "net_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Net Amount",
+      "reqd": 1
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fee_schedule",
+      "fieldtype": "Link",
+      "label": "Fee Schedule",
+      "options": "Fee Schedule"
+    },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Sales Invoice",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Fee Demand",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student,policy_version,status,sales_invoice,idempotency_key",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

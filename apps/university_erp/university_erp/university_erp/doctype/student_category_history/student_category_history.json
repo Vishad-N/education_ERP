@@ -1,0 +1,91 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SCH-{identity_profile}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "identity_profile",
+    "from_category",
+    "to_category",
+    "effective_date",
+    "reason"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_profile",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Identity Profile",
+      "options": "Student Identity Profile",
+      "reqd": 1
+    },
+    {
+      "fieldname": "from_category",
+      "fieldtype": "Link",
+      "label": "From Category",
+      "options": "Student Category"
+    },
+    {
+      "fieldname": "to_category",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "To Category",
+      "options": "Student Category",
+      "reqd": 1
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Effective Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Small Text",
+      "label": "Reason",
+      "reqd": 1
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Category History",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "identity_profile,to_category,effective_date",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

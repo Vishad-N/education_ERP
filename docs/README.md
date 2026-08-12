@@ -18,7 +18,7 @@
 
 | Document | Purpose |
 |---|---|
-| [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 2 proofs are complete and `P3.1` is the next step |
+| [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 6.1 applicant and guardian PWA is next |
 | [Project execution roadmap](../PROJECT_EXECUTION_ROADMAP.md) | Current step, prerequisites, completion gates, next-step state machine |
 | [Current implementation status](current-implementation-status.md) | Honest inventory of scaffolded, missing, and production-blocking components |
 | [Phase 0 source baseline](releases/p0-source-baseline.md) | Pinned upstream repositories, Docker build refs, and local cleanup evidence |
@@ -26,6 +26,16 @@
 | [P2.1 app compatibility evidence](evidence/phase-2/p2.1/app-compatibility-proof.md) | Fresh install, migration, app version, import, HTTP, and Desk route compatibility proof |
 | [P2.2 accounting evidence](evidence/phase-2/p2.2/accounting-proof.md) | Education fee schedule to ERPNext Sales Invoice, Payment Entry, refund, and GL reconciliation proof |
 | [P2.3 integration foundation evidence](evidence/phase-2/p2.3/integration-foundation-proof.md) | Fake Razorpay, MSG91, SMTP, R2, and ClamAV adapter contract proof |
+| [P3.1 completion evidence](evidence/phase-3/p3.1/completion.md) | Completed institution and academic master foundation proof with permissions, timetable conflict, and audit evidence |
+| [P3.2 initial identity/document evidence](evidence/phase-3/p3.2/initial-identity-document-slice.md) | Initial student identity and document DocTypes, migration, and synthetic proof |
+| [P3.2 gate review](evidence/phase-3/p3.2/gate-review.md) | Historical review from before P3.2 completion |
+| [P3.2 completion evidence](evidence/phase-3/p3.2/completion.md) | Completed student identity and document foundation proof with guardian, issuance, scan, replacement, expiry, privacy, permission and audit evidence |
+| [P4.1 completion evidence](evidence/phase-4/p4.1/completion.md) | Completed CRM handoff and versioned application form proof with idempotency, save/resume, duplicate rejection, permission and audit evidence |
+| [P4.2 completion evidence](evidence/phase-4/p4.2/completion.md) | Completed eligibility, merit, seat matrix, allocation and offer proof with capacity protection, permission and audit evidence |
+| [P4.3 completion evidence](evidence/phase-4/p4.3/completion.md) | Completed admission confirmation and conversion proof with required gates, one Student, one enrollment, identity issuance, permission and audit evidence |
+| [P5.1 completion evidence](evidence/phase-5/p5.1/completion.md) | Completed fee policy and demand generation proof with policy math, adjustments, submitted Sales Invoice, generated demand, permission and audit evidence |
+| [P5.2 completion evidence](evidence/phase-5/p5.2/completion.md) | Completed payment collection and receipt proof with fake provider order, online and offline payments, duplicate callback safety, permission and audit evidence |
+| [P5.3 completion evidence](evidence/phase-5/p5.3/completion.md) | Completed refund, settlement and GL reconciliation proof with credit note, refund Payment Entry, settlement import, mismatch rejection, permission and audit evidence |
 | [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |

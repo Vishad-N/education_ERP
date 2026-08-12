@@ -1,0 +1,127 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:PSI-{provider}-{settlement_id}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "provider",
+    "settlement_id",
+    "status",
+    "settlement_date",
+    "column_break_1",
+    "payment_count",
+    "settlement_amount",
+    "expected_amount",
+    "difference_amount",
+    "idempotency_key",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Provider",
+      "reqd": 1
+    },
+    {
+      "fieldname": "settlement_id",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Settlement ID",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "default": "Imported",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Imported\nReconciled\nMismatch",
+      "reqd": 1
+    },
+    {
+      "fieldname": "settlement_date",
+      "fieldtype": "Date",
+      "label": "Settlement Date",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "payment_count",
+      "fieldtype": "Int",
+      "label": "Payment Count",
+      "reqd": 1
+    },
+    {
+      "fieldname": "settlement_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Settlement Amount",
+      "reqd": 1
+    },
+    {
+      "fieldname": "expected_amount",
+      "fieldtype": "Currency",
+      "label": "Expected Amount",
+      "reqd": 1
+    },
+    {
+      "fieldname": "difference_amount",
+      "fieldtype": "Currency",
+      "label": "Difference Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Payment Settlement Import",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "provider,settlement_id,status,idempotency_key",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

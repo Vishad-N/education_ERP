@@ -1,0 +1,114 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:AC-{seat_offer}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "seat_offer",
+    "student_applicant",
+    "status",
+    "column_break_1",
+    "document_gate_passed",
+    "fee_gate_passed",
+    "confirmed_on",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "seat_offer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Seat Offer",
+      "options": "Seat Offer",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Applicant",
+      "options": "Student Applicant",
+      "read_only": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nConfirmed\nCancelled",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "document_gate_passed",
+      "fieldtype": "Check",
+      "label": "Document Gate Passed"
+    },
+    {
+      "default": "0",
+      "fieldname": "fee_gate_passed",
+      "fieldtype": "Check",
+      "label": "Fee Gate Passed"
+    },
+    {
+      "fieldname": "confirmed_on",
+      "fieldtype": "Datetime",
+      "label": "Confirmed On"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Admission Confirmation",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "seat_offer,student_applicant,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

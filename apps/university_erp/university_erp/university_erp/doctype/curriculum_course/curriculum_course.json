@@ -1,0 +1,51 @@
+{
+  "actions": [],
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": ["course", "classification", "credits", "sequence_number"],
+  "fields": [
+    {
+      "fieldname": "course",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Course",
+      "options": "Course",
+      "reqd": 1
+    },
+    {
+      "fieldname": "classification",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Classification",
+      "options": "Core\nElective\nAbility Enhancement\nSkill Enhancement\nValue Added",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "credits",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Credits"
+    },
+    {
+      "default": "0",
+      "fieldname": "sequence_number",
+      "fieldtype": "Int",
+      "label": "Sequence Number"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Curriculum Course",
+  "owner": "Administrator",
+  "permissions": [],
+  "row_format": "Dynamic",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

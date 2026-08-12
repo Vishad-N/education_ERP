@@ -1,0 +1,124 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:AAD-{form_version}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "form_version",
+    "status",
+    "crm_lead",
+    "student_applicant",
+    "column_break_1",
+    "resume_token_hash",
+    "last_saved_on",
+    "submitted_on",
+    "draft_payload",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "form_version",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Form Version",
+      "options": "Admission Application Form Version",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nSubmitted\nAbandoned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crm_lead",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "CRM Lead",
+      "options": "CRM Lead"
+    },
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "label": "Student Applicant",
+      "options": "Student Applicant"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "resume_token_hash",
+      "fieldtype": "Data",
+      "label": "Resume Token Hash",
+      "reqd": 1
+    },
+    {
+      "fieldname": "last_saved_on",
+      "fieldtype": "Datetime",
+      "label": "Last Saved On",
+      "reqd": 1
+    },
+    {
+      "fieldname": "submitted_on",
+      "fieldtype": "Datetime",
+      "label": "Submitted On"
+    },
+    {
+      "fieldname": "draft_payload",
+      "fieldtype": "Code",
+      "label": "Draft Payload",
+      "options": "JSON",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Admission Application Draft",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "form_version,crm_lead,student_applicant,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

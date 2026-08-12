@@ -1,0 +1,106 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:ISV-{YYYY}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "version_title",
+    "root_institution_node",
+    "status",
+    "column_break_1",
+    "effective_from",
+    "approved_by",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "version_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Version Title",
+      "reqd": 1
+    },
+    {
+      "fieldname": "root_institution_node",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Root Institution Node",
+      "options": "Education Institution Node",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPublished\nCancelled",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Effective From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "User"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Institution Structure Version",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

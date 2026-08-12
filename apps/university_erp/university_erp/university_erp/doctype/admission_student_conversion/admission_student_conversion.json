@@ -1,0 +1,135 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:ASC-{admission_confirmation}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "admission_confirmation",
+    "student_applicant",
+    "status",
+    "column_break_1",
+    "student",
+    "program_enrollment",
+    "identity_issuance",
+    "conversion_date",
+    "idempotency_key",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "admission_confirmation",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Admission Confirmation",
+      "options": "Admission Confirmation",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Applicant",
+      "options": "Student Applicant",
+      "read_only": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nConverted\nFailed",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student",
+      "options": "Student",
+      "read_only": 1
+    },
+    {
+      "fieldname": "program_enrollment",
+      "fieldtype": "Link",
+      "label": "Program Enrollment",
+      "options": "Program Enrollment",
+      "read_only": 1
+    },
+    {
+      "fieldname": "identity_issuance",
+      "fieldtype": "Link",
+      "label": "Identity Issuance",
+      "options": "Student Identity Issuance",
+      "read_only": 1
+    },
+    {
+      "fieldname": "conversion_date",
+      "fieldtype": "Date",
+      "label": "Conversion Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Admission Student Conversion",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student_applicant,student,status,idempotency_key",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

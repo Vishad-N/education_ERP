@@ -1,0 +1,119 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SGR-{guardian}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student",
+    "student_applicant",
+    "guardian",
+    "relationship",
+    "column_break_1",
+    "is_primary_guardian",
+    "can_receive_notifications",
+    "status",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "label": "Student",
+      "options": "Student"
+    },
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Applicant",
+      "options": "Student Applicant"
+    },
+    {
+      "fieldname": "guardian",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Guardian",
+      "options": "Guardian",
+      "reqd": 1
+    },
+    {
+      "fieldname": "relationship",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Relationship",
+      "options": "Father\nMother\nGuardian\nOther",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_primary_guardian",
+      "fieldtype": "Check",
+      "label": "Primary Guardian"
+    },
+    {
+      "default": "1",
+      "fieldname": "can_receive_notifications",
+      "fieldtype": "Check",
+      "label": "Can Receive Notifications"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Active\nInactive",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Guardian Relationship",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student,student_applicant,guardian,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

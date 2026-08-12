@@ -1,0 +1,154 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SFR-{student_fee_payment}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student_fee_payment",
+    "student_fee_demand",
+    "status",
+    "amount",
+    "column_break_1",
+    "sales_invoice",
+    "credit_note",
+    "refund_payment_entry",
+    "approved_on",
+    "provider",
+    "provider_payment_id",
+    "provider_refund_id",
+    "idempotency_key",
+    "reason"
+  ],
+  "fields": [
+    {
+      "fieldname": "student_fee_payment",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Fee Payment",
+      "options": "Student Fee Payment",
+      "reqd": 1
+    },
+    {
+      "fieldname": "student_fee_demand",
+      "fieldtype": "Link",
+      "label": "Student Fee Demand",
+      "options": "Student Fee Demand"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nApproved\nPosted\nRejected",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Amount",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "label": "Sales Invoice",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "credit_note",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Credit Note",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "refund_payment_entry",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Refund Payment Entry",
+      "options": "Payment Entry"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Provider"
+    },
+    {
+      "fieldname": "provider_payment_id",
+      "fieldtype": "Data",
+      "label": "Provider Payment ID"
+    },
+    {
+      "fieldname": "provider_refund_id",
+      "fieldtype": "Data",
+      "label": "Provider Refund ID",
+      "unique": 1
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Small Text",
+      "label": "Reason",
+      "reqd": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Fee Refund",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student_fee_payment,student_fee_demand,credit_note,refund_payment_entry,idempotency_key",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

@@ -1,0 +1,180 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SFP-{student_fee_demand}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student_fee_demand",
+    "collection_type",
+    "status",
+    "amount",
+    "currency",
+    "column_break_1",
+    "sales_invoice",
+    "payment_entry",
+    "receipt_no",
+    "outstanding_amount",
+    "mode_of_payment",
+    "approved_on",
+    "provider",
+    "provider_order_id",
+    "provider_payment_id",
+    "provider_event_id",
+    "idempotency_key",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student_fee_demand",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Fee Demand",
+      "options": "Student Fee Demand",
+      "reqd": 1
+    },
+    {
+      "fieldname": "collection_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Collection Type",
+      "options": "Online\nOffline",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nApproved\nPosted\nRejected\nDuplicate",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Amount",
+      "reqd": 1
+    },
+    {
+      "default": "INR",
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Sales Invoice",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "payment_entry",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Payment Entry",
+      "options": "Payment Entry"
+    },
+    {
+      "fieldname": "receipt_no",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Receipt No",
+      "unique": 1
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "fieldtype": "Currency",
+      "label": "Outstanding Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "mode_of_payment",
+      "fieldtype": "Data",
+      "label": "Mode of Payment"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Provider"
+    },
+    {
+      "fieldname": "provider_order_id",
+      "fieldtype": "Data",
+      "label": "Provider Order ID"
+    },
+    {
+      "fieldname": "provider_payment_id",
+      "fieldtype": "Data",
+      "label": "Provider Payment ID"
+    },
+    {
+      "fieldname": "provider_event_id",
+      "fieldtype": "Data",
+      "label": "Provider Event ID",
+      "unique": 1
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Fee Payment",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student_fee_demand,sales_invoice,payment_entry,receipt_no,idempotency_key",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

@@ -1,0 +1,145 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SIP-{YYYY}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student",
+    "student_applicant",
+    "status",
+    "column_break_1",
+    "full_name",
+    "normalized_full_name",
+    "date_of_birth",
+    "student_category",
+    "contact_section",
+    "primary_mobile",
+    "primary_email",
+    "consent_recorded",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student",
+      "options": "Student"
+    },
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Applicant",
+      "options": "Student Applicant"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nActive\nLocked\nMerged\nCancelled",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "full_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Full Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "normalized_full_name",
+      "fieldtype": "Data",
+      "label": "Normalized Full Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "date_of_birth",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Date of Birth"
+    },
+    {
+      "fieldname": "student_category",
+      "fieldtype": "Link",
+      "label": "Student Category",
+      "options": "Student Category"
+    },
+    {
+      "fieldname": "contact_section",
+      "fieldtype": "Section Break",
+      "label": "Contact"
+    },
+    {
+      "fieldname": "primary_mobile",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Primary Mobile"
+    },
+    {
+      "fieldname": "primary_email",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Primary Email",
+      "options": "Email"
+    },
+    {
+      "default": "0",
+      "fieldname": "consent_recorded",
+      "fieldtype": "Check",
+      "label": "Consent Recorded"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Student Identity Profile",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student,student_applicant,full_name,primary_mobile,primary_email",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

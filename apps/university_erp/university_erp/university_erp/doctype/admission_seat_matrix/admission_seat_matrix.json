@@ -1,0 +1,98 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:ASM-{program_offering}-{category}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "program_offering",
+    "category",
+    "capacity",
+    "supernumerary_capacity",
+    "status",
+    "locked_on",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "program_offering",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Program Offering",
+      "options": "Program Offering",
+      "reqd": 1
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Category",
+      "options": "Student Category",
+      "reqd": 1
+    },
+    {
+      "fieldname": "capacity",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Capacity",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "supernumerary_capacity",
+      "fieldtype": "Int",
+      "label": "Supernumerary Capacity"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nLocked\nRetired",
+      "reqd": 1
+    },
+    { "fieldname": "locked_on", "fieldtype": "Datetime", "label": "Locked On" },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Admission Seat Matrix",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "program_offering,category,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

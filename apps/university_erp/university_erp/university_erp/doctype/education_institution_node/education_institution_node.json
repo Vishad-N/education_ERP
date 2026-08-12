@@ -1,0 +1,196 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "allow_rename": 0,
+  "autoname": "field:institution_code",
+  "creation": "2026-08-12 00:00:00.000000",
+  "default_view": "Tree",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "institution_name",
+    "institution_code",
+    "node_type",
+    "status",
+    "is_group",
+    "column_break_1",
+    "parent_education_institution_node",
+    "company",
+    "timezone",
+    "default_currency",
+    "dates_section",
+    "active_from",
+    "inactive_from",
+    "address",
+    "regulatory_codes",
+    "tree_section",
+    "lft",
+    "rgt",
+    "old_parent"
+  ],
+  "fields": [
+    {
+      "fieldname": "institution_name",
+      "fieldtype": "Data",
+      "in_global_search": 1,
+      "in_list_view": 1,
+      "label": "Institution Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "institution_code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Institution Code",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "node_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Node Type",
+      "options": "University\nCampus\nCollege\nDepartment",
+      "reqd": 1
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Active\nInactive\nLocked",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "parent_education_institution_node",
+      "fieldtype": "Link",
+      "ignore_user_permissions": 1,
+      "label": "Parent Institution Node",
+      "options": "Education Institution Node"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "ERPNext Company",
+      "options": "Company"
+    },
+    {
+      "fieldname": "timezone",
+      "fieldtype": "Data",
+      "label": "Timezone"
+    },
+    {
+      "fieldname": "default_currency",
+      "fieldtype": "Link",
+      "label": "Default Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "dates_section",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "fieldname": "active_from",
+      "fieldtype": "Date",
+      "label": "Active From"
+    },
+    {
+      "fieldname": "inactive_from",
+      "fieldtype": "Date",
+      "label": "Inactive From"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Small Text",
+      "label": "Address"
+    },
+    {
+      "fieldname": "regulatory_codes",
+      "fieldtype": "Small Text",
+      "label": "Regulatory Codes"
+    },
+    {
+      "fieldname": "tree_section",
+      "fieldtype": "Section Break",
+      "label": "Tree"
+    },
+    {
+      "fieldname": "lft",
+      "fieldtype": "Int",
+      "hidden": 1,
+      "label": "Lft",
+      "read_only": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "rgt",
+      "fieldtype": "Int",
+      "hidden": 1,
+      "label": "Rgt",
+      "read_only": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "old_parent",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "label": "Old Parent",
+      "read_only": 1
+    }
+  ],
+  "is_tree": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Education Institution Node",
+  "naming_rule": "By fieldname",
+  "nsm_parent_field": "parent_education_institution_node",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "import": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "institution_name,node_type,status",
+  "show_name_in_global_search": 1,
+  "sort_field": "creation",
+  "sort_order": "ASC",
+  "states": [],
+  "track_changes": 1
+}

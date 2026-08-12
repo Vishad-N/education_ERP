@@ -1,0 +1,92 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:SAR-{merit_run}-{round_number}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "merit_run",
+    "round_number",
+    "status",
+    "column_break_1",
+    "published_on",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "merit_run",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Merit Run",
+      "options": "Merit Run",
+      "reqd": 1
+    },
+    {
+      "fieldname": "round_number",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Round Number",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPublished\nClosed",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "published_on",
+      "fieldtype": "Datetime",
+      "label": "Published On",
+      "reqd": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Seat Allocation Round",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "merit_run,round_number,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

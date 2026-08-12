@@ -1,0 +1,115 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:CC-{identity_profile}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "identity_profile",
+    "consent_source",
+    "consent_date",
+    "column_break_1",
+    "sms_allowed",
+    "email_allowed",
+    "whatsapp_allowed",
+    "guardian_name",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_profile",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Identity Profile",
+      "options": "Student Identity Profile",
+      "reqd": 1
+    },
+    {
+      "default": "Application",
+      "fieldname": "consent_source",
+      "fieldtype": "Select",
+      "label": "Consent Source",
+      "options": "Application\nDesk\nImport\nCorrection",
+      "reqd": 1
+    },
+    {
+      "fieldname": "consent_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Consent Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "sms_allowed",
+      "fieldtype": "Check",
+      "label": "SMS Allowed"
+    },
+    {
+      "default": "0",
+      "fieldname": "email_allowed",
+      "fieldtype": "Check",
+      "label": "Email Allowed"
+    },
+    {
+      "default": "0",
+      "fieldname": "whatsapp_allowed",
+      "fieldtype": "Check",
+      "label": "WhatsApp Allowed"
+    },
+    {
+      "fieldname": "guardian_name",
+      "fieldtype": "Data",
+      "label": "Guardian Name"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Communication Consent",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "identity_profile,consent_source,guardian_name",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

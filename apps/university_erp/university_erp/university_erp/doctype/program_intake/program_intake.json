@@ -1,0 +1,121 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:PI-{program_offering}-{#####}",
+  "creation": "2026-08-12 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "program_offering",
+    "status",
+    "total_capacity",
+    "column_break_1",
+    "effective_from",
+    "approved_by",
+    "category_intakes_section",
+    "category_intakes",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "program_offering",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Program Offering",
+      "options": "Program Offering",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nApproved\nLocked\nCancelled",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "total_capacity",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Total Capacity",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Effective From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "User"
+    },
+    {
+      "fieldname": "category_intakes_section",
+      "fieldtype": "Section Break",
+      "label": "Category Intakes"
+    },
+    {
+      "fieldname": "category_intakes",
+      "fieldtype": "Table",
+      "label": "Category Intakes",
+      "options": "Category Intake"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-08-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Program Intake",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "program_offering,status",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

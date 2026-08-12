@@ -1,10 +1,10 @@
 # Project Implementation Plan
 
 > Status: Active execution plan
-> Current completion: Phase 2.3 integration foundation proofs complete; 0 percent business-functional implementation
-> Current phase: Phase 2 - compatibility and foundation proofs
-> Current next step: P3.1 - institution and academic masters
-> Last updated: 2026-08-10
+> Current completion: Phase 5 complete through local fee, payment, refund, settlement and GL reconciliation proofs
+> Current phase: Phase 6 - bilingual low-literacy portal
+> Current next step: P6.1 - applicant and guardian PWA
+> Last updated: 2026-08-13
 
 This file controls execution order for agents and engineers building the Education ERP from the pulled Frappe repositories into a production-ready product.
 
@@ -218,7 +218,7 @@ Exit gate:
 
 ### P3.1 - Institution and Academic Masters
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -231,9 +231,16 @@ Exit gate:
 
 - Pilot academic structure can be configured with permission and audit tests.
 
+Progress:
+
+- Custom DocTypes for institution hierarchy, structure versioning, academic session policy, academic calendar, program version/offering, class/section, curriculum, subject offering, intake/category capacity, faculty assignment and timetable foundations have been added under `university_erp`.
+- `p21.localhost` migration passes with the completed P3.1 DocType set.
+- A repeatable synthetic master-data proof creates and validates the full academic setup chain, permissions, timetable conflict rejection and audit Version evidence.
+- Evidence: `docs/evidence/phase-3/p3.1/completion.md`.
+
 ### P3.2 - Student Identity and Documents
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -246,11 +253,20 @@ Exit gate:
 
 - Student identity and document workflows pass privacy, permission and audit tests.
 
+Progress:
+
+- Custom DocTypes for identity profile, guardian relationship, immutable identity issuance, consent, status/category history, correction request, duplicate candidate, document type, requirement matrix, student document, rejection reason, scan result, verification, replacement, expiry review, privacy export request and student data access audit have been added under `university_erp`.
+- `p21.localhost` migration passes with the completed P3.2 DocType set.
+- A repeatable synthetic proof creates and validates the applicant identity/document chain, guardian primary constraint, identity-number uniqueness, permissions, validation failures, scan, verification, replacement, expiry, privacy export and audit Version evidence.
+- Evidence: `docs/evidence/phase-3/p3.2/initial-identity-document-slice.md`.
+- Gate review: `docs/evidence/phase-3/p3.2/gate-review.md`.
+- Completion evidence: `docs/evidence/phase-3/p3.2/completion.md`.
+
 ## Phase 4 - Admissions
 
 ### P4.1 - CRM Handoff and Application Forms
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -263,9 +279,16 @@ Exit gate:
 
 - Enquiry can become one controlled application without duplicate records.
 
+Progress:
+
+- Custom DocTypes for versioned application forms, save/resume application drafts and CRM application handoff have been added under `university_erp`.
+- `p21.localhost` migration passes with the P4.1 DocType set.
+- A repeatable synthetic proof creates a CRM Lead, publishes a form version, saves/resumes a draft, creates one Student Applicant through an idempotent handoff, marks the CRM Lead converted and rejects invalid/duplicate handoff states.
+- Evidence: `docs/evidence/phase-4/p4.1/completion.md`.
+
 ### P4.2 - Eligibility, Merit, Seats and Offers
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -278,9 +301,16 @@ Exit gate:
 
 - Concurrent acceptance cannot oversubscribe intake.
 
+Progress:
+
+- Custom DocTypes for eligibility rule sets/evaluations, merit configuration/run/entry, admission seat matrix, allocation round and seat offer have been added under `university_erp`.
+- `p21.localhost` migration passes with the P4.2 DocType set.
+- A repeatable synthetic proof validates explainable eligibility, published immutable merit, ranked entries, one accepted offer, one waitlisted offer, duplicate/invalid rejection and capacity protection that prevents a second accepted offer when the seat matrix is full.
+- Evidence: `docs/evidence/phase-4/p4.2/completion.md`.
+
 ### P4.3 - Admission Confirmation and Conversion
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -293,11 +323,18 @@ Exit gate:
 
 - Repeated conversion returns the existing student instead of creating duplicates.
 
+Progress:
+
+- Custom DocTypes for admission confirmation and student conversion have been added under `university_erp`.
+- `p21.localhost` migration passes with the P4.3 DocType set.
+- A repeatable synthetic proof confirms an accepted seat offer after document/fee gates, converts the applicant into one standard Education Student, creates one submitted Program Enrollment, issues enrollment identity and rejects invalid or duplicate conversion paths.
+- Evidence: `docs/evidence/phase-4/p4.3/completion.md`.
+
 ## Phase 5 - Fees, Payments and Reconciliation
 
 ### P5.1 - Fee Policy and Demand Generation
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -309,9 +346,17 @@ Exit gate:
 
 - Generated demands reconcile to expected fee policy totals.
 
+Progress:
+
+- Custom DocTypes for fee codes, fee policy versions, installments, student adjustments and student fee demands have been added under `university_erp`.
+- A repeatable synthetic proof creates a published fee policy, approved concession/scholarship/fine/waiver adjustments, a submitted Education Fee Schedule Sales Invoice and a submitted Student Fee Demand.
+- The generated demand reconciles to the published policy total and the submitted ERPNext Sales Invoice total.
+- Invalid policy totals, negative adjustments, incorrect demand totals and invoice mismatch submissions are rejected.
+- Evidence: `docs/evidence/phase-5/p5.1/completion.md`.
+
 ### P5.2 - Payment Collection and Receipts
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -324,9 +369,16 @@ Exit gate:
 
 - One provider transaction creates at most one posted accounting result.
 
+Progress:
+
+- Custom DocTypes for provider events and student fee payment receipts have been added under `university_erp`.
+- A repeatable synthetic proof creates a fake Razorpay order event, posts one online partial payment, replays duplicate webhook/browser callback paths and confirms the original ERPNext Payment Entry is reused.
+- The proof also posts an approved offline receipt, rejects duplicate provider payment posting and rejects unapproved offline payment submission.
+- Evidence: `docs/evidence/phase-5/p5.2/completion.md`.
+
 ### P5.3 - Refunds, Settlement and GL Reconciliation
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -337,6 +389,13 @@ Build:
 Exit gate:
 
 - Fee, payment, refund, settlement and GL reports reconcile.
+
+Progress:
+
+- Custom DocTypes for student fee refunds, payment settlement imports and fee general ledger reconciliation have been added under `university_erp`.
+- A repeatable synthetic proof posts an approved partial refund through a submitted return Sales Invoice and ERPNext refund Payment Entry.
+- The proof confirms refund idempotency, imports a reconciled fake-provider settlement, creates a balanced GL reconciliation record and rejects mismatch paths.
+- Evidence: `docs/evidence/phase-5/p5.3/completion.md`.
 
 ## Phase 6 - Bilingual Low-Literacy Portal
 
@@ -505,7 +564,7 @@ Exit gate:
 
 ## Current Execution State
 
-Current next step: P3.1 - institution and academic masters.
+Current next step: P6.1 - applicant and guardian PWA.
 
 Blocked by:
 
@@ -525,15 +584,26 @@ Not allowed yet:
 
 ## Execution Log
 
-| Date       | Step         | Status   | Evidence                                                                                                           | Notes                                                                                                                                                                 |
-| ---------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-08-09 | Plan created | Complete | `PROJECT_IMPLEMENTATION_PLAN.md`                                                                                   | Initial local execution plan added after Frappe repositories were reported as pulled.                                                                                 |
-| 2026-08-09 | P0.1         | Complete | `docs/releases/p0-source-baseline.md`, `apps.json`, `docker/Dockerfile`, `.env.example`, `compose.yaml`            | Upstream source paths, remotes, SHAs, Docker build refs and local cleanup state recorded.                                                                             |
-| 2026-08-09 | P0.2         | Complete | `docs/adr/0012-institution-owned-provider-accounts.md`, `docs/operations/production-readiness-checklist.md`        | Institution-owned provider account model approved for Phase 0 baseline; real credentials still require explicit later approval.                                       |
-| 2026-08-09 | P0.3         | Complete | `docs/requirements/pilot-scope.md`, `docs/architecture/capacity-plan.md`, `docs/requirements/traceability.md`      | Pilot scope, deferrals, bilingual UX baseline and workload assumptions recorded.                                                                                      |
-| 2026-08-09 | P1.1         | Complete | `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`, `.gitignore`, `.env.example`, `compose.yaml`        | Product repository structure, source/runtime separation, and fake-provider local defaults verified.                                                                   |
-| 2026-08-09 | P1.2         | Complete | `docs/evidence/phase-1/p1.2/university-erp-generation.md`, `apps/university_erp`                                   | Custom Frappe app files are present and installable without upstream source modification.                                                                             |
-| 2026-08-09 | P1.3         | Complete | `docs/evidence/phase-1/p1.3/local-bootstrap.md`, `compose.yaml`, `scripts/bootstrap/init-site.sh`                  | Local site installs all apps and responds on `erp.localhost:8000`; clean Docker image rebuild still needs follow-up confirmation.                                     |
-| 2026-08-10 | P2.1         | Complete | `docs/evidence/phase-2/p2.1/app-compatibility-proof.md`                                                            | Fresh `p21.localhost` install, migration, app version, import, HTTP and authenticated Desk route checks passed for the pinned app set.                                |
-| 2026-08-10 | P2.2         | Complete | `docs/evidence/phase-2/p2.2/accounting-proof.md`, `docs/adr/0013-fee-demand-sales-invoice-accounting-pattern.md`   | Education fee schedule to ERPNext Sales Invoice, partial payments, duplicate event reuse, credit note refund and GL reconciliation proof passed locally.              |
-| 2026-08-10 | P2.3         | Complete | `docs/evidence/phase-2/p2.3/integration-foundation-proof.md`, `docs/adr/0014-fake-provider-contract-foundation.md` | Fake Razorpay, MSG91, SMTP, R2 and ClamAV adapters with idempotency, HMAC webhook verification, replay rejection, failure and timeout contract checks passed locally. |
+| Date       | Step         | Status      | Evidence                                                                                                           | Notes                                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-08-09 | Plan created | Complete    | `PROJECT_IMPLEMENTATION_PLAN.md`                                                                                   | Initial local execution plan added after Frappe repositories were reported as pulled.                                                                                                                                                                      |
+| 2026-08-09 | P0.1         | Complete    | `docs/releases/p0-source-baseline.md`, `apps.json`, `docker/Dockerfile`, `.env.example`, `compose.yaml`            | Upstream source paths, remotes, SHAs, Docker build refs and local cleanup state recorded.                                                                                                                                                                  |
+| 2026-08-09 | P0.2         | Complete    | `docs/adr/0012-institution-owned-provider-accounts.md`, `docs/operations/production-readiness-checklist.md`        | Institution-owned provider account model approved for Phase 0 baseline; real credentials still require explicit later approval.                                                                                                                            |
+| 2026-08-09 | P0.3         | Complete    | `docs/requirements/pilot-scope.md`, `docs/architecture/capacity-plan.md`, `docs/requirements/traceability.md`      | Pilot scope, deferrals, bilingual UX baseline and workload assumptions recorded.                                                                                                                                                                           |
+| 2026-08-09 | P1.1         | Complete    | `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`, `.gitignore`, `.env.example`, `compose.yaml`        | Product repository structure, source/runtime separation, and fake-provider local defaults verified.                                                                                                                                                        |
+| 2026-08-09 | P1.2         | Complete    | `docs/evidence/phase-1/p1.2/university-erp-generation.md`, `apps/university_erp`                                   | Custom Frappe app files are present and installable without upstream source modification.                                                                                                                                                                  |
+| 2026-08-09 | P1.3         | Complete    | `docs/evidence/phase-1/p1.3/local-bootstrap.md`, `compose.yaml`, `scripts/bootstrap/init-site.sh`                  | Local site installs all apps and responds on `erp.localhost:8000`; clean Docker image rebuild still needs follow-up confirmation.                                                                                                                          |
+| 2026-08-10 | P2.1         | Complete    | `docs/evidence/phase-2/p2.1/app-compatibility-proof.md`                                                            | Fresh `p21.localhost` install, migration, app version, import, HTTP and authenticated Desk route checks passed for the pinned app set.                                                                                                                     |
+| 2026-08-10 | P2.2         | Complete    | `docs/evidence/phase-2/p2.2/accounting-proof.md`, `docs/adr/0013-fee-demand-sales-invoice-accounting-pattern.md`   | Education fee schedule to ERPNext Sales Invoice, partial payments, duplicate event reuse, credit note refund and GL reconciliation proof passed locally.                                                                                                   |
+| 2026-08-10 | P2.3         | Complete    | `docs/evidence/phase-2/p2.3/integration-foundation-proof.md`, `docs/adr/0014-fake-provider-contract-foundation.md` | Fake Razorpay, MSG91, SMTP, R2 and ClamAV adapters with idempotency, HMAC webhook verification, replay rejection, failure and timeout contract checks passed locally.                                                                                      |
+| 2026-08-12 | P3.1         | In progress | `docs/evidence/phase-3/p3.1/initial-master-schema.md`                                                              | Initial institution and academic master DocTypes were added to `university_erp`, migrated on `p21.localhost`, and proven with a repeatable synthetic master-data chain. Full P3.1 permission, audit, curriculum, timetable and faculty scope remains open. |
+| 2026-08-12 | P3.1         | Complete    | `docs/evidence/phase-3/p3.1/completion.md`                                                                         | Completed P3.1 DocTypes migrated on `p21.localhost`; repeatable proof passed for full academic setup chain, permissions, timetable conflict rejection and audit Version evidence.                                                                          |
+| 2026-08-12 | P3.2         | In progress | `docs/evidence/phase-3/p3.2/initial-identity-document-slice.md`                                                    | Initial identity/document DocTypes migrated on `p21.localhost`; repeatable proof passed for applicant identity, consent, history, correction, dedupe candidate, document requirement, verification, permissions and audit evidence.                        |
+| 2026-08-12 | P3.2         | In progress | `docs/evidence/phase-3/p3.2/gate-review.md`                                                                        | Gate review confirmed P3.2 is not complete yet; Phase 4 must not start until guardian workflow, immutable identity issuance, replacement/expiry, scan integration, privacy controls and broader permission/audit evidence are complete.                    |
+| 2026-08-12 | P3.2         | Complete    | `docs/evidence/phase-3/p3.2/completion.md`                                                                         | Completed P3.2 DocTypes migrated on `p21.localhost`; repeatable proof passed for identity, guardian, issuance, consent, history, correction, dedupe, document scan, verification, replacement, expiry, privacy export, permissions and audit evidence.     |
+| 2026-08-13 | P4.1         | Complete    | `docs/evidence/phase-4/p4.1/completion.md`                                                                         | Completed CRM handoff and versioned application form slice; repeatable proof passed for CRM Lead conversion, save/resume draft, one Student Applicant creation, duplicate prevention, permissions and audit evidence.                                      |
+| 2026-08-13 | P4.2         | Complete    | `docs/evidence/phase-4/p4.2/completion.md`                                                                         | Completed eligibility, merit, seat matrix, allocation and offer slice; repeatable proof passed for explainable eligibility, immutable merit, ranking, waitlist, accepted-offer capacity protection, permissions and audit evidence.                        |
+| 2026-08-13 | P4.3         | Complete    | `docs/evidence/phase-4/p4.3/completion.md`                                                                         | Completed admission confirmation and conversion slice; repeatable proof passed for accepted-offer gates, one Student, one Program Enrollment, enrollment identity issuance, duplicate rejection, permissions and audit evidence.                           |
+| 2026-08-13 | P5.1         | Complete    | `docs/evidence/phase-5/p5.1/completion.md`                                                                         | Completed fee policy and demand generation slice; repeatable proof passed for policy math, installment, adjustments, submitted Sales Invoice, generated Student Fee Demand, idempotency, invalid-record rejection, permissions and audit evidence.         |
+| 2026-08-13 | P5.2         | Complete    | `docs/evidence/phase-5/p5.2/completion.md`                                                                         | Completed payment collection and receipt slice; repeatable proof passed for fake provider order, online partial payment, duplicate webhook/browser callback reuse, offline approved payment, receipts, permissions and audit evidence.                     |
+| 2026-08-13 | P5.3         | Complete    | `docs/evidence/phase-5/p5.3/completion.md`                                                                         | Completed refund, settlement and GL reconciliation slice; repeatable proof passed for approved partial refund, credit note, refund Payment Entry, settlement import, GL balance, mismatch rejection, permissions and audit evidence.                       |

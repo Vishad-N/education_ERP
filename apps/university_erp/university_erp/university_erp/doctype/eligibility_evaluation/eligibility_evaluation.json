@@ -1,0 +1,105 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "format:EE-{student_applicant}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "student_applicant",
+    "rule_set",
+    "result",
+    "score",
+    "column_break_1",
+    "evaluated_on",
+    "explanation_json",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student_applicant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student Applicant",
+      "options": "Student Applicant",
+      "reqd": 1
+    },
+    {
+      "fieldname": "rule_set",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Rule Set",
+      "options": "Eligibility Rule Set",
+      "reqd": 1
+    },
+    {
+      "fieldname": "result",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Result",
+      "options": "Eligible\nIneligible",
+      "reqd": 1
+    },
+    {
+      "fieldname": "score",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Score",
+      "reqd": 1
+    },
+    { "fieldname": "column_break_1", "fieldtype": "Column Break" },
+    {
+      "fieldname": "evaluated_on",
+      "fieldtype": "Datetime",
+      "label": "Evaluated On",
+      "reqd": 1
+    },
+    {
+      "fieldname": "explanation_json",
+      "fieldtype": "Code",
+      "label": "Explanation JSON",
+      "options": "JSON",
+      "reqd": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "links": [],
+  "modified": "2026-08-13 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "University ERP",
+  "name": "Eligibility Evaluation",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Academics User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "row_format": "Dynamic",
+  "search_fields": "student_applicant,rule_set,result",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}
