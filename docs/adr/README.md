@@ -31,3 +31,5 @@ ADRs capture decisions that are expensive to reverse or affect multiple domains.
 | [0010](0010-initial-messaging-providers.md) | MSG91 SMS and Hostinger SMTP | Accepted; ownership resolved by ADR-0012 |
 | [0011](0011-bilingual-low-literacy-pwa.md) | English/Hindi low-literacy PWA | Accepted |
 | [0012](0012-institution-owned-provider-accounts.md) | Institution-owned provider accounts for money, SMS, and email identity | Accepted |
+| [0013](0013-fee-demand-sales-invoice-accounting-pattern.md) | Sales Invoice pattern for education fee demands | Accepted for Phase 2 proof |
+| [0014](0014-fake-provider-contract-foundation.md) | Fake provider adapters for integration contract proofs | Accepted for Phase 2 proof |

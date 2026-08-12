@@ -8,11 +8,11 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 1 repository structure baseline complete; functional implementation remains unstarted |
-| Roadmap state | `P1.2` is the next governing execution step in `PROJECT_IMPLEMENTATION_PLAN.md` |
+| Product state | Phase 2.3 integration foundation proofs complete; business-functional implementation remains unstarted |
+| Roadmap state | `P3.1` is the next governing execution step in `PROJECT_IMPLEMENTATION_PLAN.md` |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
-| Custom Frappe app | Directory skeleton exists; Bench-generated app is not complete |
+| Custom Frappe app | Generated app files exist and install on the local `erp.localhost` site |
 | Business modules | Not implemented |
 | Production infrastructure | Not provisioned |
 | Real integrations | Not implemented or approved |
@@ -25,6 +25,13 @@ This document distinguishes files that currently exist from capabilities that ar
 - Phase 0 provider ownership ADR at `docs/adr/0012-institution-owned-provider-accounts.md`.
 - Pilot scope baseline at `docs/requirements/pilot-scope.md`.
 - Phase 1 repository-structure evidence at `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`.
+- Phase 1 custom app evidence at `docs/evidence/phase-1/p1.2/university-erp-generation.md`.
+- Phase 1 local bootstrap evidence at `docs/evidence/phase-1/p1.3/local-bootstrap.md`.
+- Phase 2.1 compatibility evidence at `docs/evidence/phase-2/p2.1/app-compatibility-proof.md`.
+- Phase 2.2 accounting evidence at `docs/evidence/phase-2/p2.2/accounting-proof.md`.
+- Accounting pattern ADR at `docs/adr/0013-fee-demand-sales-invoice-accounting-pattern.md`.
+- Phase 2.3 integration foundation evidence at `docs/evidence/phase-2/p2.3/integration-foundation-proof.md`.
+- Fake provider contract ADR at `docs/adr/0014-fake-provider-contract-foundation.md`.
 - Root tooling configuration and documentation formatting scripts.
 - `apps.json` containing intended Frappe, ERPNext, Education, CRM, Payments and custom-app sources.
 - Local upstream source checkouts under `apps/`:
@@ -37,15 +44,18 @@ This document distinguishes files that currently exist from capabilities that ar
 - Local-development `compose.yaml` with MariaDB, three Redis services, backend, WebSocket, scheduler and workers.
 - Development Dockerfile and common Frappe site configuration.
 - Bootstrap prerequisite, site initialization and repository verification scripts.
-- `university_erp` folder structure, Python package metadata and Vue/Vite package metadata.
+- `university_erp` folder structure, Frappe app metadata, Python package metadata and Vue/Vite package metadata.
+- Local `erp.localhost` site with Frappe, ERPNext, Payments, Education, CRM and `university_erp` installed.
+- Local `p21.localhost` compatibility site with the pinned app set installed and migrated.
+- Local `p21.localhost` synthetic accounting proof data for `P2.2 Accounting Proof School`.
+- Local fake provider adapters for Razorpay, MSG91, SMTP, R2 and ClamAV under `apps/university_erp/university_erp/integrations/`.
 - Placeholder infrastructure, migration, operations, contract, E2E, performance and security folders.
 - Previous local Docker Compose containers and network were removed on 2026-08-09; named project volumes were intentionally retained.
 
-## Known gaps before local platform bootstrap completion
+## Known gaps after local platform bootstrap completion
 
 - Dockerfile uses a concrete `frappe/bench:v5.31.0` bootstrap tag, but the final production image digest/SBOM is not recorded yet.
-- Docker build still depends on network fetches, although it now checks out/verifies exact app SHAs.
-- The custom app has not been generated and installed through Bench; expected Frappe files such as `hooks.py` are absent.
+- Clean rebuild of the updated Dockerfile exceeded local command timeouts after adding `university_erp`; this needs follow-up before accepting production-style image evidence.
 - Local Compose is a development topology, not Hostinger production topology.
 - Redis persistence, production secrets, TLS, proxy, health/readiness and backup behavior are not production configured.
 - No Git-hosted CI workflow, SBOM, image signature, vulnerability policy or release manifest exists.
@@ -65,4 +75,4 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Immediate next action
 
-Follow `PROJECT_IMPLEMENTATION_PLAN.md` starting at `P1.2`. The next work is to generate the real Bench-created `university_erp` app files, including `hooks.py`, `modules.txt`, and `patches.txt`.
+Follow `PROJECT_IMPLEMENTATION_PLAN.md` starting at `P3.1`. The next work is institution and academic masters. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.

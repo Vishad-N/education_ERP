@@ -18,11 +18,14 @@
 
 | Document | Purpose |
 |---|---|
-| [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 1 has started and `P1.2` is the next step |
+| [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 2 proofs are complete and `P3.1` is the next step |
 | [Project execution roadmap](../PROJECT_EXECUTION_ROADMAP.md) | Current step, prerequisites, completion gates, next-step state machine |
 | [Current implementation status](current-implementation-status.md) | Honest inventory of scaffolded, missing, and production-blocking components |
 | [Phase 0 source baseline](releases/p0-source-baseline.md) | Pinned upstream repositories, Docker build refs, and local cleanup evidence |
 | [P1.1 repository-structure evidence](evidence/phase-1/p1.1/repository-structure-baseline.md) | Product repository layout, source/runtime separation, and local fake-provider baseline |
+| [P2.1 app compatibility evidence](evidence/phase-2/p2.1/app-compatibility-proof.md) | Fresh install, migration, app version, import, HTTP, and Desk route compatibility proof |
+| [P2.2 accounting evidence](evidence/phase-2/p2.2/accounting-proof.md) | Education fee schedule to ERPNext Sales Invoice, Payment Entry, refund, and GL reconciliation proof |
+| [P2.3 integration foundation evidence](evidence/phase-2/p2.3/integration-foundation-proof.md) | Fake Razorpay, MSG91, SMTP, R2, and ClamAV adapter contract proof |
 | [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |

@@ -1,9 +1,19 @@
 [project]
 name = "university_erp"
+authors = [
+    { name = "University ERP Engineering", email = "engineering@example.invalid" }
+]
 version = "0.0.0"
 description = "Custom Education ERP application for Frappe v16."
 requires-python = ">=3.14"
+readme = "README.md"
 dependencies = []
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.dev-dependencies]
 
 [tool.ruff]
 line-length = 110
@@ -11,3 +21,8 @@ target-version = "py314"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+docstring-code-format = true

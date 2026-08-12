@@ -13,10 +13,13 @@ bench new-site "$site_name" \
   --force
 
 bench --site "$site_name" install-app erpnext
+bench --site "$site_name" install-app payments
 bench --site "$site_name" install-app education
 bench --site "$site_name" install-app crm
 
 if [ -f "apps/university_erp/university_erp/hooks.py" ]; then
+  env/bin/pip install --editable apps/university_erp
+  grep -qxF "university_erp" sites/apps.txt || printf "\nuniversity_erp\n" >> sites/apps.txt
   bench --site "$site_name" install-app university_erp
 else
   echo "university_erp has not been generated yet; skipping custom app install."

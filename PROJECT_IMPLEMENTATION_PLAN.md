@@ -1,10 +1,10 @@
 # Project Implementation Plan
 
 > Status: Active execution plan
-> Current completion: 0 percent functional implementation
-> Current phase: Phase 1 - local platform bootstrap
-> Current next step: P1.2 - generate `university_erp` through Bench
-> Last updated: 2026-08-09
+> Current completion: Phase 2.3 integration foundation proofs complete; 0 percent business-functional implementation
+> Current phase: Phase 2 - compatibility and foundation proofs
+> Current next step: P3.1 - institution and academic masters
+> Last updated: 2026-08-10
 
 This file controls execution order for agents and engineers building the Education ERP from the pulled Frappe repositories into a production-ready product.
 
@@ -142,7 +142,7 @@ Exit gate:
 
 ### P1.2 - Generate `university_erp` Through Bench
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -156,7 +156,7 @@ Exit gate:
 
 ### P1.3 - Bring Up Local Development Site
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -174,7 +174,7 @@ Exit gate:
 
 ### P2.1 - App Compatibility Proof
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -188,7 +188,7 @@ Exit gate:
 
 ### P2.2 - Accounting Proof
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -202,7 +202,7 @@ Exit gate:
 
 ### P2.3 - Integration Foundation Proofs
 
-Status: Not started
+Status: Complete
 
 Actions:
 
@@ -505,7 +505,7 @@ Exit gate:
 
 ## Current Execution State
 
-Current next step: P1.2 - generate `university_erp` through Bench.
+Current next step: P3.1 - institution and academic masters.
 
 Blocked by:
 
@@ -514,8 +514,8 @@ Blocked by:
 
 Allowed parallel work:
 
-- Clean up local repository structure for Phase 1.
-- Prepare local-only fake provider interfaces.
+- Resolve the clean Docker image rebuild timeout recorded in P1.3 evidence.
+- Prepare local-only fake provider interfaces required by P2.3.
 
 Not allowed yet:
 
@@ -525,10 +525,15 @@ Not allowed yet:
 
 ## Execution Log
 
-| Date       | Step         | Status   | Evidence                                                                                                      | Notes                                                                                                                           |
-| ---------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-08-09 | Plan created | Complete | `PROJECT_IMPLEMENTATION_PLAN.md`                                                                              | Initial local execution plan added after Frappe repositories were reported as pulled.                                           |
-| 2026-08-09 | P0.1         | Complete | `docs/releases/p0-source-baseline.md`, `apps.json`, `docker/Dockerfile`, `.env.example`, `compose.yaml`       | Upstream source paths, remotes, SHAs, Docker build refs and local cleanup state recorded.                                       |
-| 2026-08-09 | P0.2         | Complete | `docs/adr/0012-institution-owned-provider-accounts.md`, `docs/operations/production-readiness-checklist.md`   | Institution-owned provider account model approved for Phase 0 baseline; real credentials still require explicit later approval. |
-| 2026-08-09 | P0.3         | Complete | `docs/requirements/pilot-scope.md`, `docs/architecture/capacity-plan.md`, `docs/requirements/traceability.md` | Pilot scope, deferrals, bilingual UX baseline and workload assumptions recorded.                                                |
-| 2026-08-09 | P1.1         | Complete | `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`, `.gitignore`, `.env.example`, `compose.yaml`   | Product repository structure, source/runtime separation, and fake-provider local defaults verified.                             |
+| Date       | Step         | Status   | Evidence                                                                                                           | Notes                                                                                                                                                                 |
+| ---------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-08-09 | Plan created | Complete | `PROJECT_IMPLEMENTATION_PLAN.md`                                                                                   | Initial local execution plan added after Frappe repositories were reported as pulled.                                                                                 |
+| 2026-08-09 | P0.1         | Complete | `docs/releases/p0-source-baseline.md`, `apps.json`, `docker/Dockerfile`, `.env.example`, `compose.yaml`            | Upstream source paths, remotes, SHAs, Docker build refs and local cleanup state recorded.                                                                             |
+| 2026-08-09 | P0.2         | Complete | `docs/adr/0012-institution-owned-provider-accounts.md`, `docs/operations/production-readiness-checklist.md`        | Institution-owned provider account model approved for Phase 0 baseline; real credentials still require explicit later approval.                                       |
+| 2026-08-09 | P0.3         | Complete | `docs/requirements/pilot-scope.md`, `docs/architecture/capacity-plan.md`, `docs/requirements/traceability.md`      | Pilot scope, deferrals, bilingual UX baseline and workload assumptions recorded.                                                                                      |
+| 2026-08-09 | P1.1         | Complete | `docs/evidence/phase-1/p1.1/repository-structure-baseline.md`, `.gitignore`, `.env.example`, `compose.yaml`        | Product repository structure, source/runtime separation, and fake-provider local defaults verified.                                                                   |
+| 2026-08-09 | P1.2         | Complete | `docs/evidence/phase-1/p1.2/university-erp-generation.md`, `apps/university_erp`                                   | Custom Frappe app files are present and installable without upstream source modification.                                                                             |
+| 2026-08-09 | P1.3         | Complete | `docs/evidence/phase-1/p1.3/local-bootstrap.md`, `compose.yaml`, `scripts/bootstrap/init-site.sh`                  | Local site installs all apps and responds on `erp.localhost:8000`; clean Docker image rebuild still needs follow-up confirmation.                                     |
+| 2026-08-10 | P2.1         | Complete | `docs/evidence/phase-2/p2.1/app-compatibility-proof.md`                                                            | Fresh `p21.localhost` install, migration, app version, import, HTTP and authenticated Desk route checks passed for the pinned app set.                                |
+| 2026-08-10 | P2.2         | Complete | `docs/evidence/phase-2/p2.2/accounting-proof.md`, `docs/adr/0013-fee-demand-sales-invoice-accounting-pattern.md`   | Education fee schedule to ERPNext Sales Invoice, partial payments, duplicate event reuse, credit note refund and GL reconciliation proof passed locally.              |
+| 2026-08-10 | P2.3         | Complete | `docs/evidence/phase-2/p2.3/integration-foundation-proof.md`, `docs/adr/0014-fake-provider-contract-foundation.md` | Fake Razorpay, MSG91, SMTP, R2 and ClamAV adapters with idempotency, HMAC webhook verification, replay rejection, failure and timeout contract checks passed locally. |

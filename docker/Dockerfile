@@ -30,24 +30,20 @@ RUN bench init frappe-bench --frappe-branch ${FRAPPE_TAG} --skip-redis-config-ge
 
 WORKDIR /home/frappe/frappe-bench
 
-RUN bench get-app erpnext https://github.com/frappe/erpnext \
-    && cd apps/erpnext \
-    && git fetch --depth 1 origin ${ERPNEXT_SHA} \
-    && git checkout ${ERPNEXT_SHA} \
-    && cd ../.. \
-    && bench get-app education https://github.com/frappe/education \
-    && cd apps/education \
-    && git fetch --depth 1 origin ${EDUCATION_SHA} \
-    && git checkout ${EDUCATION_SHA} \
-    && cd ../.. \
-    && bench get-app --branch ${CRM_TAG} crm https://github.com/frappe/crm \
-    && cd apps/crm \
-    && test "$(git rev-parse HEAD)" = "${CRM_SHA}" \
-    && cd ../.. \
-    && bench get-app payments https://github.com/frappe/payments \
-    && cd apps/payments \
-    && git fetch --depth 1 origin ${PAYMENTS_SHA} \
-    && git checkout ${PAYMENTS_SHA}
+COPY --chown=frappe:frappe apps/erpnext apps/erpnext
+COPY --chown=frappe:frappe apps/education apps/education
+COPY --chown=frappe:frappe apps/crm apps/crm
+COPY --chown=frappe:frappe apps/payments apps/payments
+COPY --chown=frappe:frappe apps/university_erp apps/university_erp
+
+RUN bench setup requirements erpnext education crm payments \
+    && env/bin/pip install --editable apps/university_erp \
+    && (grep -qxF "university_erp" sites/apps.txt || printf "\nuniversity_erp\n" >> sites/apps.txt) \
+    && bench build --app erpnext \
+    && bench build --app education \
+    && bench build --app crm \
+    && bench build --app payments \
+    && bench build --app university_erp
 
 COPY --chown=frappe:frappe docker/config/common_site_config.json sites/common_site_config.json
 
