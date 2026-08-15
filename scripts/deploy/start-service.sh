@@ -85,6 +85,49 @@ case "${role}" in
     bench --site "${site_name}" set-config encryption_key "${site_encryption_key}"
     ;;
   web)
+    # Log only connection status so managed-service configuration failures are
+    # visible in Railway deploy logs without exposing credentials.
+    DB_HOST="${db_host}" \
+    DB_PORT="${db_port}" \
+    DB_NAME="${db_name}" \
+    DB_USER="${db_user}" \
+    DB_PASSWORD="${db_password}" \
+    REDIS_CACHE="${redis_cache}" \
+    env/bin/python - <<'PY'
+import os
+import sys
+
+failed_checks = []
+
+try:
+	import pymysql
+
+	connection = pymysql.connect(
+		host=os.environ["DB_HOST"],
+		port=int(os.environ["DB_PORT"]),
+		user=os.environ["DB_USER"],
+		password=os.environ["DB_PASSWORD"],
+		database=os.environ["DB_NAME"],
+		connect_timeout=10,
+	)
+	connection.close()
+	print("Startup preflight: MariaDB connection succeeded", flush=True)
+except Exception:
+	failed_checks.append("MariaDB")
+	print("Startup preflight: MariaDB connection failed", flush=True)
+
+try:
+	from redis import Redis
+
+	Redis.from_url(os.environ["REDIS_CACHE"], socket_connect_timeout=10).ping()
+	print("Startup preflight: Redis connection succeeded", flush=True)
+except Exception:
+	failed_checks.append("Redis")
+	print("Startup preflight: Redis connection failed", flush=True)
+
+if failed_checks:
+	sys.exit(1)
+PY
     exec env/bin/gunicorn \
       --chdir sites \
       --bind "0.0.0.0:${PORT:-8000}" \
