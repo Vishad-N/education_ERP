@@ -95,9 +95,16 @@ case "${role}" in
     REDIS_CACHE="${redis_cache}" \
     env/bin/python - <<'PY'
 import os
+import re
 import sys
 
 failed_checks = []
+
+
+def safe_error(error):
+	message = str(error).replace(os.environ["REDIS_CACHE"], "<redis-url>")
+	message = re.sub(r"(redis(?:s)?://[^:\s/]+:)[^@\s]+@", r"\1***@", message)
+	return f"{type(error).__name__}: {message[:240]}"
 
 try:
 	import pymysql
@@ -112,18 +119,18 @@ try:
 	)
 	connection.close()
 	print("Startup preflight: MariaDB connection succeeded", flush=True)
-except Exception:
+except Exception as error:
 	failed_checks.append("MariaDB")
-	print("Startup preflight: MariaDB connection failed", flush=True)
+	print(f"Startup preflight: MariaDB connection failed ({safe_error(error)})", flush=True)
 
 try:
 	from redis import Redis
 
 	Redis.from_url(os.environ["REDIS_CACHE"], socket_connect_timeout=10).ping()
 	print("Startup preflight: Redis connection succeeded", flush=True)
-except Exception:
+except Exception as error:
 	failed_checks.append("Redis")
-	print("Startup preflight: Redis connection failed", flush=True)
+	print(f"Startup preflight: Redis connection failed ({safe_error(error)})", flush=True)
 
 if failed_checks:
 	sys.exit(1)
