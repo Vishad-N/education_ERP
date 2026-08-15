@@ -93,8 +93,9 @@ case "${role}" in
       --worker-class gthread \
       --worker-tmp-dir /dev/shm \
       --timeout "${WEB_TIMEOUT:-120}" \
+      --forwarded-allow-ips="*" \
       --preload \
-      frappe.app:application
+      "frappe.app:application_with_statics()"
     ;;
   websocket)
     exec node apps/frappe/socketio.js

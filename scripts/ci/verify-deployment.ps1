@@ -3,6 +3,7 @@ $ErrorActionPreference = "Stop"
 
 $requiredPaths = @(
   "deploy/railway/bootstrap.railway.toml",
+  "deploy/railway/MANUAL_DEPLOYMENT_GUIDE.md",
   "deploy/railway/web.railway.toml",
   "deploy/railway/websocket.railway.toml",
   "deploy/railway/scheduler.railway.toml",
@@ -28,6 +29,7 @@ $requiredEntrypointPatterns = @(
   'bootstrap\)',
   '--no-setup-db',
   'socketio_port="\$\{PORT:-\$\{socketio_port\}\}"',
+  'frappe\.app:application_with_statics\(\)',
   'bench worker --queue short,default',
   'bench worker --queue long'
 )
@@ -39,8 +41,8 @@ foreach ($pattern in $requiredEntrypointPatterns) {
 }
 
 $forbiddenPatterns = @(
-  "(?i)DB_PASSWORD\s*=\s*(?!replace-through-managed-secret-store)",
-  "(?i)SITE_ENCRYPTION_KEY\s*=\s*(?!replace-through-managed-secret-store)",
+  '(?i)DB_PASSWORD\s*=\s*(?!(replace-through-managed-secret-store|\$\{\{|<))',
+  '(?i)SITE_ENCRYPTION_KEY\s*=\s*(?!(replace-through-managed-secret-store|\$\{\{|<))',
   "(?i)BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY"
 )
 

@@ -26,7 +26,7 @@ Railway is the first staging target under ADR-0015. Hostinger VPS remains the cu
 - An initial `docker compose --progress plain build backend` reached the pinned CRM Vite production build before Docker Desktop terminated the BuildKit connection with `rpc error: code = Unavailable ... EOF`. The engine exposes about 3.5 GB RAM, making local engine memory pressure the likely cause; no application compile error was reported before the disconnect.
 - The Dockerfile now caches upstream dependency installation, each upstream asset build and the custom app in separate layers. The CRM Node heap is capped at 1.5 GB so a constrained builder fails locally without exhausting the BuildKit daemon.
 - The follow-up build completed successfully, including pinned upstream assets and the `university_erp` portal build. The runtime entrypoint syntax, executable bit and `sites/apps.txt` registration passed in a disposable container that was automatically removed.
-- A cached follow-up build generated native BuildKit SBOM and provenance attestations. After the manual Railway runtime corrections, the replacement attested local image digest is `sha256:0a4f01de1dcdaab2b746e25d901d2ae5b608ad28e7ecd19bce27528a6296fb76`; the platform manifest is `sha256:fb03cb1b2e23bf8cba0d951f0c7ed0dfdcb7db2432d826f77add5d6fc45ed490`; and the attestation manifest is `sha256:d86aa364983a95a1dedfed880b4fed47634ffc66adb875747652fe1da2b5b8de`.
+- A cached follow-up build previously generated native BuildKit SBOM and provenance attestations. Its image digest was `sha256:0a4f01de1dcdaab2b746e25d901d2ae5b608ad28e7ecd19bce27528a6296fb76`, but it is superseded by the Railway snapshot fix below and must not be published or deployed.
 - Docker Desktop settings, existing containers, volumes and networks were not changed. The only persistent Docker outputs are normal build cache, the BuildKit SBOM scanner cache and the newly built local image.
 
 ## Manual Railway readiness corrections
@@ -37,6 +37,13 @@ Railway is the first staging target under ADR-0015. Hostinger VPS remains the cu
 - Isolated `worker-long` to the `long` queue while `worker-short` handles `short,default`.
 - Updated the runbook to require one published digest across every service and to distinguish digest deployment from independent Git builds.
 - Verified the rebuilt Linux image with `bash -n`, standard runtime config generation, managed database-user config and WebSocket port propagation. All disposable verification containers used `--rm`.
+
+## Railway Git snapshot correction
+
+- Railway build logs showed that the Git snapshot does not contain local `apps/erpnext`, `apps/education` or `apps/crm` directories, and Payments is only a submodule pointer. The Dockerfile now fetches ERPNext, Education, CRM and Payments directly from their upstream repositories at the exact SHAs in `apps.json`.
+- The mutable `frappe/bench:v5.31.0` tag is now pinned to the tested base-image digest.
+- Bench requires each upstream app's `.git` metadata while running `bench setup requirements`; cleanup now occurs only after the upstream builds complete.
+- No build was run after this correction at the user's request. A fresh image build, SBOM/provenance generation, digest recording and Railway redeploy remain required before accepting the current source as deployable.
 
 ## Open P8.1 work
 

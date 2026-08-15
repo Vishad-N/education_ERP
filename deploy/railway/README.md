@@ -2,6 +2,8 @@
 
 Railway is the first staging target, not the approved production platform. Deploy the same immutable image as separate services because Railway maps Compose services individually.
 
+For the dashboard procedure, use `deploy/railway/MANUAL_DEPLOYMENT_GUIDE.md`.
+
 ## Services
 
 | Railway service | Config file | Public | Role |

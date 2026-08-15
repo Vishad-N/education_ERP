@@ -8,13 +8,13 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 7 local gates are complete; the P8.1 attested local image and portable staging automation are ready for registry publication and Railway deployment; human UAT, production integrations and release-candidate security review are deferred |
+| Product state | Phase 7 local gates are complete; P8.1 portable staging automation includes a Railway Git-snapshot fix but requires a fresh image build before registry publication or Railway deployment; human UAT, production integrations and release-candidate security review are deferred |
 | Roadmap state | `P8.1` infrastructure and deployment automation is in progress under `PROJECT_IMPLEMENTATION_PLAN.md` |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
 | Custom Frappe app | Generated app files exist and install on the local `erp.localhost` site |
 | Business modules | P3.1 institution/academic foundations, P3.2 student identity/document foundations, Phase 4 admissions foundations through conversion and Phase 5 fee/accounting foundations are locally implemented and proven; P6.1 portal implementation is complete with human acceptance deferred |
-| Production infrastructure | Not provisioned; Railway/Hostinger/AWS deployment artifacts and an attested local image now exist, but no external environment has been created |
+| Production infrastructure | Not provisioned; Railway/Hostinger/AWS deployment artifacts exist, but the current Railway-compatible Dockerfile requires a fresh attested image build before external deployment |
 | Real integrations | Not implemented or approved |
 | Automated product tests | 10 `university_erp` tests pass on `p21.localhost`, including database/cache readiness; browser and performance suites remain open |
 
@@ -88,7 +88,7 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Known gaps after local platform bootstrap completion
 
-- Dockerfile uses a concrete `frappe/bench:v5.31.0` bootstrap tag. The successful local image is pinned by digest and carries native BuildKit SBOM/provenance attestations, but it has not been published or signed in an approved registry.
+- Dockerfile pins the Bench bootstrap image by digest and fetches all upstream Frappe apps by exact SHA, so Railway no longer depends on local source folders absent from its Git snapshot. The previously attested local image predates this correction and must not be published.
 - The Phase 8 build is now split into independently cacheable dependency, per-app asset and custom-app layers, with bounded CRM heap usage for constrained local builders.
 - Local Compose is a development topology, not Hostinger production topology.
 - Redis persistence, production secrets, TLS, proxy, health/readiness and backup behavior are not production configured.

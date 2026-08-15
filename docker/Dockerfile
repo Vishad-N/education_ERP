@@ -6,7 +6,7 @@ ARG EDUCATION_SHA=1c29e646bf943c2a5f696cb81cb48c8a072cbebc
 ARG CRM_TAG=v1.72.0
 ARG CRM_SHA=bf1b7f07ac01b6ac435f25db7ccef6b52807720e
 ARG PAYMENTS_SHA=cca07d9f9392e2ea0e521c5975151db9e4b6c321
-ARG BENCH_IMAGE=frappe/bench:v5.31.0
+ARG BENCH_IMAGE=frappe/bench:v5.31.0@sha256:e44c7454500296940d26ef45eefff8fc295b9d9aacaac4e5714e8be01c326ee8
 
 FROM ${BENCH_IMAGE}
 
@@ -30,10 +30,29 @@ RUN bench init frappe-bench --frappe-branch ${FRAPPE_TAG} --skip-redis-config-ge
 
 WORKDIR /home/frappe/frappe-bench
 
-COPY --chown=frappe:frappe apps/erpnext apps/erpnext
-COPY --chown=frappe:frappe apps/education apps/education
-COPY --chown=frappe:frappe apps/crm apps/crm
-COPY --chown=frappe:frappe apps/payments apps/payments
+RUN git init apps/erpnext \
+    && git -C apps/erpnext remote add origin https://github.com/frappe/erpnext.git \
+    && git -C apps/erpnext fetch --depth 1 origin "${ERPNEXT_SHA}" \
+    && git -C apps/erpnext checkout --detach FETCH_HEAD \
+    && test "$(git -C apps/erpnext rev-parse HEAD)" = "${ERPNEXT_SHA}"
+
+RUN git init apps/education \
+    && git -C apps/education remote add origin https://github.com/frappe/education.git \
+    && git -C apps/education fetch --depth 1 origin "${EDUCATION_SHA}" \
+    && git -C apps/education checkout --detach FETCH_HEAD \
+    && test "$(git -C apps/education rev-parse HEAD)" = "${EDUCATION_SHA}"
+
+RUN git init apps/crm \
+    && git -C apps/crm remote add origin https://github.com/frappe/crm.git \
+    && git -C apps/crm fetch --depth 1 origin "${CRM_SHA}" \
+    && git -C apps/crm checkout --detach FETCH_HEAD \
+    && test "$(git -C apps/crm rev-parse HEAD)" = "${CRM_SHA}"
+
+RUN git init apps/payments \
+    && git -C apps/payments remote add origin https://github.com/frappe/payments.git \
+    && git -C apps/payments fetch --depth 1 origin "${PAYMENTS_SHA}" \
+    && git -C apps/payments checkout --detach FETCH_HEAD \
+    && test "$(git -C apps/payments rev-parse HEAD)" = "${PAYMENTS_SHA}"
 
 RUN bench setup requirements erpnext education crm payments
 
@@ -43,6 +62,8 @@ RUN bench build --app erpnext
 RUN bench build --app education
 RUN NODE_OPTIONS=--max-old-space-size=1536 bench build --app crm
 RUN bench build --app payments
+
+RUN rm -rf apps/erpnext/.git apps/education/.git apps/crm/.git apps/payments/.git
 
 # Keep the project-controlled app in a separate layer so routine changes do not
 # invalidate the expensive pinned upstream dependency and asset build.
