@@ -1,0 +1,42 @@
+name: education-erp-staging
+
+x-app: &app
+  image: ${IMAGE_REF}
+  restart: unless-stopped
+  env_file:
+    - ${STAGING_ENV_FILE:-../env/staging.env.example}
+
+services:
+  web:
+    <<: *app
+    command: ["/home/frappe/frappe-bench/start-service.sh", "web"]
+    ports:
+      - "${WEB_PORT:-8000}:${PORT:-8000}"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/method/university_erp.api.health.ready', timeout=5)",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+  websocket:
+    <<: *app
+    command: ["/home/frappe/frappe-bench/start-service.sh", "websocket"]
+
+  scheduler:
+    <<: *app
+    command: ["/home/frappe/frappe-bench/start-service.sh", "scheduler"]
+
+  worker-short:
+    <<: *app
+    command: ["/home/frappe/frappe-bench/start-service.sh", "worker-short"]
+
+  worker-long:
+    <<: *app
+    command: ["/home/frappe/frappe-bench/start-service.sh", "worker-long"]

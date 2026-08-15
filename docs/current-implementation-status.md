@@ -8,15 +8,15 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 7 local quality, security and synthetic migration gates are complete; human UAT, production integrations and release-candidate security review are deferred |
-| Roadmap state | Start `P8.1` infrastructure and deployment automation under `PROJECT_IMPLEMENTATION_PLAN.md` |
+| Product state | Phase 7 local gates are complete; the P8.1 attested local image and portable staging automation are ready for registry publication and Railway deployment; human UAT, production integrations and release-candidate security review are deferred |
+| Roadmap state | `P8.1` infrastructure and deployment automation is in progress under `PROJECT_IMPLEMENTATION_PLAN.md` |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
 | Custom Frappe app | Generated app files exist and install on the local `erp.localhost` site |
 | Business modules | P3.1 institution/academic foundations, P3.2 student identity/document foundations, Phase 4 admissions foundations through conversion and Phase 5 fee/accounting foundations are locally implemented and proven; P6.1 portal implementation is complete with human acceptance deferred |
-| Production infrastructure | Not provisioned |
+| Production infrastructure | Not provisioned; Railway/Hostinger/AWS deployment artifacts and an attested local image now exist, but no external environment has been created |
 | Real integrations | Not implemented or approved |
-| Automated product tests | 3 `university_erp` integration tests pass on `p21.localhost`; broader security, browser and performance suites remain open |
+| Automated product tests | 10 `university_erp` tests pass on `p21.localhost`, including database/cache readiness; browser and performance suites remain open |
 
 ## Existing repository assets
 
@@ -88,11 +88,11 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Known gaps after local platform bootstrap completion
 
-- Dockerfile uses a concrete `frappe/bench:v5.31.0` bootstrap tag, but the final production image digest/SBOM is not recorded yet.
-- Clean rebuild of the updated Dockerfile exceeded local command timeouts after adding `university_erp`; this needs follow-up before accepting production-style image evidence.
+- Dockerfile uses a concrete `frappe/bench:v5.31.0` bootstrap tag. The successful local image is pinned by digest and carries native BuildKit SBOM/provenance attestations, but it has not been published or signed in an approved registry.
+- The Phase 8 build is now split into independently cacheable dependency, per-app asset and custom-app layers, with bounded CRM heap usage for constrained local builders.
 - Local Compose is a development topology, not Hostinger production topology.
 - Redis persistence, production secrets, TLS, proxy, health/readiness and backup behavior are not production configured.
-- No Git-hosted CI workflow, SBOM, image signature, vulnerability policy or release manifest exists.
+- Git-hosted CI and a native image SBOM/provenance attestation exist; image signing, registry verification, vulnerability policy and a final release manifest remain open.
 - P3.1 institution and academic master foundations are implemented locally, but browser/Desk workflow tests, CI integration, production approval workflows, translations and broader reports remain later-phase work.
 - P3.2 student identity/document foundations are implemented locally, but browser/Desk workflow tests, CI integration, translations, production-scale migration tests and real provider-backed document storage/scanning remain later-phase work.
 - P4.1 CRM handoff/application form foundations are implemented locally, but browser/portal workflow tests, public API methods, localization and CI integration remain later-phase work.
@@ -108,9 +108,10 @@ This document distinguishes files that currently exist from capabilities that ar
 - P7.2 local gate is complete: export approval/privilege, retention expiry and audit correlation controls passed in the 8-test custom-app suite. Evidence: `docs/evidence/phase-7/p7.2/completion.md`.
 - P7.3 initial slice adds no-write CSV trial-load validation, synthetic migration templates and a role-based UAT script. The supplied templates validate with 3 rows total and INR 1,000.00 opening balance. Evidence: `docs/evidence/phase-7/p7.3/start.md`.
 - P7.3 local gate is complete with checksum-backed count/reference/finance reconciliation; human UAT and production-sized migration rehearsal remain in the mandatory pre-production checklist. Evidence: `docs/evidence/phase-7/p7.3/completion.md`.
+- P8.1 adds Railway service configs, one-shot managed-database bootstrap, portable Hostinger Compose, AWS ECS baseline, runtime role entrypoint, managed-variable template, health probes and an attested local image. WebSocket port propagation and worker queue isolation pass disposable Linux runtime checks. No external infrastructure is provisioned. Evidence: `docs/evidence/phase-8/p8.1/start.md`.
 - `bench build --app university_erp` links assets but fails when running the app build inside the Linux container because the mounted `node_modules` tree lacks Rollup's Linux optional native package.
-- Browser, performance, vulnerability, SBOM/signing and deeper security tests remain incomplete; the initial portal API contract tests and local migration gate pass.
-- No infrastructure-as-code or production monitoring implementation exists.
+- Browser, performance, vulnerability, image-signing and deeper security tests remain incomplete; the native image SBOM/provenance attestation, initial portal API contract tests and local migration gate pass.
+- Initial multi-provider deployment configuration and an attested immutable local image exist; registry publication, Cloudflare/R2, backup/PITR/restore, monitoring and actual staging deployment remain incomplete.
 - No production Razorpay, MSG91/DLT, Hostinger SMTP or Cloudflare R2 configuration is approved.
 
 ## Interpretation rules for agents
@@ -124,4 +125,4 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Immediate next action
 
-Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P8.1`. Human portal acceptance, pilot UAT, production-sized migration rehearsal, production MFA, external security review and provider security scans remain mandatory pre-production items. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.
+Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P8.1`. Publish the attested image, verify its registry SBOM, add edge/storage/backup/monitoring automation and deploy Railway staging after an authenticated project and managed variables are available. Human portal acceptance, pilot UAT, production-sized migration rehearsal, production MFA, external security review and provider security scans remain mandatory pre-production items. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.

@@ -34,17 +34,27 @@ COPY --chown=frappe:frappe apps/erpnext apps/erpnext
 COPY --chown=frappe:frappe apps/education apps/education
 COPY --chown=frappe:frappe apps/crm apps/crm
 COPY --chown=frappe:frappe apps/payments apps/payments
+
+RUN bench setup requirements erpnext education crm payments
+
+# Build each pinned app in its own cacheable layer. This keeps retries bounded
+# when a frontend build is interrupted by the container engine.
+RUN bench build --app erpnext
+RUN bench build --app education
+RUN NODE_OPTIONS=--max-old-space-size=1536 bench build --app crm
+RUN bench build --app payments
+
+# Keep the project-controlled app in a separate layer so routine changes do not
+# invalidate the expensive pinned upstream dependency and asset build.
 COPY --chown=frappe:frappe apps/university_erp apps/university_erp
 
-RUN bench setup requirements erpnext education crm payments \
-    && env/bin/pip install --editable apps/university_erp \
+RUN env/bin/pip install --editable apps/university_erp \
     && (grep -qxF "university_erp" sites/apps.txt || printf "\nuniversity_erp\n" >> sites/apps.txt) \
-    && bench build --app erpnext \
-    && bench build --app education \
-    && bench build --app crm \
-    && bench build --app payments \
     && bench build --app university_erp
 
 COPY --chown=frappe:frappe docker/config/common_site_config.json sites/common_site_config.json
+COPY --chown=frappe:frappe scripts/deploy/start-service.sh /home/frappe/frappe-bench/start-service.sh
+
+RUN chmod 0755 /home/frappe/frappe-bench/start-service.sh
 
 ENV PATH="/home/frappe/frappe-bench/env/bin:${PATH}"

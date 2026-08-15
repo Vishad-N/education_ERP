@@ -5,6 +5,7 @@
   "description": "Repository tooling for the University ERP project.",
   "scripts": {
     "check:repo": "powershell -ExecutionPolicy Bypass -File scripts/ci/verify-repository.ps1",
+    "check:deployment": "powershell -ExecutionPolicy Bypass -File scripts/ci/verify-deployment.ps1",
     "format:docs": "prettier --write \"**/*.{md,json,yml,yaml}\"",
     "lint:docs": "prettier --check \"**/*.{md,json,yml,yaml}\""
   },

@@ -33,3 +33,4 @@ ADRs capture decisions that are expensive to reverse or affect multiple domains.
 | [0012](0012-institution-owned-provider-accounts.md) | Institution-owned provider accounts for money, SMS, and email identity | Accepted |
 | [0013](0013-fee-demand-sales-invoice-accounting-pattern.md) | Sales Invoice pattern for education fee demands | Accepted for Phase 2 proof |
 | [0014](0014-fake-provider-contract-foundation.md) | Fake provider adapters for integration contract proofs | Accepted for Phase 2 proof |
+| [0015](0015-portable-staging-runtime.md) | Railway staging with portable Hostinger/AWS runtime roles | Accepted for Phase 8 staging |

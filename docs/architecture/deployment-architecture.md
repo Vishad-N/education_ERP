@@ -1,6 +1,6 @@
 # Deployment Architecture
 
-This architecture is realized initially on self-managed Hostinger VPS infrastructure behind Cloudflare, with Cloudflare R2 for private objects. Use the [Hostinger production platform](../operations/hostinger-production-platform.md) for the concrete pilot topology and the [capacity plan](capacity-plan.md) for pod sizing and scale triggers.
+The first production-like staging target is Railway under ADR-0015. The current production baseline remains self-managed Hostinger VPS infrastructure behind Cloudflare, with Cloudflare R2 for private objects. AWS ECS/Fargate remains a portable alternative using the same immutable image and runtime roles. Use the [Hostinger production platform](../operations/hostinger-production-platform.md) for the concrete pilot topology and the [capacity plan](capacity-plan.md) for pod sizing and scale triggers.
 
 ## Deployment unit
 

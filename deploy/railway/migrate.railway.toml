@@ -1,0 +1,6 @@
+[build]
+dockerfilePath = "docker/Dockerfile"
+
+[deploy]
+startCommand = "/home/frappe/frappe-bench/start-service.sh migrate"
+restartPolicyType = "NEVER"

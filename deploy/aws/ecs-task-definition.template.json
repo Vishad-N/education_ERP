@@ -1,0 +1,53 @@
+{
+  "family": "education-erp-staging-web",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "2048",
+  "memory": "4096",
+  "executionRoleArn": "${EXECUTION_ROLE_ARN}",
+  "taskRoleArn": "${TASK_ROLE_ARN}",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "${IMAGE_REF}",
+      "essential": true,
+      "command": ["/home/frappe/frappe-bench/start-service.sh", "web"],
+      "portMappings": [{ "containerPort": 8000, "protocol": "tcp" }],
+      "environment": [
+        { "name": "PORT", "value": "8000" },
+        { "name": "SITE_NAME", "value": "${SITE_NAME}" },
+        { "name": "DB_HOST", "value": "${DB_HOST}" },
+        { "name": "DB_PORT", "value": "3306" },
+        { "name": "DB_NAME", "value": "${DB_NAME}" },
+        { "name": "REDIS_CACHE", "value": "${REDIS_CACHE}" },
+        { "name": "REDIS_QUEUE", "value": "${REDIS_QUEUE}" },
+        { "name": "REDIS_SOCKETIO", "value": "${REDIS_SOCKETIO}" }
+      ],
+      "secrets": [
+        { "name": "DB_PASSWORD", "valueFrom": "${DB_PASSWORD_SECRET_ARN}" },
+        {
+          "name": "SITE_ENCRYPTION_KEY",
+          "valueFrom": "${SITE_ENCRYPTION_KEY_SECRET_ARN}"
+        }
+      ],
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/method/university_erp.api.health.ready', timeout=5)\" || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 5,
+        "startPeriod": 90
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/education-erp/staging/web",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

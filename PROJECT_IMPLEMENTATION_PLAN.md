@@ -1,8 +1,8 @@
 # Project Implementation Plan
 
 > Status: Active execution plan
-> Current completion: P7.2 complete for the local security/privacy gate; release-candidate security work remains deferred
-> Current phase: Phase 7 - quality, security and migration
+> Current completion: Phase 7 local gates complete with deferred human acceptance; P8.1 is in progress
+> Current phase: Phase 8 - multi-provider staging and production preparation
 > Current next step: P8.1 - infrastructure and deployment automation
 > Last updated: 2026-08-15
 
@@ -520,15 +520,24 @@ Exit gate:
 
 ### P8.1 - Infrastructure and Deployment Automation
 
-Status: Not started
+Status: In progress
 
 Build:
 
+- Railway staging service definitions plus portable Hostinger VPS and AWS ECS runtime templates.
 - Hostinger VPS deployment scripts for app and database nodes.
 - Cloudflare DNS/TLS/WAF baseline.
 - Cloudflare R2 private bucket configuration.
 - MariaDB backup/PITR and restore automation.
 - Prometheus, Grafana, Loki and Uptime Kuma monitoring.
+
+Progress:
+
+- Accepted ADR-0015: Railway is the first staging target; Hostinger remains the production baseline and AWS remains portable.
+- Added one immutable-image runtime contract for web, WebSocket, scheduler, workers and migration.
+- Added Railway config-as-code, Hostinger-compatible Compose, AWS ECS baseline, managed-variable template and health/readiness probes.
+- Deployment artifact syntax and portable Compose rendering pass locally.
+- Evidence: `docs/evidence/phase-8/p8.1/start.md`.
 
 Exit gate:
 

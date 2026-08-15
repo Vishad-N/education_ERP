@@ -50,6 +50,7 @@
 | [P7.3 start](evidence/phase-7/p7.3/start.md) | Migration validator, synthetic templates and pilot UAT script |
 | [P7.3 reconciliation](evidence/phase-7/p7.3/reconciliation.md) | Checksum-backed synthetic count, reference and opening-balance reconciliation |
 | [P7.3 completion](evidence/phase-7/p7.3/completion.md) | Local migration/UAT gate result with human UAT deferred before production |
+| [P8.1 start](evidence/phase-8/p8.1/start.md) | Railway-first staging with portable Hostinger/AWS runtime artifacts |
 | [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |
@@ -68,6 +69,7 @@
 |---|---|
 | [CI/CD](operations/ci-cd.md) | Build, test, scan, promote, deploy, rollback controls |
 | [Production deployment](operations/production-deployment.md) | Provisioning, release procedure, smoke tests, rollback/forward-fix |
+| [Railway staging](../deploy/railway/README.md) | Railway service mapping, variables, process roles and staging sequence |
 | [Hostinger production platform](operations/hostinger-production-platform.md) | VPS topology, hardening, pod rollout, and Hostinger-specific controls |
 | [Observability](operations/observability.md) | Logs, metrics, traces, dashboards, SLOs, alerting |
 | [Backup and disaster recovery](operations/backup-and-dr.md) | Backup scope, retention, PITR, restore, DR exercises |

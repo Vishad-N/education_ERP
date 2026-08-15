@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run lint:docs
       - run: npm run check:repo
+      - run: npm run check:deployment
       - run: docker compose config
 
   app-tests:

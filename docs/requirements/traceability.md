@@ -39,6 +39,8 @@ P7.1 automated test and CI evidence: [completion.md](../evidence/phase-7/p7.1/co
 P7.2 security and privacy evidence: [completion.md](../evidence/phase-7/p7.2/completion.md), [start.md](../evidence/phase-7/p7.2/start.md) and [role-matrix.md](../security/role-matrix.md).
 
 P7.3 migration and UAT evidence: [completion.md](../evidence/phase-7/p7.3/completion.md), [reconciliation.md](../evidence/phase-7/p7.3/reconciliation.md), [migration templates](../operations/migration-templates/README.md) and [pilot UAT script](../quality/pilot-uat-script.md). Human execution/signatures are deferred in [human-testing-readme.md](../quality/human-testing-readme.md) and remain mandatory before production.
+
+P8.1 infrastructure automation is in progress: [start.md](../evidence/phase-8/p8.1/start.md) and [ADR-0015](../adr/0015-portable-staging-runtime.md). Railway is the first staging target; Hostinger and AWS portability artifacts use the same immutable-image runtime contract.
 P6.1 acceptance evidence: [acceptance-review.md](../evidence/phase-6/p6.1/acceptance-review.md).
 P6.1 deferred human acceptance checklist: [human-testing-readme.md](../quality/human-testing-readme.md).
 P6.2 initial student portal evidence: [initial-student-portal-slice.md](../evidence/phase-6/p6.2/initial-student-portal-slice.md).
