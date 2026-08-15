@@ -22,6 +22,7 @@ env/
 
 # Node
 node_modules/
+apps/*/*/public/node_modules
 dist/
 build/
 coverage/

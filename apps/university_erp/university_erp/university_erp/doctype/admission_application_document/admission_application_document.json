@@ -1,0 +1,104 @@
+{
+  "actions": [],
+  "autoname": "format:AADOC-{application_draft}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "application_draft",
+    "document_type",
+    "file_name",
+    "file_key",
+    "checksum_sha256",
+    "file_size",
+    "content_type",
+    "scan_status",
+    "scan_provider",
+    "scan_failure_reason",
+    "idempotency_key",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "application_draft",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Application Draft",
+      "options": "Admission Application Draft",
+      "reqd": 1
+    },
+    {
+      "fieldname": "document_type",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Document Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "file_name",
+      "fieldtype": "Data",
+      "label": "File Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "file_key",
+      "fieldtype": "Data",
+      "label": "Private Object Key",
+      "reqd": 1
+    },
+    {
+      "fieldname": "checksum_sha256",
+      "fieldtype": "Data",
+      "label": "Checksum SHA256",
+      "reqd": 1
+    },
+    {
+      "fieldname": "file_size",
+      "fieldtype": "Int",
+      "label": "File Size",
+      "reqd": 1
+    },
+    {
+      "fieldname": "content_type",
+      "fieldtype": "Data",
+      "label": "Content Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "scan_status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Scan Status",
+      "options": "Uploaded\nScanning\nScan Passed\nScan Failed",
+      "default": "Uploaded",
+      "reqd": 1
+    },
+    {
+      "fieldname": "scan_provider",
+      "fieldtype": "Data",
+      "label": "Scan Provider"
+    },
+    {
+      "fieldname": "scan_failure_reason",
+      "fieldtype": "Small Text",
+      "label": "Scan Failure Reason"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "module": "University ERP",
+  "name": "Admission Application Document",
+  "permissions": [
+    { "create": 1, "read": 1, "write": 1, "role": "System Manager" },
+    { "create": 1, "read": 1, "write": 1, "role": "Academics User" }
+  ],
+  "search_fields": "application_draft,document_type,file_name,scan_status,idempotency_key",
+  "track_changes": 1
+}

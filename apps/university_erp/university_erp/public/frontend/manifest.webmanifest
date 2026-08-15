@@ -1,0 +1,9 @@
+{
+  "name": "Guardian Admission Portal",
+  "short_name": "Admission",
+  "start_url": "/guardian-admission",
+  "display": "standalone",
+  "background_color": "#eef4f1",
+  "theme_color": "#125c56",
+  "icons": []
+}

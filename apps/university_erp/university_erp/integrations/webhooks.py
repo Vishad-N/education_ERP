@@ -7,13 +7,15 @@ from dataclasses import dataclass
 
 from university_erp.integrations.exceptions import ProviderReplayError, ProviderValidationError
 from university_erp.integrations.idempotency import InMemoryIdempotencyStore
+from university_erp.integrations.security import new_correlation_id
 
 
 @dataclass(frozen=True)
 class WebhookVerificationResult:
-    event_id: str
-    timestamp: int
-    replay_key: str
+	event_id: str
+	timestamp: int
+	replay_key: str
+	correlation_id: str
 
 
 class HmacWebhookVerifier:
@@ -34,7 +36,15 @@ class HmacWebhookVerifier:
         payload = str(timestamp).encode("utf-8") + b"." + body
         return hmac.new(self.secret, payload, hashlib.sha256).hexdigest()
 
-    def verify(self, *, event_id: str, timestamp: int, body: bytes, signature: str) -> WebhookVerificationResult:
+    def verify(
+        self,
+        *,
+        event_id: str,
+        timestamp: int,
+        body: bytes,
+        signature: str,
+        correlation_id: str | None = None,
+    ) -> WebhookVerificationResult:
         current = self.now if self.now is not None else int(time.time())
         if abs(current - timestamp) > self.tolerance_seconds:
             raise ProviderValidationError("Webhook timestamp is outside the replay tolerance.")
@@ -48,5 +58,9 @@ class HmacWebhookVerifier:
             raise ProviderReplayError(f"Webhook event already processed: {event_id}")
 
         self.replay_store.mark_seen(replay_key)
-        return WebhookVerificationResult(event_id=event_id, timestamp=timestamp, replay_key=replay_key)
-
+        return WebhookVerificationResult(
+            event_id=event_id,
+            timestamp=timestamp,
+            replay_key=replay_key,
+            correlation_id=correlation_id or new_correlation_id(),
+        )

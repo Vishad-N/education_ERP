@@ -1,0 +1,87 @@
+{
+  "actions": [],
+  "autoname": "format:APA-{application_draft}-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "application_draft",
+    "amount",
+    "currency",
+    "status",
+    "provider",
+    "provider_order_id",
+    "provider_payment_id",
+    "idempotency_key",
+    "last_error",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "application_draft",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Application Draft",
+      "options": "Admission Application Draft",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Amount",
+      "reqd": 1
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "default": "INR",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Created\nPending\nPaid\nFailed\nCancelled",
+      "default": "Created",
+      "reqd": 1
+    },
+    { "fieldname": "provider", "fieldtype": "Data", "label": "Provider" },
+    {
+      "fieldname": "provider_order_id",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Provider Order ID"
+    },
+    {
+      "fieldname": "provider_payment_id",
+      "fieldtype": "Data",
+      "label": "Provider Payment ID"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Idempotency Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "last_error",
+      "fieldtype": "Small Text",
+      "label": "Last Error"
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "module": "University ERP",
+  "name": "Admission Payment Attempt",
+  "permissions": [
+    { "create": 1, "read": 1, "write": 1, "role": "System Manager" },
+    { "create": 1, "read": 1, "write": 1, "role": "Accounts User" }
+  ],
+  "search_fields": "application_draft,status,provider_order_id,idempotency_key",
+  "track_changes": 1
+}

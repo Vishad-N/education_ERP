@@ -1,0 +1,2 @@
+source_id,student_source_id,invoice_source_id,amount,currency
+SYN-FEE-001,SYN-STU-001,SYN-INV-001,1000.00,INR

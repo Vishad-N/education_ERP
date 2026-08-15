@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:docs
+      - run: npm run check:repo
+      - run: docker compose config
+
+  app-tests:
+    runs-on: ubuntu-latest
+    needs: repository
+    steps:
+      - uses: actions/checkout@v4
+      - run: cp .env.example .env
+      - run: docker compose up -d mariadb redis-cache redis-queue redis-socketio
+      - run: docker compose build backend
+      - run: powershell -ExecutionPolicy Bypass -File scripts/ci/run-app-tests.ps1 -Bootstrap
+      - if: always()
+        run: docker compose down -v

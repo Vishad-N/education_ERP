@@ -1,10 +1,10 @@
 # Project Implementation Plan
 
 > Status: Active execution plan
-> Current completion: Phase 5 complete through local fee, payment, refund, settlement and GL reconciliation proofs
-> Current phase: Phase 6 - bilingual low-literacy portal
-> Current next step: P6.1 - applicant and guardian PWA
-> Last updated: 2026-08-13
+> Current completion: P7.2 complete for the local security/privacy gate; release-candidate security work remains deferred
+> Current phase: Phase 7 - quality, security and migration
+> Current next step: P8.1 - infrastructure and deployment automation
+> Last updated: 2026-08-15
 
 This file controls execution order for agents and engineers building the Education ERP from the pulled Frappe repositories into a production-ready product.
 
@@ -401,7 +401,7 @@ Progress:
 
 ### P6.1 - Applicant and Guardian PWA
 
-Status: Not started
+Status: Complete with deferred human acceptance
 
 Build:
 
@@ -414,14 +414,33 @@ Exit gate:
 
 - Guardian can complete the pilot application flow on a mobile device with minimal staff help.
 
+Progress:
+
+- Initial Vue 3, TypeScript and Vite portal scaffold has been added under `apps/university_erp/frontend`.
+- A Frappe route at `/guardian-admission` serves the built portal assets from `university_erp/public/frontend`.
+- The first mobile-first flow includes English/Hindi switching, local draft autosave, online/offline status, guardian registration, class selection, child details, document placeholders, payment safety text and status summary.
+- Evidence: `docs/evidence/phase-6/p6.1/initial-portal-slice.md`.
+- Portal autosave now persists and resumes an `Admission Application Draft` through a public API linked to a CRM Lead; the resume token is stored only as a hash. Evidence: `docs/evidence/phase-6/p6.1/portal-draft-api-proof.md`.
+- Document uploads now have private quarantine metadata and fake ClamAV scan state; application-fee attempts now use durable retry keys, reuse the same fake Razorpay order and apply one idempotent capture callback. Evidence: `docs/evidence/phase-6/p6.1/upload-payment-integration-proof.md`.
+- Final local flow validation blocks incomplete steps, prevents future-step skipping and passes route/asset smoke checks. Browser/mobile rendering and guardian usability acceptance are deferred to `docs/quality/human-testing-readme.md`. Evidence: `docs/evidence/phase-6/p6.1/acceptance-review.md`.
+
 ### P6.2 - Student and Guardian Portal
 
-Status: Not started
+Status: Complete with deferred production integrations
 
 Build:
 
 - Fee dues, receipts, documents, profile, notices and language preference.
 - Safe retry behavior for uploads and payments.
+
+Progress:
+
+- Added expiring, hashed `Student Portal Access` records and a scoped snapshot API for one student.
+- Added the mobile-first English/Hindi `/student-portal` view for dues, receipts and documents.
+- Added scoped receipt PDF download and published student/guardian notices.
+- Added student-scoped, retry-safe payment order initiation for generated fee demands.
+- Evidence: `docs/evidence/phase-6/p6.2/initial-student-portal-slice.md`.
+- Added ERPNext payment capture/posting, duplicate callback idempotency, fake OTP verification and payment status polling. Evidence: `docs/evidence/phase-6/p6.2/completion.md`.
 
 Exit gate:
 
@@ -431,12 +450,21 @@ Exit gate:
 
 ### P7.1 - Test Suite and CI
 
-Status: Not started
+Status: Complete
 
 Build:
 
 - Unit, integration, permission, migration, API contract, E2E and smoke tests.
 - CI workflow for install, migration, tests, lint, secret scan, image build and vulnerability scan.
+
+Progress:
+
+- Added portal API contract tests for token hashing, invalid-token rejection and scoped snapshot behavior.
+- Added a Docker-backed local app-test runner for migration plus `bench run-tests --app university_erp`.
+- Added the initial GitHub Actions workflow for repository checks, Compose validation, image build and app tests.
+- Reconciled retained local MariaDB site-user host grants and passed `p21.localhost` migration.
+- Passed 3 `university_erp` integration tests with 0 failures, repository checks, documentation lint and secret-pattern scan.
+- Evidence: `docs/evidence/phase-7/p7.1/start.md`, `docs/evidence/phase-7/p7.1/completion.md`.
 
 Exit gate:
 
@@ -444,7 +472,7 @@ Exit gate:
 
 ### P7.2 - Security and Privacy Hardening
 
-Status: Not started
+Status: Complete
 
 Build:
 
@@ -452,19 +480,37 @@ Build:
 - Sensitive identifier masking and retention controls.
 - Webhook validation and correlation IDs.
 
+Progress:
+
+- Added the baseline role matrix, identifier masking utility, webhook correlation IDs and private-object URL TTL tests.
+- Added negative tests for webhook signature/replay failures and restricted file URL TTLs.
+- Added export approval/privilege, retention expiry and audit correlation tests.
+- Passed 8 custom-app tests with 0 failures plus repository, documentation and diff checks.
+- Evidence: `docs/evidence/phase-7/p7.2/start.md`, `docs/evidence/phase-7/p7.2/completion.md`.
+
 Exit gate:
 
 - No unaccepted critical/high security findings remain.
 
 ### P7.3 - Migration and UAT
 
-Status: Not started
+Status: Complete with deferred human UAT
 
 Build:
 
 - Migration templates and trial-load scripts.
 - Count, reference and finance reconciliation reports.
 - UAT scripts for pilot users.
+
+Progress:
+
+- Added no-write CSV trial-load validation for students, guardians and opening fee balances.
+- Added synthetic migration templates with duplicate, reference and financial amount checks.
+- Added role-based pilot UAT script covering academic, admissions, finance, identity, portal, security and reconciliation journeys.
+- Synthetic templates validated successfully: 3 files, 1 row each, INR 1,000.00 opening balance, no errors.
+- Added checksum-backed count, reference and finance reconciliation with no exceptions.
+- Human UAT and production-sized rehearsal are recorded as mandatory pre-production checks.
+- Evidence: `docs/evidence/phase-7/p7.3/start.md`, `docs/evidence/phase-7/p7.3/reconciliation.md`, `docs/evidence/phase-7/p7.3/completion.md`.
 
 Exit gate:
 
@@ -564,7 +610,7 @@ Exit gate:
 
 ## Current Execution State
 
-Current next step: P6.1 - applicant and guardian PWA.
+Current next step: P8.1 - infrastructure and deployment automation.
 
 Blocked by:
 

@@ -1,0 +1,74 @@
+{
+  "actions": [],
+  "autoname": "format:SPO-{#####}",
+  "creation": "2026-08-14 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "student",
+    "mobile",
+    "code_hash",
+    "status",
+    "expires_on",
+    "attempt_count",
+    "verified_on",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Student",
+      "options": "Student",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mobile",
+      "fieldtype": "Data",
+      "label": "Mobile",
+      "reqd": 1
+    },
+    {
+      "fieldname": "code_hash",
+      "fieldtype": "Data",
+      "label": "Code Hash",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Pending\nVerified\nExpired\nLocked",
+      "default": "Pending",
+      "reqd": 1
+    },
+    {
+      "fieldname": "expires_on",
+      "fieldtype": "Datetime",
+      "label": "Expires On",
+      "reqd": 1
+    },
+    {
+      "fieldname": "attempt_count",
+      "fieldtype": "Int",
+      "label": "Attempt Count",
+      "default": "0"
+    },
+    {
+      "fieldname": "verified_on",
+      "fieldtype": "Datetime",
+      "label": "Verified On"
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "module": "University ERP",
+  "name": "Student Portal Otp Challenge",
+  "permissions": [
+    { "create": 1, "read": 1, "write": 1, "role": "System Manager" },
+    { "create": 1, "read": 1, "write": 1, "role": "Academics User" }
+  ],
+  "search_fields": "student,mobile,status,expires_on",
+  "track_changes": 1
+}

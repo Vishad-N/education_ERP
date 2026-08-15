@@ -8,15 +8,15 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 5 fee, payment, refund, settlement and GL reconciliation foundations completed locally |
-| Roadmap state | `P6.1` applicant and guardian PWA is next under `PROJECT_IMPLEMENTATION_PLAN.md` |
+| Product state | Phase 7 local quality, security and synthetic migration gates are complete; human UAT, production integrations and release-candidate security review are deferred |
+| Roadmap state | Start `P8.1` infrastructure and deployment automation under `PROJECT_IMPLEMENTATION_PLAN.md` |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
 | Custom Frappe app | Generated app files exist and install on the local `erp.localhost` site |
-| Business modules | P3.1 institution/academic foundations, P3.2 student identity/document foundations, Phase 4 admissions foundations through conversion and Phase 5 fee/accounting foundations are locally implemented and proven |
+| Business modules | P3.1 institution/academic foundations, P3.2 student identity/document foundations, Phase 4 admissions foundations through conversion and Phase 5 fee/accounting foundations are locally implemented and proven; P6.1 portal implementation is complete with human acceptance deferred |
 | Production infrastructure | Not provisioned |
 | Real integrations | Not implemented or approved |
-| Automated product tests | Not implemented |
+| Automated product tests | 3 `university_erp` integration tests pass on `p21.localhost`; broader security, browser and performance suites remain open |
 
 ## Existing repository assets
 
@@ -42,6 +42,7 @@ This document distinguishes files that currently exist from capabilities that ar
 - Phase 5.1 fee policy/demand generation evidence at `docs/evidence/phase-5/p5.1/completion.md`.
 - Phase 5.2 payment collection/receipt evidence at `docs/evidence/phase-5/p5.2/completion.md`.
 - Phase 5.3 refund/settlement/GL reconciliation evidence at `docs/evidence/phase-5/p5.3/completion.md`.
+- Phase 6.1 initial portal slice evidence at `docs/evidence/phase-6/p6.1/initial-portal-slice.md`.
 - Root tooling configuration and documentation formatting scripts.
 - `apps.json` containing intended Frappe, ERPNext, Education, CRM, Payments and custom-app sources.
 - Local upstream source checkouts under `apps/`:
@@ -75,6 +76,13 @@ This document distinguishes files that currently exist from capabilities that ar
 - Local `p21.localhost` synthetic P5.2 proof records for provider order `order_000001`, online payment receipt `SFP-SFD-EDU-STU-2026-00002-EFP-P51-POLICY-2026.1-00109-00127`, online Payment Entry `ACC-PAY-2026-00004`, offline payment receipt `SFP-SFD-EDU-STU-2026-00002-EFP-P51-POLICY-2026.1-00109-00128` and offline Payment Entry `ACC-PAY-2026-00005`.
 - Phase 5.3 custom DocTypes under `apps/university_erp/university_erp/university_erp/doctype/`.
 - Local `p21.localhost` synthetic P5.3 proof records for Student Fee Refund `SFR-SFP-SFD-EDU-STU-2026-00002-EFP-P51-POLICY-2026.1-00109-00127-00149`, credit note `ACC-SINV-2026-00004`, refund Payment Entry `ACC-PAY-2026-00006`, settlement import `PSI-fake_razorpay-setl_p53_0001` and GL reconciliation `FGR-SFD-EDU-STU-2026-00002-EFP-P51-POLICY-2026.1-00109-00150`.
+- Phase 6.1 initial Vue/Vite portal source under `apps/university_erp/frontend`.
+- Built P6.1 portal assets under `apps/university_erp/university_erp/public/frontend`.
+- Local `p21.localhost` route `/guardian-admission` returns HTTP 200 and serves the built portal JS/CSS assets.
+- Local portal API proof creates, resumes and idempotently updates a CRM-linked `Admission Application Draft` using a hashed resume token; see `docs/evidence/phase-6/p6.1/portal-draft-api-proof.md`.
+- Local portal integration proof validates document upload/scan state and application-fee payment retry idempotency; see `docs/evidence/phase-6/p6.1/upload-payment-integration-proof.md`.
+- Final local portal acceptance review passes build, route/asset smoke checks and required-step validation; browser/mobile rendering and guardian usability evidence are still required; see `docs/evidence/phase-6/p6.1/acceptance-review.md`.
+- P6.2 initial student portal slice evidence is recorded at `docs/evidence/phase-6/p6.2/initial-student-portal-slice.md`.
 - Placeholder infrastructure, migration, operations, contract, E2E, performance and security folders.
 - Previous local Docker Compose containers and network were removed on 2026-08-09; named project volumes were intentionally retained.
 
@@ -93,7 +101,15 @@ This document distinguishes files that currently exist from capabilities that ar
 - P5.1 fee policy/demand generation foundations are implemented locally, but browser/Desk workflow tests, public API methods, CI integration, broader fee story IDs and production-scale financial reconciliation tests remain later-phase work.
 - P5.2 payment collection/receipt foundations are implemented locally, but real Razorpay sandbox credentials, browser payment pages, public callback APIs, CI integration, provider settlement reconciliation and production financial controls remain later-phase work.
 - P5.3 refund, settlement and GL reconciliation foundations are implemented locally, but full finance dashboards, browser/Desk workflow tests, CI integration, production bank statement imports and real provider settlements remain later-phase work.
-- No automated unit, integration, permission, migration, browser, performance or security tests exist.
+- P6.1 portal foundation, draft API, document scan state, idempotent payment order/capture slice and flow validation are implemented. Human browser/mobile, Hindi review and guardian usability checks are deferred and tracked in `docs/quality/human-testing-readme.md`.
+- P6.2 local implementation covers expiring hashed student portal access, scoped dues/receipts/documents snapshot, receipt PDF download, notices, payment initiation/capture/accounting idempotency, fake OTP verification and bilingual view; real SMS/OTP, provider credentials and production callback reconciliation remain deferred.
+- P7.1 local gate is complete: retained database grants were repaired, migration passed, 3 custom-app integration tests passed, and repository/docs/secret checks passed. Evidence: `docs/evidence/phase-7/p7.1/completion.md`.
+- P7.2 initial security slice adds correlation IDs, restricted-identifier masking, webhook/private-file negative tests and a baseline role matrix. Evidence: `docs/evidence/phase-7/p7.2/start.md`.
+- P7.2 local gate is complete: export approval/privilege, retention expiry and audit correlation controls passed in the 8-test custom-app suite. Evidence: `docs/evidence/phase-7/p7.2/completion.md`.
+- P7.3 initial slice adds no-write CSV trial-load validation, synthetic migration templates and a role-based UAT script. The supplied templates validate with 3 rows total and INR 1,000.00 opening balance. Evidence: `docs/evidence/phase-7/p7.3/start.md`.
+- P7.3 local gate is complete with checksum-backed count/reference/finance reconciliation; human UAT and production-sized migration rehearsal remain in the mandatory pre-production checklist. Evidence: `docs/evidence/phase-7/p7.3/completion.md`.
+- `bench build --app university_erp` links assets but fails when running the app build inside the Linux container because the mounted `node_modules` tree lacks Rollup's Linux optional native package.
+- Browser, performance, vulnerability, SBOM/signing and deeper security tests remain incomplete; the initial portal API contract tests and local migration gate pass.
 - No infrastructure-as-code or production monitoring implementation exists.
 - No production Razorpay, MSG91/DLT, Hostinger SMTP or Cloudflare R2 configuration is approved.
 
@@ -108,4 +124,4 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Immediate next action
 
-Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P6.1`. The next work is the applicant and guardian PWA. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.
+Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P8.1`. Human portal acceptance, pilot UAT, production-sized migration rehearsal, production MFA, external security review and provider security scans remain mandatory pre-production items. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.

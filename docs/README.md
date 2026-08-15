@@ -36,6 +36,20 @@
 | [P5.1 completion evidence](evidence/phase-5/p5.1/completion.md) | Completed fee policy and demand generation proof with policy math, adjustments, submitted Sales Invoice, generated demand, permission and audit evidence |
 | [P5.2 completion evidence](evidence/phase-5/p5.2/completion.md) | Completed payment collection and receipt proof with fake provider order, online and offline payments, duplicate callback safety, permission and audit evidence |
 | [P5.3 completion evidence](evidence/phase-5/p5.3/completion.md) | Completed refund, settlement and GL reconciliation proof with credit note, refund Payment Entry, settlement import, mismatch rejection, permission and audit evidence |
+| [P6.1 initial portal slice](evidence/phase-6/p6.1/initial-portal-slice.md) | Initial applicant and guardian PWA slice with bilingual mobile-first flow, autosave, PWA assets and local Frappe route |
+| [P6.1 portal draft API proof](evidence/phase-6/p6.1/portal-draft-api-proof.md) | Published-form discovery, CRM-linked draft persistence, hashed resume token and idempotent resume/update proof |
+| [P6.1 upload/payment proof](evidence/phase-6/p6.1/upload-payment-integration-proof.md) | Private document scan-state integration and idempotent application-fee order retry proof |
+| [P6.1 acceptance review](evidence/phase-6/p6.1/acceptance-review.md) | Final local flow validation and route/asset smoke checks; human acceptance is deferred to the production checklist |
+| [Human testing readme](quality/human-testing-readme.md) | Deferred P6.1 browser, Hindi, mobile, payment and guardian usability checklist required before production |
+| [P6.2 initial student portal slice](evidence/phase-6/p6.2/initial-student-portal-slice.md) | Expiring scoped access and bilingual student dues, receipts and documents view |
+| [P6.2 completion](evidence/phase-6/p6.2/completion.md) | Portal receipt download, payment posting/idempotency, fake OTP and status polling proof |
+| [P7.1 start](evidence/phase-7/p7.1/start.md) | Initial portal API contract tests, Docker-backed app-test runner and CI workflow |
+| [P7.1 completion](evidence/phase-7/p7.1/completion.md) | Database credential repair, migration, integration tests and repository gate results |
+| [P7.2 start](evidence/phase-7/p7.2/start.md) | Security primitives, negative tests and baseline role matrix |
+| [P7.2 completion](evidence/phase-7/p7.2/completion.md) | Local security/privacy controls and 8-test verification result |
+| [P7.3 start](evidence/phase-7/p7.3/start.md) | Migration validator, synthetic templates and pilot UAT script |
+| [P7.3 reconciliation](evidence/phase-7/p7.3/reconciliation.md) | Checksum-backed synthetic count, reference and opening-balance reconciliation |
+| [P7.3 completion](evidence/phase-7/p7.3/completion.md) | Local migration/UAT gate result with human UAT deferred before production |
 | [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |
@@ -46,6 +60,7 @@
 | [Provider architecture](integrations/provider-architecture.md) | Razorpay, MSG91, Hostinger SMTP, R2, and malware-scanning contracts |
 | [Testing strategy](quality/testing-strategy.md) | Test pyramid, critical scenarios, performance and security gates |
 | [Security and privacy](security/security-and-privacy.md) | Threat controls, access model, PII, secrets, audit, compliance |
+| [Baseline role matrix](security/role-matrix.md) | Initial role boundaries for P7.2 permission and negative-test coverage |
 
 ## Production and operations
 

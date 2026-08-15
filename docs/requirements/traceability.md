@@ -30,6 +30,20 @@ P5.2 payment collection/receipt evidence: [completion.md](../evidence/phase-5/p5
 
 P5.3 refund/settlement/GL reconciliation evidence: [completion.md](../evidence/phase-5/p5.3/completion.md).
 
+P6.1 initial portal slice evidence: [initial-portal-slice.md](../evidence/phase-6/p6.1/initial-portal-slice.md).
+P6.1 portal draft API evidence: [portal-draft-api-proof.md](../evidence/phase-6/p6.1/portal-draft-api-proof.md).
+P6.1 upload/payment evidence: [upload-payment-integration-proof.md](../evidence/phase-6/p6.1/upload-payment-integration-proof.md).
+
+P7.1 automated test and CI evidence: [completion.md](../evidence/phase-7/p7.1/completion.md).
+
+P7.2 security and privacy evidence: [completion.md](../evidence/phase-7/p7.2/completion.md), [start.md](../evidence/phase-7/p7.2/start.md) and [role-matrix.md](../security/role-matrix.md).
+
+P7.3 migration and UAT evidence: [completion.md](../evidence/phase-7/p7.3/completion.md), [reconciliation.md](../evidence/phase-7/p7.3/reconciliation.md), [migration templates](../operations/migration-templates/README.md) and [pilot UAT script](../quality/pilot-uat-script.md). Human execution/signatures are deferred in [human-testing-readme.md](../quality/human-testing-readme.md) and remain mandatory before production.
+P6.1 acceptance evidence: [acceptance-review.md](../evidence/phase-6/p6.1/acceptance-review.md).
+P6.1 deferred human acceptance checklist: [human-testing-readme.md](../quality/human-testing-readme.md).
+P6.2 initial student portal evidence: [initial-student-portal-slice.md](../evidence/phase-6/p6.2/initial-student-portal-slice.md).
+P6.2 completion evidence: [completion.md](../evidence/phase-6/p6.2/completion.md).
+
 | Requirement IDs | Capability | Design owner | Primary specification | Minimum verification | Status |
 |---|---|---|---|---|---|
 | `BRD-US-001..010` | Institution hierarchy and governance | Institution | Database architecture; P3.1 completion evidence | Hierarchy, history, lock, clone, permissions | Verified |

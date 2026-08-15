@@ -1,0 +1,65 @@
+{
+  "actions": [],
+  "autoname": "format:SPN-{#####}",
+  "creation": "2026-08-13 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "title",
+    "message",
+    "published_on",
+    "expires_on",
+    "status",
+    "audience",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Title",
+      "reqd": 1
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Small Text",
+      "label": "Message",
+      "reqd": 1
+    },
+    {
+      "fieldname": "published_on",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Published On",
+      "reqd": 1
+    },
+    { "fieldname": "expires_on", "fieldtype": "Date", "label": "Expires On" },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPublished\nArchived",
+      "default": "Draft",
+      "reqd": 1
+    },
+    {
+      "fieldname": "audience",
+      "fieldtype": "Select",
+      "label": "Audience",
+      "options": "All Students\nGuardians\nStaff",
+      "default": "All Students",
+      "reqd": 1
+    },
+    { "fieldname": "notes", "fieldtype": "Small Text", "label": "Notes" }
+  ],
+  "module": "University ERP",
+  "name": "Student Portal Notice",
+  "permissions": [
+    { "create": 1, "read": 1, "write": 1, "role": "System Manager" },
+    { "create": 1, "read": 1, "write": 1, "role": "Academics User" }
+  ],
+  "search_fields": "title,published_on,status,audience",
+  "track_changes": 1
+}

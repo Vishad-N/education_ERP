@@ -45,7 +45,7 @@ $thirdPartyAppDirs = @(
 $files = Get-ChildItem -Recurse -File |
   Where-Object {
     $fullName = $_.FullName
-    $_.FullName -notmatch "\\node_modules\\" -and
+    $_.FullName -notmatch "\\node_modules($|\\)" -and
     $_.FullName -notmatch "\\.git\\" -and
     -not ($thirdPartyAppDirs | Where-Object { $_ -and $fullName -match "^$_" })
   }
