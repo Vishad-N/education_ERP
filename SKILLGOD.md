@@ -3,7 +3,7 @@
 > Auto-managed digest for Aider and other CLIs that `read:` this file. Your notes above the markers are safe.
 
 <!-- SKILLGOD:START v1.1 -->
-# SkillGod Project Memory (auto-generated — do not edit; updated 2026-08-16 16:15)
+# SkillGod Project Memory (auto-generated — do not edit; updated 2026-08-16 16:38)
 
 # SkillGod Active
 
