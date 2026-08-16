@@ -45,6 +45,12 @@ Railway is the first staging target under ADR-0015. Hostinger VPS remains the cu
 - Bench requires each upstream app's `.git` metadata while running `bench setup requirements`; cleanup now occurs only after the upstream builds complete.
 - No build was run after this correction at the user's request. A fresh image build, SBOM/provenance generation, digest recording and Railway redeploy remain required before accepting the current source as deployable.
 
+## Railway Metal healthcheck correction
+
+- Railway Metal probes use IPv6. The web role now binds `[::]:$PORT` when `RAILWAY_ENVIRONMENT` is set, instead of IPv4-only `0.0.0.0`.
+- Frappe HTTP site resolution uses the request Host and ignores `serve_default_site`. The web WSGI factory pins `SITE_NAME` so hostless health probes reach the single site.
+- A Metal deploy that logged Gunicorn on `0.0.0.0:8080` then failed `/api/method/university_erp.api.health.ready` with `service unavailable` is the evidence for this change. A new image build is required before the next Railway deploy.
+
 ## Open P8.1 work
 
 - Publish the attested immutable image to the approved registry and verify the SBOM from the registry reference.

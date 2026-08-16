@@ -135,9 +135,17 @@ except Exception as error:
 if failed_checks:
 	sys.exit(1)
 PY
+    # Railway Metal healthchecks connect over IPv6. Binding only 0.0.0.0
+    # leaves Gunicorn healthy on IPv4 while the probe gets connection refused.
+    if [[ -n "${RAILWAY_ENVIRONMENT:-}" || "${WEB_BIND_IPV6:-0}" == "1" ]]; then
+      web_bind="[::]:${PORT:-8000}"
+    else
+      web_bind="${WEB_BIND_HOST:-0.0.0.0}:${PORT:-8000}"
+    fi
+    echo "Starting web on ${web_bind}"
     exec env/bin/gunicorn \
       --chdir sites \
-      --bind "0.0.0.0:${PORT:-8000}" \
+      --bind "${web_bind}" \
       --threads "${WEB_THREADS:-4}" \
       --workers "${WEB_WORKERS:-2}" \
       --worker-class gthread \
@@ -145,7 +153,7 @@ PY
       --timeout "${WEB_TIMEOUT:-120}" \
       --forwarded-allow-ips="*" \
       --preload \
-      "frappe.app:application_with_statics()"
+      "university_erp.wsgi:create_application()"
     ;;
   websocket)
     exec node apps/frappe/socketio.js

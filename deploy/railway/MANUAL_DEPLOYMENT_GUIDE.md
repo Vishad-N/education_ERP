@@ -88,6 +88,10 @@ Set the `web` health-check path to:
 
 Use a 300-second health-check timeout. Keep `scheduler` at exactly one replica.
 
+Railway Metal healthchecks connect over IPv6 and do not send the public site Host. The published image must bind `[::]:$PORT` and pin `SITE_NAME` in the WSGI factory. A Gunicorn line that only says `Listening at: http://0.0.0.0:8080` will fail this probe with `service unavailable` even though MariaDB and Redis preflight succeeded.
+
+The `web` service is not ready until `bootstrap` and `migrate` have succeeded against the same database. An empty database makes `/api/method/university_erp.api.health.ready` fail after the process is listening.
+
 ## 5. Initialize the site
 
 1. Confirm MariaDB and all Redis services are healthy.

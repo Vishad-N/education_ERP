@@ -29,7 +29,8 @@ $requiredEntrypointPatterns = @(
   'bootstrap\)',
   '--no-setup-db',
   'socketio_port="\$\{PORT:-\$\{socketio_port\}\}"',
-  'frappe\.app:application_with_statics\(\)',
+  'university_erp\.wsgi:create_application\(\)',
+  'web_bind="\[::\]:\$\{PORT:-8000\}"',
   'bench worker --queue short,default',
   'bench worker --queue long'
 )
