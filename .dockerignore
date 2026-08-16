@@ -4,6 +4,13 @@
 node_modules
 sites
 logs
+# Upstream apps are fetched in the Dockerfile from pinned SHAs.
+apps/frappe
+apps/erpnext
+apps/education
+apps/crm
+apps/payments
+apps/frappe_docker
 **/node_modules
 **/.pytest_cache
 **/.mypy_cache

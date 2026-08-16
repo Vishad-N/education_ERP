@@ -1,0 +1,383 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 3378 >>
+stream
+0.10 0.20 0.36 rg 0 752 612 40 re f
+1.000 1.000 1.000 rg BT /F2 10 Tf 54.0 766.0 Td (Education ERP Client Completion Report) Tj ET
+1.000 1.000 1.000 rg BT /F1 9 Tf 523.0 766.0 Td (Page 1) Tj ET
+0.060 0.160 0.300 rg BT /F2 22 Tf 54.0 724.0 Td (Education ERP Project - Completion Report) Tj ET
+0.300 0.340 0.400 rg BT /F1 11.5 Tf 54.0 696.0 Td (Client-facing status summary prepared from repository evidence and Railway) Tj ET
+0.300 0.340 0.400 rg BT /F1 11.5 Tf 54.0 680.0 Td (pre-production findings. Prepared on 16 August 2026.) Tj ET
+0.890 0.960 0.910 rg 54 622.0 504 36 re f
+0.100 0.450 0.200 RG 54 622.0 504 36 re S
+0.100 0.450 0.200 rg BT /F2 9 Tf 66.0 644.0 Td (Overall status) Tj ET
+0.120 0.120 0.120 rg BT /F1 9 Tf 204.0 644.0 Td (Local Phases 0-7 are complete with evidence; Phase 8 staging automation is in progress.) Tj ET
+1.000 0.960 0.840 rg 54 576.0 504 36 re f
+0.620 0.380 0.020 RG 54 576.0 504 36 re S
+0.620 0.380 0.020 rg BT /F2 9 Tf 66.0 598.0 Td (Production readiness) Tj ET
+0.120 0.120 0.120 rg BT /F1 9 Tf 204.0 598.0 Td (Not production-ready yet. Human PWA UAT, pilot UAT, production integrations and release security checks remain.) Tj ET
+1.000 0.900 0.900 rg 54 530.0 504 36 re f
+0.630 0.100 0.100 RG 54 530.0 504 36 re S
+0.630 0.100 0.100 rg BT /F2 9 Tf 66.0 552.0 Td (Railway pre-production) Tj ET
+0.120 0.120 0.120 rg BT /F1 9 Tf 204.0 552.0 Td (Public guardian route is reachable, but P6.1 flow is blocked by missing published admission form seed data.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 514.0 Td (Executive Summary) Tj ET
+0.80 0.86 0.92 RG 54 501.0 504 0 l S
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 488.0 Td (The Education ERP has moved beyond documentation and scaffolding. The repository now contains a) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 474.0 Td (custom Frappe application, local Docker-based platform setup, institution and academic masters,) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 460.0 Td (student identity and document foundations, admissions workflow foundations, fee and accounting) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 446.0 Td (foundations, applicant and student portal foundations, local automated tests, security controls,) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 432.0 Td (migration templates and portable staging artifacts.) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 414.0 Td (The work completed so far is best described as a verified local pilot foundation. It proves the) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 400.0 Td (core architecture and business rules using synthetic data and fake provider adapters. It does not) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 386.0 Td (yet represent a production go-live because human user acceptance, production-sized migration) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 372.0 Td (rehearsal, real provider credentials, production infrastructure, monitoring, backups and external) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 358.0 Td (security review are still pending.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 336.0 Td (Completion Snapshot) Tj ET
+0.80 0.86 0.92 RG 54 323.0 504 0 l S
+0.75 0.75 0.75 RG 54 40 504 0 l S
+0.350 0.350 0.350 rg BT /F1 7.5 Tf 54.0 26.0 Td (Prepared from repository evidence and current pre-production checks. No real student data, real payments, or live provider traffic included.) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 13 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 5472 >>
+stream
+0.10 0.20 0.36 rg 0 752 612 40 re f
+1.000 1.000 1.000 rg BT /F2 10 Tf 54.0 766.0 Td (Education ERP Client Completion Report) Tj ET
+1.000 1.000 1.000 rg BT /F1 9 Tf 523.0 766.0 Td (Page 2) Tj ET
+0.10 0.20 0.36 rg 54 690.0 504 34 re f
+1.000 1.000 1.000 rg BT /F2 8.2 Tf 59.0 704.0 Td (Area) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.2 Tf 167.0 704.0 Td (Client meaning) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.2 Tf 459.0 704.0 Td (Status) Tj ET
+0.82 0.86 0.90 RG 54 656.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 678.0 Td (Platform baseline) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 678.0 Td (Pinned Frappe v16, ERPNext, Education, CRM, Payments and custom app) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 668.0 Td (install together.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 678.0 Td (Complete locally) Tj ET
+0.96 0.98 1.00 rg 54 622.0 504 34 re f
+0.82 0.86 0.90 RG 54 622.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 644.0 Td (Custom ERP app) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 644.0 Td (university_erp contains domain DocTypes, APIs, integrations, portals) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 634.0 Td (and tests without modifying upstream apps.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 644.0 Td (Complete foundation) Tj ET
+0.82 0.86 0.90 RG 54 588.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 610.0 Td (Institution and academics) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 610.0 Td (University/campus/college/department, session, calendar, program,) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 600.0 Td (class, section, curriculum, intake, faculty and timetable) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 590.0 Td (foundations exist.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 610.0 Td (Complete locally) Tj ET
+0.96 0.98 1.00 rg 54 554.0 504 34 re f
+0.82 0.86 0.90 RG 54 554.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 576.0 Td (Student identity and) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 566.0 Td (documents) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 576.0 Td (Guardian, identity issuance, duplicate review, consent, document) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 566.0 Td (scan, verification, replacement, expiry and privacy export) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 556.0 Td (foundations exist.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 576.0 Td (Complete locally) Tj ET
+0.82 0.86 0.90 RG 54 520.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 542.0 Td (Admissions) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 542.0 Td (CRM handoff, dynamic form version, draft save/resume, eligibility,) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 532.0 Td (merit, seat allocation, offer, confirmation and conversion) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 522.0 Td (foundations exist.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 542.0 Td (Complete locally) Tj ET
+0.96 0.98 1.00 rg 54 486.0 504 34 re f
+0.82 0.86 0.90 RG 54 486.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 508.0 Td (Fees and accounting) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 508.0 Td (Fee policy, demand, invoice, online/offline payment, receipt,) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 498.0 Td (refund, settlement and GL reconciliation proofs pass.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 508.0 Td (Complete locally) Tj ET
+0.82 0.86 0.90 RG 54 452.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 474.0 Td (Applicant/guardian PWA) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 474.0 Td (Mobile bilingual portal, draft API, document scan and safe payment) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 464.0 Td (retry are implemented locally. Human testing remains.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 474.0 Td (Partially accepted) Tj ET
+0.96 0.98 1.00 rg 54 418.0 504 34 re f
+0.82 0.86 0.90 RG 54 418.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 440.0 Td (Student/guardian portal) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 440.0 Td (Scoped access, dues, receipt PDF, documents, notices, fake OTP and) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 430.0 Td (payment status proof exist.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 440.0 Td (Complete locally) Tj ET
+0.82 0.86 0.90 RG 54 384.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 406.0 Td (Security and migration) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 406.0 Td (Audit/correlation, masking, private file limits, migration) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 396.0 Td (templates, checksum reconciliation and UAT scripts exist.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 406.0 Td (Complete local gate) Tj ET
+0.96 0.98 1.00 rg 54 350.0 504 34 re f
+0.82 0.86 0.90 RG 54 350.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 59.0 372.0 Td (Deployment automation) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 372.0 Td (Railway, Hostinger Compose and AWS ECS artifacts exist; fresh) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 167.0 362.0 Td (image/deploy/monitoring/backups remain.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.2 Tf 459.0 372.0 Td (In progress) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 338.0 Td (Work Completed By Phase) Tj ET
+0.80 0.86 0.92 RG 54 325.0 504 0 l S
+0.75 0.75 0.75 RG 54 40 504 0 l S
+0.350 0.350 0.350 rg BT /F1 7.5 Tf 54.0 26.0 Td (Prepared from repository evidence and current pre-production checks. No real student data, real payments, or live provider traffic included.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 13 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 6564 >>
+stream
+0.10 0.20 0.36 rg 0 752 612 40 re f
+1.000 1.000 1.000 rg BT /F2 10 Tf 54.0 766.0 Td (Education ERP Client Completion Report) Tj ET
+1.000 1.000 1.000 rg BT /F1 9 Tf 523.0 766.0 Td (Page 3) Tj ET
+0.10 0.20 0.36 rg 54 690.0 504 34 re f
+1.000 1.000 1.000 rg BT /F2 8.8 Tf 59.0 704.0 Td (Phase) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.8 Tf 117.0 704.0 Td (Completed result) Tj ET
+0.82 0.86 0.90 RG 54 656.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 678.0 Td (P1) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 678.0 Td (Local Frappe stack, site bootstrap and custom app installation verified.) Tj ET
+0.96 0.98 1.00 rg 54 622.0 504 34 re f
+0.82 0.86 0.90 RG 54 622.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 644.0 Td (P2) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 644.0 Td (Pinned app compatibility, ERPNext accounting proof and fake provider adapter contracts completed.) Tj ET
+0.82 0.86 0.90 RG 54 588.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 610.0 Td (P3) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 610.0 Td (Institution, academic, student identity and document foundations completed with local) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 600.0 Td (migration/proof evidence.) Tj ET
+0.96 0.98 1.00 rg 54 554.0 504 34 re f
+0.82 0.86 0.90 RG 54 554.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 576.0 Td (P4) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 576.0 Td (Admissions foundations completed: CRM handoff, application forms, eligibility, merit, seats, offers) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 566.0 Td (and conversion.) Tj ET
+0.82 0.86 0.90 RG 54 520.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 542.0 Td (P5) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 542.0 Td (Fee foundations completed: policy, demand, invoice, payment, receipt, refund, settlement and GL) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 532.0 Td (reconciliation.) Tj ET
+0.96 0.98 1.00 rg 54 486.0 504 34 re f
+0.82 0.86 0.90 RG 54 486.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 508.0 Td (P6) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 508.0 Td (Applicant/guardian PWA and student/guardian portal implemented locally; human) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 498.0 Td (mobile/Hindi/usability checks deferred.) Tj ET
+0.82 0.86 0.90 RG 54 452.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 474.0 Td (P7) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 474.0 Td (Automated tests, security/privacy controls, migration validator, synthetic reconciliation and UAT) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 464.0 Td (scripts completed.) Tj ET
+0.96 0.98 1.00 rg 54 418.0 504 34 re f
+0.82 0.86 0.90 RG 54 418.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 59.0 440.0 Td (P8) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 440.0 Td (Railway-first staging and portable production runtime artifacts started; deployment evidence) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.8 Tf 117.0 430.0 Td (remains incomplete.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 406.0 Td (Business Capabilities Now Proven Locally) Tj ET
+0.80 0.86 0.92 RG 54 393.0 504 0 l S
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 380.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 380.0 Td (A pilot institution can be modeled with hierarchy, academic sessions, program offerings, classes,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 367.0 Td (sections, curriculum, intake and faculty/timetable records.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 352.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 352.0 Td (Applicant and student identity foundations support guardians, consent, immutable identity issuance,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 339.0 Td (duplicate candidates, correction requests and privacy-oriented access logs.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 324.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 324.0 Td (Admissions can move from CRM lead to application draft, eligibility evaluation, merit ranking, seat) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 311.0 Td (offer, confirmation and one-time student/enrollment conversion.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 296.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 296.0 Td (Education fee demand generation reconciles to ERPNext Sales Invoice totals and supports) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 283.0 Td (concessions, scholarship, fines and waiver math in the local proof.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 268.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 268.0 Td (Payment collection proofs show that duplicate webhooks and browser callbacks reuse the same) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 255.0 Td (accounting result instead of creating duplicate Payment Entries.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 240.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 240.0 Td (Refund, settlement import and GL reconciliation proofs demonstrate balanced finance records with) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 227.0 Td (mismatch rejection.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 212.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 212.0 Td (Portal APIs support draft resume tokens, private document scan state, application payment retry) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 199.0 Td (safety, student dues, receipt PDF download and status polling.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 184.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 184.0 Td (Security controls include correlation IDs, masked restricted identifiers, approved privacy exports,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 171.0 Td (private file URL TTL limits and webhook replay/signature checks.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 152.0 Td (Evidence And Verification) Tj ET
+0.80 0.86 0.92 RG 54 139.0 504 0 l S
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 126.0 Td (The evidence base is stored inside the repository under docs/evidence. The important point for the) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 112.0 Td (client is that these are not just screenshots or promises: the local gates include migrations,) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 98.0 Td (repeatable proof functions, automated tests, documentation checks and repository policy checks.) Tj ET
+0.75 0.75 0.75 RG 54 40 504 0 l S
+0.350 0.350 0.350 rg BT /F1 7.5 Tf 54.0 26.0 Td (Prepared from repository evidence and current pre-production checks. No real student data, real payments, or live provider traffic included.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 13 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 6434 >>
+stream
+0.10 0.20 0.36 rg 0 752 612 40 re f
+1.000 1.000 1.000 rg BT /F2 10 Tf 54.0 766.0 Td (Education ERP Client Completion Report) Tj ET
+1.000 1.000 1.000 rg BT /F1 9 Tf 523.0 766.0 Td (Page 4) Tj ET
+0.10 0.20 0.36 rg 54 690.0 504 34 re f
+1.000 1.000 1.000 rg BT /F2 8.4 Tf 59.0 704.0 Td (Evidence group) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.4 Tf 209.0 704.0 Td (Verification highlights) Tj ET
+0.82 0.86 0.90 RG 54 656.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 678.0 Td (Local platform) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 678.0 Td (Docker Compose services, MariaDB health, site migration, app list, HTTP smoke) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 668.0 Td (tests and Desk route smoke tests.) Tj ET
+0.96 0.98 1.00 rg 54 622.0 504 34 re f
+0.82 0.86 0.90 RG 54 622.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 644.0 Td (Accounting and payments) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 644.0 Td (Sales Invoice, Payment Entry, duplicate event reuse, credit note, refund Payment) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 634.0 Td (Entry and GL balance checks.) Tj ET
+0.82 0.86 0.90 RG 54 588.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 610.0 Td (Provider adapters) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 610.0 Td (Fake Razorpay, MSG91, SMTP, R2 and ClamAV success/failure/timeout/idempotency) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 600.0 Td (contracts.) Tj ET
+0.96 0.98 1.00 rg 54 554.0 504 34 re f
+0.82 0.86 0.90 RG 54 554.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 576.0 Td (Domain proofs) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 576.0 Td (Repeatable proof functions for academic masters, identity/documents, admissions,) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 566.0 Td (fees and reconciliation.) Tj ET
+0.82 0.86 0.90 RG 54 520.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 542.0 Td (Automated tests) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 542.0 Td (10 custom-app tests passed locally by P8.1 evidence, including database/cache) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 532.0 Td (readiness and security controls.) Tj ET
+0.96 0.98 1.00 rg 54 486.0 504 34 re f
+0.82 0.86 0.90 RG 54 486.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 59.0 508.0 Td (Migration/UAT) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 508.0 Td (CSV templates, no-write validator, immutable checksums, count/reference/finance) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.4 Tf 209.0 498.0 Td (reconciliation and nine UAT scenarios.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 474.0 Td (Railway Pre-Production Finding) Tj ET
+0.80 0.86 0.92 RG 54 461.0 504 0 l S
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 448.0 Td (The deployed Railway URL was tested during P6.1 preparation:) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 434.0 Td (https://web-production-7580e.up.railway.app/guardian-admission returned HTTP 200. This means the) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 420.0 Td (public guardian route is reachable.) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 402.0 Td (The first real P6.1 flow test failed at draft save. The public context endpoint returned forms:) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 388.0 Td ([], and a correctly encoded synthetic save request returned: No published admission form is) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 374.0 Td (available. This is a pre-production data/configuration blocker, not proof that the whole portal is) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 360.0 Td (broken.) Tj ET
+0.110 0.250 0.430 rg BT /F2 11.5 Tf 54.0 342.0 Td (Required fix before continuing P6.1) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 326.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 326.0 Td (Log in to Frappe Desk on the Railway site as Administrator or an authorized academic/system user.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 311.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 311.0 Td (Create or publish one Admission Application Form Version for the pilot program and academic year.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 296.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 296.0 Td (Use a valid JSON form schema containing a fields list.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 281.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 281.0 Td (Retest the English guardian registration flow after the context endpoint returns at least one) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 268.0 Td (published form.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 249.0 Td (Not Yet Complete) Tj ET
+0.80 0.86 0.92 RG 54 236.0 504 0 l S
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 223.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 223.0 Td (The product is not approved for production, pilot go-live, real provider traffic or real-data) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 210.0 Td (import.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 195.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 195.0 Td (P6.1 human mobile checks are still open: English full flow, Hindi review, offline recovery,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 182.0 Td (document upload from phone, payment callback persistence and low-digital-literacy guardian test.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 167.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 167.0 Td (P7.3 pilot UAT must still be run with named pilot users in actual roles, from UAT-001 through) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 154.0 Td (UAT-009.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 139.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 139.0 Td (A production-sized masked migration rehearsal must still run on an isolated site with count,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 126.0 Td (reference, fee, invoice, payment, outstanding and GL reconciliation sign-off.) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 111.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 111.0 Td (Production Razorpay, MSG91/DLT, Hostinger SMTP, Cloudflare R2, DNS, WAF, TLS, monitoring,) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 98.0 Td (backup/PITR and restore tests are not yet approved or completed.) Tj ET
+0.75 0.75 0.75 RG 54 40 504 0 l S
+0.350 0.350 0.350 rg BT /F1 7.5 Tf 54.0 26.0 Td (Prepared from repository evidence and current pre-production checks. No real student data, real payments, or live provider traffic included.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 13 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4984 >>
+stream
+0.10 0.20 0.36 rg 0 752 612 40 re f
+1.000 1.000 1.000 rg BT /F2 10 Tf 54.0 766.0 Td (Education ERP Client Completion Report) Tj ET
+1.000 1.000 1.000 rg BT /F1 9 Tf 523.0 766.0 Td (Page 5) Tj ET
+0.080 0.200 0.360 rg BT /F2 10 Tf 54.0 724.0 Td (-) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 724.0 Td (Production MFA, external security review, vulnerability/container scans, image signing, registry) Tj ET
+0.120 0.120 0.120 rg BT /F1 9.8 Tf 70.0 711.0 Td (SBOM verification and final release manifest remain open.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 692.0 Td (Recommended Next Steps) Tj ET
+0.80 0.86 0.92 RG 54 679.0 504 0 l S
+0.10 0.20 0.36 rg 54 632.0 504 34 re f
+1.000 1.000 1.000 rg BT /F2 8.0 Tf 59.0 646.0 Td (Priority) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.0 Tf 105.0 646.0 Td (Action) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.0 Tf 355.0 646.0 Td (Owner / evidence needed) Tj ET
+0.82 0.86 0.90 RG 54 598.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 620.0 Td (1) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 620.0 Td (Fix Railway seed data by publishing one Admission) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 610.0 Td (Application Form Version.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 620.0 Td (Product/Academic admin; screenshot and API) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 610.0 Td (context response.) Tj ET
+0.96 0.98 1.00 rg 54 564.0 504 34 re f
+0.82 0.86 0.90 RG 54 564.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 586.0 Td (2) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 586.0 Td (Resume P6.1 guardian PWA testing end to end at 320px, 375px) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 576.0 Td (and 390px plus a real phone.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 586.0 Td (QA/Product; dated evidence file with screenshots) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 576.0 Td (and defects.) Tj ET
+0.82 0.86 0.90 RG 54 530.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 552.0 Td (3) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 552.0 Td (Close Hindi text defects and upload/payment edge cases found) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 542.0 Td (during P6.1.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 552.0 Td (Engineering/QA; retest evidence.) Tj ET
+0.96 0.98 1.00 rg 54 496.0 504 34 re f
+0.82 0.86 0.90 RG 54 496.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 518.0 Td (4) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 518.0 Td (Run pilot UAT-001 through UAT-009 with named users in their) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 508.0 Td (actual roles.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 518.0 Td (Institution/Product/Finance/Security; signed) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 508.0 Td (acceptance.) Tj ET
+0.82 0.86 0.90 RG 54 462.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 484.0 Td (5) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 484.0 Td (Run masked production-sized migration rehearsal on isolated) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 474.0 Td (staging.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 484.0 Td (Migration/Finance; checksum, count, reference and) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 474.0 Td (GL reconciliation.) Tj ET
+0.96 0.98 1.00 rg 54 428.0 504 34 re f
+0.82 0.86 0.90 RG 54 428.0 504 34 re S
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 59.0 450.0 Td (6) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 450.0 Td (Complete P8.1 staging hardening: image, SBOM, Railway) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 105.0 440.0 Td (services, backups, monitoring and restore test.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.0 Tf 355.0 450.0 Td (DevOps; registry/deploy/restore evidence.) Tj ET
+0.060 0.160 0.300 rg BT /F2 15 Tf 54.0 416.0 Td (Client Decision Summary) Tj ET
+0.80 0.86 0.92 RG 54 403.0 504 0 l S
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 390.0 Td (The completed work supports a clear client message: the project has a substantial verified) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 376.0 Td (foundation and many core ERP flows are implemented locally with synthetic proof data. The correct) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 362.0 Td (next commercial milestone is not production launch; it is pre-production stabilization and user) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 348.0 Td (acceptance on Railway/staging.) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 330.0 Td (Recommended client-facing position: approve continuation into pre-production UAT after the Railway) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 316.0 Td (seed-data blocker is fixed, while keeping real provider traffic and real data blocked until all) Tj ET
+0.120 0.120 0.120 rg BT /F1 10.2 Tf 54.0 302.0 Td (release rules and sign-offs are complete.) Tj ET
+0.75 0.75 0.75 RG 54 40 504 0 l S
+0.350 0.350 0.350 rg BT /F1 7.5 Tf 54.0 26.0 Td (Prepared from repository evidence and current pre-production checks. No real student data, real payments, or live provider traffic included.) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 13 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R] /Count 5 >>
+endobj
+14 0 obj
+<< /Type /Catalog /Pages 13 0 R >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000003590 00000 n 
+0000003727 00000 n 
+0000009251 00000 n 
+0000009388 00000 n 
+0000016004 00000 n 
+0000016141 00000 n 
+0000022627 00000 n 
+0000022765 00000 n 
+0000027802 00000 n 
+0000027941 00000 n 
+0000028025 00000 n 
+trailer << /Size 15 /Root 14 0 R >>
+startxref
+28076
+%%EOF
