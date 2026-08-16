@@ -1,0 +1,11 @@
+{
+  "ts": 1786875908.7427576,
+  "iso": "2026-08-16T15:55:08",
+  "event": "post_tool",
+  "channel": "hook",
+  "ok": true,
+  "detail": "memory=None imp=0.00",
+  "project_id": "visha-90fc8883",
+  "cwd": "C:\\Users\\visha\\Downloads\\education-erp-project",
+  "pid": 32684
+}
