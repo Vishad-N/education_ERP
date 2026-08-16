@@ -1,0 +1,30 @@
+{
+  "bucket": "education-erp-staging-private",
+  "location_hint": "enam",
+  "public_access": false,
+  "versioning": true,
+  "default_encryption": "SSE-R2",
+  "prefixes": {
+    "quarantine": "quarantine/",
+    "verified": "verified/",
+    "exports": "exports/"
+  },
+  "lifecycle": [
+    {
+      "prefix": "quarantine/",
+      "abort_incomplete_multipart_days": 1,
+      "expire_days": 14
+    },
+    {
+      "prefix": "exports/",
+      "expire_days": 30
+    }
+  ],
+  "application_variables": {
+    "OBJECT_STORAGE_PROVIDER": "r2",
+    "S3_ENDPOINT": "https://<accountid>.r2.cloudflarestorage.com",
+    "S3_BUCKET": "education-erp-staging-private",
+    "S3_ACCESS_KEY_ID": "replace-through-managed-secret-store",
+    "S3_SECRET_ACCESS_KEY": "replace-through-managed-secret-store"
+  }
+}

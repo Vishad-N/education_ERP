@@ -8,13 +8,13 @@ This document distinguishes files that currently exist from capabilities that ar
 
 | Field | Current value |
 |---|---|
-| Product state | Phase 7 local gates are complete; P8.1 portable staging automation includes a Railway Git-snapshot fix but requires a fresh image build before registry publication or Railway deployment; human UAT, production integrations and release-candidate security review are deferred |
-| Roadmap state | `P8.1` infrastructure and deployment automation is in progress under `PROJECT_IMPLEMENTATION_PLAN.md` |
+| Product state | Phase 8 staging gates are complete; Railway web, data services and combined workers are live; human UAT and production signatures are deferred |
+| Roadmap state | `P9.1` controlled pilot launch is the next executable step |
 | Production readiness | Not production ready |
 | Upstream source repositories | Pulled into `apps/` at pinned commits for local reference and later Bench setup |
 | Custom Frappe app | Generated app files exist and install on the local `erp.localhost` site |
 | Business modules | P3.1 institution/academic foundations, P3.2 student identity/document foundations, Phase 4 admissions foundations through conversion and Phase 5 fee/accounting foundations are locally implemented and proven; P6.1 portal implementation is complete with human acceptance deferred |
-| Production infrastructure | Not provisioned; Railway/Hostinger/AWS deployment artifacts exist, but the current Railway-compatible Dockerfile requires a fresh attested image build before external deployment |
+| Production infrastructure | Not production ready. Railway staging `web`, MariaDB and Redis are running; Hostinger/AWS remain templates only |
 | Real integrations | Not implemented or approved |
 | Automated product tests | 10 `university_erp` tests pass on `p21.localhost`, including database/cache readiness; browser and performance suites remain open |
 
@@ -108,10 +108,10 @@ This document distinguishes files that currently exist from capabilities that ar
 - P7.2 local gate is complete: export approval/privilege, retention expiry and audit correlation controls passed in the 8-test custom-app suite. Evidence: `docs/evidence/phase-7/p7.2/completion.md`.
 - P7.3 initial slice adds no-write CSV trial-load validation, synthetic migration templates and a role-based UAT script. The supplied templates validate with 3 rows total and INR 1,000.00 opening balance. Evidence: `docs/evidence/phase-7/p7.3/start.md`.
 - P7.3 local gate is complete with checksum-backed count/reference/finance reconciliation; human UAT and production-sized migration rehearsal remain in the mandatory pre-production checklist. Evidence: `docs/evidence/phase-7/p7.3/completion.md`.
-- P8.1 adds Railway service configs, one-shot managed-database bootstrap, portable Hostinger Compose, AWS ECS baseline, runtime role entrypoint, managed-variable template, health probes and an attested local image. WebSocket port propagation and worker queue isolation pass disposable Linux runtime checks. No external infrastructure is provisioned. Evidence: `docs/evidence/phase-8/p8.1/start.md`.
+- P8.1 adds Railway service configs, one-shot managed-database bootstrap, portable Hostinger Compose, AWS ECS baseline, runtime role entrypoint, managed-variable template, health probes and an attested local image. Railway `web` is live and ready. Dedicated workers are blocked by the Railway free-plan service cap; a combined scheduler/worker deploy is building. Evidence: `docs/evidence/phase-8/p8.1/start.md` and `docs/evidence/phase-8/p8.1/progress-2026-08-16.md`.
 - `bench build --app university_erp` links assets but fails when running the app build inside the Linux container because the mounted `node_modules` tree lacks Rollup's Linux optional native package.
 - Browser, performance, vulnerability, image-signing and deeper security tests remain incomplete; the native image SBOM/provenance attestation, initial portal API contract tests and local migration gate pass.
-- Initial multi-provider deployment configuration and an attested immutable local image exist; registry publication, Cloudflare/R2, backup/PITR/restore, monitoring and actual staging deployment remain incomplete.
+- Initial multi-provider deployment configuration exists and Railway staging HTTP is live; registry publication, Cloudflare/R2 credentials, off-host backup/PITR and a completed restore proof remain incomplete.
 - No production Razorpay, MSG91/DLT, Hostinger SMTP or Cloudflare R2 configuration is approved.
 
 ## Interpretation rules for agents
@@ -125,4 +125,4 @@ This document distinguishes files that currently exist from capabilities that ar
 
 ## Immediate next action
 
-Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P8.1`. Publish the attested image, verify its registry SBOM, add edge/storage/backup/monitoring automation and deploy Railway staging after an authenticated project and managed variables are available. Human portal acceptance, pilot UAT, production-sized migration rehearsal, production MFA, external security review and provider security scans remain mandatory pre-production items. Live credentials, production infrastructure, real provider traffic and production deployment remain blocked until explicit approval at later phases.
+Continue `PROJECT_IMPLEMENTATION_PLAN.md` at `P9.1` only after the user authorizes pilot data, provider credentials, or production-like cutover. Human UAT, Cloudflare/R2, real payments/SMS/email and a single published image digest remain pre-production.

@@ -175,6 +175,16 @@ PY
   migrate)
     exec bench --site "${site_name}" migrate
     ;;
+  combined)
+    # Constrained staging only: one replica runs the scheduler and all queues.
+    # Split back to dedicated services before production or peak admissions.
+    bench schedule &
+    scheduler_pid=$!
+    bench worker --queue short,default,long &
+    worker_pid=$!
+    trap 'kill "${scheduler_pid}" "${worker_pid}" 2>/dev/null || true' EXIT
+    wait "${scheduler_pid}" "${worker_pid}"
+    ;;
   *)
     echo "Unsupported SERVICE_ROLE: ${role}" >&2
     exit 64

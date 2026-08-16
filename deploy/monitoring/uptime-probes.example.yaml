@@ -1,0 +1,21 @@
+service: education-erp-staging
+interval_seconds: 60
+probes:
+  - name: live
+    url: https://web-production-7580e.up.railway.app/api/method/university_erp.api.health.live
+    method: GET
+    expect_status: 200
+    expect_body: '"status":"ok"'
+  - name: ready
+    url: https://web-production-7580e.up.railway.app/api/method/university_erp.api.health.ready
+    method: GET
+    expect_status: 200
+    expect_body: '"status":"ready"'
+  - name: login
+    url: https://web-production-7580e.up.railway.app/login
+    method: GET
+    expect_status: 200
+  - name: guardian-portal
+    url: https://web-production-7580e.up.railway.app/guardian-admission
+    method: GET
+    expect_status: 200

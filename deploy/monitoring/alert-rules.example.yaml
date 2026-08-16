@@ -1,0 +1,22 @@
+alerts:
+  - id: site-unavailable
+    condition: live or ready probe fails for 3 consecutive intervals
+    severity: page
+    runbook: docs/operations/runbooks.md
+  - id: web-crash-loop
+    condition: web replica restart count exceeds 3 in 10 minutes
+    severity: page
+    runbook: docs/operations/runbooks.md
+  - id: scheduler-missing
+    condition: scheduler replica count is not exactly 1
+    severity: page
+    runbook: docs/operations/runbooks.md
+  - id: backup-stale
+    condition: newest successful backup checksum is older than 26 hours
+    severity: ticket
+    runbook: docs/operations/backup-and-dr.md
+  - id: payment-webhook-failure
+    condition: payment webhook signature or posting errors spike
+    severity: page
+    runbook: docs/operations/runbooks.md
+    note: Fake adapters only until real provider traffic is approved

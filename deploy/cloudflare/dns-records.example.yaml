@@ -1,0 +1,17 @@
+zone: staging.example.invalid
+plan: proxied
+ssl_mode: full_strict
+origin: web-production-7580e.up.railway.app
+records:
+  - name: "@"
+    type: CNAME
+    content: web-production-7580e.up.railway.app
+    proxied: true
+  - name: www
+    type: CNAME
+    content: staging.example.invalid
+    proxied: true
+notes:
+  - Railway generates TLS for *.up.railway.app; custom hostnames need Cloudflare Full (strict).
+  - Do not flatten to a public database or Redis hostname.
+  - Keep SITE_NAME aligned with the public hostname after DNS cutover.

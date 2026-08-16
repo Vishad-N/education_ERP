@@ -1,0 +1,7 @@
+[build]
+dockerfilePath = "docker/backup.Dockerfile"
+
+[deploy]
+startCommand = "/usr/local/bin/backup-mariadb.sh"
+restartPolicyType = "NEVER"
+cronSchedule = "0 2 * * *"

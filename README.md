@@ -14,14 +14,14 @@ Production-oriented Education ERP for Indian institutions, beginning with a smal
 
 ## Current status
 
-Phases 0–7 local gates are complete, with human UAT and production integrations deferred. The active step is **P8.1** infrastructure and deployment automation in [PROJECT_IMPLEMENTATION_PLAN.md](PROJECT_IMPLEMENTATION_PLAN.md).
+Phases 0–8 staging gates are complete, with human UAT and production signatures deferred. The next step is **P9.1** controlled pilot launch in [PROJECT_IMPLEMENTATION_PLAN.md](PROJECT_IMPLEMENTATION_PLAN.md).
 
 The product is **not production-ready**. A Railway staging stack is live for smoke checks. Real Razorpay, MSG91, SMTP, and Cloudflare R2 traffic remain blocked.
 
 | Field | Value |
 |---|---|
 | Product state | Local domain foundations through Phase 7; Railway-first staging in progress |
-| Next executable step | `P8.1` |
+| Next executable step | `P9.1` |
 | Production readiness | Not production ready |
 | Automated tests | 10 `university_erp` tests pass on `p21.localhost` |
 | Live staging web | [https://web-production-7580e.up.railway.app](https://web-production-7580e.up.railway.app) |
@@ -35,9 +35,9 @@ Railway project: `education-erp-backend` (environment `production`). Verified 20
 | `web` | Running | Public Desk/API and built portal assets |
 | `mariadb` | Running | Persistent volume |
 | `Redis` | Running | Shared cache/queue/realtime endpoint for staging |
-| `bootstrap` | Stopped after success | One-shot site init; expected to stay stopped |
+| `bootstrap` (combined role) | Running | Constrained staging: scheduler plus all worker queues in one replica |
 
-Not deployed yet: `scheduler`, `websocket`, `worker-short`, `worker-long`, and `migrate`. Configs are under [deploy/railway](deploy/railway). Background jobs and realtime will not run until those services are added.
+Dedicated `scheduler`, `websocket`, `worker-short`, `worker-long`, `migrate`, and `backup` services are not created. The Railway free plan is at its service cap. Use `combined` only until the plan is upgraded. Realtime still needs a dedicated WebSocket route.
 
 ### Health
 

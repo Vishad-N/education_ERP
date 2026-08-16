@@ -1,0 +1,30 @@
+zone: staging.example.invalid
+rules:
+  - id: login
+    path: /api/method/login
+    period_seconds: 60
+    requests: 20
+    action: challenge
+  - id: public-application
+    path: /api/method/university_erp.api.v1
+    period_seconds: 60
+    requests: 60
+    action: managed_challenge
+  - id: file-upload
+    path: /api/method/upload_file
+    period_seconds: 60
+    requests: 10
+    action: block
+  - id: payment-webhook
+    path: /api/method/university_erp.api.v1.payments
+    period_seconds: 10
+    requests: 100
+    action: log
+  - id: health
+    path: /api/method/university_erp.api.health
+    period_seconds: 10
+    requests: 30
+    action: allow
+notes:
+  - Payment webhooks must not be challenged.
+  - Health probes may come from Railway Metal over IPv6.

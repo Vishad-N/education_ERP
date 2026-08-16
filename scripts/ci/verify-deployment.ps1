@@ -10,10 +10,27 @@ $requiredPaths = @(
   "deploy/railway/worker-short.railway.toml",
   "deploy/railway/worker-long.railway.toml",
   "deploy/railway/migrate.railway.toml",
+  "deploy/railway/backup.railway.toml",
+  "deploy/railway/combined.railway.toml",
   "deploy/compose/staging.compose.yaml",
   "deploy/aws/ecs-task-definition.template.json",
   "deploy/env/staging.env.example",
-  "scripts/deploy/start-service.sh"
+  "deploy/cloudflare/README.md",
+  "deploy/cloudflare/dns-records.example.yaml",
+  "deploy/cloudflare/waf-rate-limits.example.yaml",
+  "deploy/cloudflare/r2-bucket.example.json",
+  "deploy/monitoring/README.md",
+  "deploy/monitoring/uptime-probes.example.yaml",
+  "deploy/monitoring/alert-rules.example.yaml",
+  "scripts/deploy/start-service.sh",
+  "scripts/operations/backup-mariadb.sh",
+  "scripts/operations/restore-mariadb.sh",
+  "scripts/operations/restore-proof.py",
+  "docker/backup.Dockerfile",
+  "docs/operations/rollback-and-forward-fix.md",
+  "docs/operations/hypercare-plan.md",
+  "docs/releases/p8-staging-manifest.md",
+  "docs/releases/p8-source.cdx.json"
 )
 
 foreach ($path in $requiredPaths) {
@@ -33,7 +50,9 @@ $requiredEntrypointPatterns = @(
   'web_bind="\[::\]:\$\{PORT:-8000\}"',
   'for child in \("logs", "locks", "private", "public"\):',
   'bench worker --queue short,default',
-  'bench worker --queue long'
+  'bench worker --queue long',
+  'combined\)',
+  'bench worker --queue short,default,long'
 )
 
 foreach ($pattern in $requiredEntrypointPatterns) {

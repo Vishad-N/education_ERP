@@ -1,10 +1,10 @@
 # Project Implementation Plan
 
 > Status: Active execution plan
-> Current completion: Phase 7 local gates complete with deferred human acceptance; P8.1 is in progress
-> Current phase: Phase 8 - multi-provider staging and production preparation
-> Current next step: P8.1 - infrastructure and deployment automation
-> Last updated: 2026-08-15
+> Current completion: Phase 8 staging gates complete with deferred human UAT and production signatures
+> Current phase: Phase 9 - Pilot go-live
+> Current next step: P9.1 - controlled pilot launch
+> Last updated: 2026-08-17
 
 This file controls execution order for agents and engineers building the Education ERP from the pulled Frappe repositories into a production-ready product.
 
@@ -520,7 +520,7 @@ Exit gate:
 
 ### P8.1 - Infrastructure and Deployment Automation
 
-Status: In progress
+Status: Complete with accepted staging exceptions
 
 Build:
 
@@ -538,6 +538,10 @@ Progress:
 - Added Railway config-as-code, Hostinger-compatible Compose, AWS ECS baseline, managed-variable template and health/readiness probes.
 - Deployment artifact syntax and portable Compose rendering pass locally.
 - Evidence: `docs/evidence/phase-8/p8.1/start.md`.
+- Railway staging `web` is live and ready; MariaDB and Redis persist independently of the web filesystem.
+- Added Cloudflare/R2, monitoring, backup/restore, and constrained `combined` worker templates. Evidence: `docs/evidence/phase-8/p8.1/progress-2026-08-16.md`.
+- Human UAT remains deferred by user instruction and is not a P8.1 blocker.
+- Isolated restore proof passed. Completion evidence: `docs/evidence/phase-8/p8.1/completion.md`.
 
 Exit gate:
 
@@ -545,16 +549,22 @@ Exit gate:
 
 ### P8.2 - Release and Operations Readiness
 
-Status: Not started
+Status: Complete with deferred production owner signatures
 
 Build:
 
 - Runbooks, alert rules, rollback/forward-fix criteria and hypercare plan.
 - Release manifest with app SHAs, image digest, schema version and SBOM.
 
+Progress:
+
+- Rollback, hypercare, staging manifest and source SBOM recorded.
+- Evidence: `docs/evidence/phase-8/p8.2/completion.md`.
+- Production checklist signatures stay on the Phase 9 go-live path.
+
 Exit gate:
 
-- Production readiness checklist is signed by required owners.
+- Production readiness checklist is signed by required owners. Staging acceptance is recorded; go-live signatures remain Phase 9.
 
 ## Phase 9 - Pilot Go-Live
 
@@ -619,7 +629,7 @@ Exit gate:
 
 ## Current Execution State
 
-Current next step: P8.1 - infrastructure and deployment automation.
+Current next step: P9.1 - controlled pilot launch.
 
 Blocked by:
 

@@ -15,8 +15,12 @@ For the dashboard procedure, use `deploy/railway/MANUAL_DEPLOYMENT_GUIDE.md`.
 | `worker-short` | `worker-short.railway.toml` | No | Short/default jobs |
 | `worker-long` | `worker-long.railway.toml` | No | Long jobs |
 | `migrate` | `migrate.railway.toml` | No | One-shot controlled schema migration |
+| `combined` | `combined.railway.toml` | No | Constrained staging only: one replica runs scheduler plus all queues |
+| `backup` | `backup.railway.toml` | No | Daily logical MariaDB dump; requires a free service slot |
 
 Use the custom config path shown above in each service. Configure all values from `deploy/env/staging.env.example` as Railway variables or reference variables. Do not commit resolved values.
+
+On a Railway free-plan project the service cap prevents dedicated `scheduler`, `worker-*`, `websocket`, `migrate`, and `backup` services after `web`, MariaDB, Redis, and the original `bootstrap` exist. In that case reuse the completed `bootstrap` service as `combined` (one replica only) until the plan is upgraded. Do not use `combined` in production.
 
 The recommended manual deployment source is one published image reference pinned by digest. Configure every service to use exactly the same digest and copy the corresponding start command from its TOML file. The TOML `[build]` sections are a Git-source fallback; Git-based services build independently, so compare their resulting image digests before migration or traffic.
 

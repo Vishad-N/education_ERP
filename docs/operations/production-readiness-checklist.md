@@ -2,6 +2,18 @@
 
 Every checked item links to evidence, owner, release/image digest and approval date. `Not applicable` requires a recorded reason and approver.
 
+## P8 staging acceptance
+
+Date: 2026-08-17. This section accepts Railway staging only. It does not approve production go-live.
+
+- [x] Railway `web` deploys and answers live/ready probes. Evidence: `docs/evidence/phase-8/p8.1/completion.md`
+- [x] Combined scheduler/worker replica is running. Evidence: Railway deployment `71c6041d-f258-4317-8a16-6df0f94b4840`
+- [x] Isolated restore proof passed for 33 tables against a 899-table site. Evidence: `docs/evidence/phase-8/p8.1/completion.md`
+- [x] App SHAs, Railway image digests and a source SBOM are recorded. Evidence: `docs/releases/p8-staging-manifest.md`
+- [x] Rollback, hypercare, runbooks and alert templates exist. Evidence: `docs/operations/rollback-and-forward-fix.md`, `docs/operations/hypercare-plan.md`
+- [x] Human UAT deferred by user instruction. Tracker: `docs/quality/human-testing-readme.md`
+- [x] Production signatures, real providers, Cloudflare/R2 and a signed registry image remain Phase 9.
+
 ## Product and requirements
 
 - [ ] All Phase-1 requirements are Ready/Implemented/Verified/Accepted as required by release scope.
