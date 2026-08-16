@@ -38,7 +38,7 @@ The recommended manual deployment source is one published image reference pinned
 7. Expose only web and the required WebSocket route.
 8. Verify readiness, portals, queues, payment fake mode, private files, backup and restore.
 
-Railway health checks require the web process to bind to `PORT` on IPv6 (`[::]`) because Metal probes do not use IPv4 `0.0.0.0`. `start-service.sh` does this when `RAILWAY_ENVIRONMENT` is present. The WSGI factory pins `SITE_NAME` so probes that omit the public Host still reach the site. The readiness endpoint checks both MariaDB and Redis.
+Railway health checks require the web process to bind to `PORT` on IPv6 (`[::]`) because Metal probes do not use IPv4 `0.0.0.0`. `start-service.sh` does this when `RAILWAY_ENVIRONMENT` is present. The WSGI factory pins `SITE_NAME` so probes that omit the public Host still reach the site. The start script also creates `sites/$SITE_NAME/logs` (and `locks`, `private`, `public`) because Frappe opens `logs/database.log` on the first request and the web role does not run `bench new-site`. The readiness endpoint checks both MariaDB and Redis.
 
 Railway also assigns `PORT` to the WebSocket service. The runtime entrypoint writes that value into Frappe's `socketio_port` configuration before Node starts. A same-origin `/socket.io` reverse-proxy route is still required for browser realtime; keep the WebSocket service private until that route is configured.
 

@@ -1,0 +1,726 @@
+2026-08-16T11:12:23.049654227Z [inf]  Starting Container
+2026-08-16T11:12:23.685140206Z [err]    return success
+2026-08-16T11:12:23.685158806Z [inf]  Startup preflight: Redis connection succeeded
+2026-08-16T11:12:23.685168076Z [inf]  Starting web on [::]:8080
+2026-08-16T11:12:23.685173116Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/posthog/consumer.py:92: SyntaxWarning: 'return' in a 'finally' block
+2026-08-16T11:12:23.685183096Z [inf]  Startup preflight: MariaDB connection succeeded
+2026-08-16T11:12:24.773002461Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/whoosh/analysis/filters.py:56: SyntaxWarning: "\w" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\w"? A raw string is also an option.
+2026-08-16T11:12:24.773006921Z [err]    \w+([:.]?\w+)*         # word characters, with opt. internal colons/dots
+2026-08-16T11:12:24.773010301Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/whoosh/analysis/filters.py:158: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+2026-08-16T11:12:24.773014011Z [err]    >>> ana = RegexTokenizer(r"\S+") | TeeFilter(f1, f2)
+2026-08-16T11:12:24.786642751Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/whoosh/analysis/intraword.py:49: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+2026-08-16T11:12:24.786645221Z [err]    >>> analyzer = RegexTokenizer(r"\S+") | cwf
+2026-08-16T11:12:24.786647951Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/whoosh/analysis/intraword.py:275: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+2026-08-16T11:12:24.786650611Z [err]    >>> analyzer = RegexTokenizer(r"\S+") | iwf | LowercaseFilter()
+2026-08-16T11:12:24.786653511Z [err]  /home/frappe/frappe-bench/env/lib/python3.14/site-packages/whoosh/analysis/intraword.py:285: SyntaxWarning: "\|" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\|"? A raw string is also an option.
+2026-08-16T11:12:24.786656261Z [err]    def __init__(self, delims=u("-_'\"()!@#$%^&*[]{}<>\|;:,./?`~=+"),
+2026-08-16T11:12:24.903027090Z [err]  [2026-08-16 11:12:24 +0000] [1] [INFO] Starting gunicorn 23.0.0
+2026-08-16T11:12:24.903795652Z [err]  [2026-08-16 11:12:24 +0000] [1] [INFO] Listening at: http://[::]:8080 (1)
+2026-08-16T11:12:24.903799712Z [err]  [2026-08-16 11:12:24 +0000] [1] [INFO] Using worker: gthread
+2026-08-16T11:12:24.967583943Z [err]  [2026-08-16 11:12:24 +0000] [6] [INFO] Booting worker with pid: 6
+2026-08-16T11:12:24.998306580Z [err]  [2026-08-16 11:12:24 +0000] [7] [INFO] Booting worker with pid: 7
+2026-08-16T11:12:25.595834870Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:25.595845949Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+2026-08-16T11:12:25.595850979Z [err]      init_request(request)
+2026-08-16T11:12:25.595855739Z [err]      ~~~~~~~~~~~~^^^^^^^^^
+2026-08-16T11:12:25.595860949Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 184, in init_request
+2026-08-16T11:12:25.595865639Z [err]      frappe.init(site, sites_path=_sites_path, force=True)
+2026-08-16T11:12:25.595870029Z [err]      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.595879119Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 210, in init
+2026-08-16T11:12:25.595883139Z [err]      setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+2026-08-16T11:12:25.595887349Z [err]      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.595891799Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1038, in setup_module_map
+2026-08-16T11:12:25.595909579Z [err]  [2026-08-16 11:12:25 +0000] [6] [ERROR] Socket error processing request.
+2026-08-16T11:12:25.595913419Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:25.595917539Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+2026-08-16T11:12:25.595921169Z [err]      return _cache[func][args_key]
+2026-08-16T11:12:25.595924459Z [err]             ~~~~~~~~~~~~^^^^^^^^^^
+2026-08-16T11:12:25.595928549Z [err]  KeyError: ((), <object object at 0x7f3bbae79480>, frozenset({('_ensure_on_bench', True)}))
+2026-08-16T11:12:25.595932529Z [err]  
+2026-08-16T11:12:25.595936719Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:25.595940849Z [err]  
+2026-08-16T11:12:25.596270726Z [err]      apps = get_installed_apps(_ensure_on_bench=True)
+2026-08-16T11:12:25.596275316Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+2026-08-16T11:12:25.596279686Z [err]      return_val = func(*args, **kwargs)
+2026-08-16T11:12:25.596284286Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+2026-08-16T11:12:25.596288806Z [err]      connect()
+2026-08-16T11:12:25.596293326Z [err]      ~~~~~~~^^
+2026-08-16T11:12:25.596297776Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 256, in connect
+2026-08-16T11:12:25.596301646Z [err]      local.db = get_db(
+2026-08-16T11:12:25.596305496Z [err]                 ~~~~~~^
+2026-08-16T11:12:25.596309766Z [err]      	socket=conf.db_socket,
+2026-08-16T11:12:25.596314156Z [err]       ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596318396Z [err]      ...<4 lines>...
+2026-08-16T11:12:25.596322425Z [err]      	cur_db_name=db_name_,
+2026-08-16T11:12:25.596326485Z [err]       ^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596331055Z [err]      )
+2026-08-16T11:12:25.596335285Z [err]      ^
+2026-08-16T11:12:25.596339215Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/__init__.py", line 81, in get_db
+2026-08-16T11:12:25.596343625Z [err]      return frappe.database.mariadb.mysqlclient.MariaDBDatabase(
+2026-08-16T11:12:25.596349295Z [err]             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-16T11:12:25.596353525Z [err]      	socket, host, user, password, port, cur_db_name
+2026-08-16T11:12:25.596358195Z [err]       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596362245Z [err]      )
+2026-08-16T11:12:25.596366825Z [err]      ^
+2026-08-16T11:12:25.596371085Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 126, in __init__
+2026-08-16T11:12:25.596772641Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:25.596773451Z [err]      	module=module,
+2026-08-16T11:12:25.596780061Z [err]      self.logger = frappe.logger("database")
+2026-08-16T11:12:25.596780391Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:25.596781731Z [err]      ...<4 lines>...
+2026-08-16T11:12:25.596789301Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596791371Z [err]                    ~~~~~~~~~~~~~^^^^^^^^^^^^
+2026-08-16T11:12:25.596792711Z [err]      	file_count=file_count,
+2026-08-16T11:12:25.596797291Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:25.596799681Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:25.596801651Z [err]      )
+2026-08-16T11:12:25.596804330Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596809600Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:25.596811780Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:25.596812080Z [err]      return get_logger(
+2026-08-16T11:12:25.596817260Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:25.596818980Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:25.596821540Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:25.596823400Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.596825050Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:25.597660893Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:25.597668303Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 300, in handle
+2026-08-16T11:12:25.597669193Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:25.597675432Z [err]      keepalive = self.handle_request(req, conn)
+2026-08-16T11:12:25.597680682Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:25.597682492Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 372, in handle_request
+2026-08-16T11:12:25.597691682Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:25.597691822Z [err]      util.reraise(*sys.exc_info())
+2026-08-16T11:12:25.597698852Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:25.597702852Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:25.597703252Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:25.597706282Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.597707812Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:25.597710022Z [err]                                   errors=errors)
+2026-08-16T11:12:25.597711672Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/database.log'
+2026-08-16T11:12:25.597714092Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:25.597715602Z [err]  
+2026-08-16T11:12:25.597719132Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:25.597723592Z [err]  
+2026-08-16T11:12:25.598435525Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 352, in handle_request
+2026-08-16T11:12:25.598441894Z [err]      resp = f(*args[:-2] + (request,))
+2026-08-16T11:12:25.598443594Z [err]      respiter = self.wsgi(environ, resp.start_response)
+2026-08-16T11:12:25.598450304Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:25.598451064Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/middlewares.py", line 31, in __call__
+2026-08-16T11:12:25.598456404Z [err]      return super().__call__(environ, patch_start_response)
+2026-08-16T11:12:25.598460844Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.598463564Z [err]             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.598467494Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:25.598470224Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:25.598472754Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.598475594Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 84, in application
+2026-08-16T11:12:25.598479014Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:25.598482444Z [err]      app(environ, start_response),
+2026-08-16T11:12:25.598484684Z [err]      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.598488054Z [err]      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.598489594Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/util.py", line 636, in reraise
+2026-08-16T11:12:25.598492654Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/wrappers/request.py", line 193, in application
+2026-08-16T11:12:25.598495634Z [err]      raise value
+2026-08-16T11:12:25.599192108Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:25.599197678Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/error.py", line 122, in log_error_snapshot
+2026-08-16T11:12:25.599198258Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:25.599205308Z [err]      logger = frappe.logger(with_more_info=True)
+2026-08-16T11:12:25.599209968Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:25.599213467Z [err]      return get_logger(
+2026-08-16T11:12:25.599217167Z [err]      	module=module,
+2026-08-16T11:12:25.599220667Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 145, in application
+2026-08-16T11:12:25.599221347Z [err]      ...<4 lines>...
+2026-08-16T11:12:25.599223867Z [err]      response = e.get_response(request.environ) if isinstance(e, HTTPException) else handle_exception(e)
+2026-08-16T11:12:25.599226467Z [err]      	file_count=file_count,
+2026-08-16T11:12:25.599227047Z [err]                                                                                      ~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:25.599229757Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/permissions.py", line 930, in wrapper
+2026-08-16T11:12:25.599230847Z [err]      )
+2026-08-16T11:12:25.599232457Z [err]      return fn(e, *args, **kwargs)
+2026-08-16T11:12:25.599235187Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:25.599235437Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 413, in handle_exception
+2026-08-16T11:12:25.599238427Z [err]      log_error_snapshot(e)
+2026-08-16T11:12:25.599239187Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:25.599241297Z [err]      ~~~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:25.599826901Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:25.599828561Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:25.599829881Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:25.599833251Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:25.599837882Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:25.599842282Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:25.599843352Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.599843392Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:25.599845002Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.599847632Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:25.599853502Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.599855572Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:25.599856722Z [err]                                   errors=errors)
+2026-08-16T11:12:25.599860012Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:25.599864972Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:25.599868062Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:25.599868432Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:25.599872972Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:25.600545075Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/frappe.log'
+2026-08-16T11:12:26.736467345Z [err]      frappe.init(site, sites_path=_sites_path, force=True)
+2026-08-16T11:12:26.736473775Z [err]      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.736478375Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 210, in init
+2026-08-16T11:12:26.736482025Z [err]  [2026-08-16 11:12:26 +0000] [7] [ERROR] Socket error processing request.
+2026-08-16T11:12:26.736485905Z [err]      setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+2026-08-16T11:12:26.736488845Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:26.736493725Z [err]      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.736496535Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+2026-08-16T11:12:26.736501295Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1038, in setup_module_map
+2026-08-16T11:12:26.736503855Z [err]      return _cache[func][args_key]
+2026-08-16T11:12:26.736507734Z [err]             ~~~~~~~~~~~~^^^^^^^^^^
+2026-08-16T11:12:26.736510444Z [err]  KeyError: ((), <object object at 0x7f3bbae79480>, frozenset({('_ensure_on_bench', True)}))
+2026-08-16T11:12:26.736513694Z [err]  
+2026-08-16T11:12:26.736516464Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:26.736519124Z [err]  
+2026-08-16T11:12:26.736521994Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:26.736524434Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+2026-08-16T11:12:26.736527684Z [err]      init_request(request)
+2026-08-16T11:12:26.736530964Z [err]      ~~~~~~~~~~~~^^^^^^^^^
+2026-08-16T11:12:26.736533584Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 184, in init_request
+2026-08-16T11:12:26.737519645Z [err]      apps = get_installed_apps(_ensure_on_bench=True)
+2026-08-16T11:12:26.737524085Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+2026-08-16T11:12:26.737528205Z [err]      return_val = func(*args, **kwargs)
+2026-08-16T11:12:26.737531275Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+2026-08-16T11:12:26.737534595Z [err]      connect()
+2026-08-16T11:12:26.737538795Z [err]      ~~~~~~~^^
+2026-08-16T11:12:26.737542215Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 256, in connect
+2026-08-16T11:12:26.737545875Z [err]      local.db = get_db(
+2026-08-16T11:12:26.737549505Z [err]                 ~~~~~~^
+2026-08-16T11:12:26.737552955Z [err]      	socket=conf.db_socket,
+2026-08-16T11:12:26.737557285Z [err]       ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.737560885Z [err]      ...<4 lines>...
+2026-08-16T11:12:26.737564145Z [err]      	cur_db_name=db_name_,
+2026-08-16T11:12:26.737567124Z [err]       ^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.737570204Z [err]      )
+2026-08-16T11:12:26.737573524Z [err]      ^
+2026-08-16T11:12:26.737576404Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/__init__.py", line 81, in get_db
+2026-08-16T11:12:26.737579704Z [err]      return frappe.database.mariadb.mysqlclient.MariaDBDatabase(
+2026-08-16T11:12:26.737583394Z [err]             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-16T11:12:26.737586844Z [err]      	socket, host, user, password, port, cur_db_name
+2026-08-16T11:12:26.737590594Z [err]       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.737593744Z [err]      )
+2026-08-16T11:12:26.737596724Z [err]      ^
+2026-08-16T11:12:26.737599484Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 126, in __init__
+2026-08-16T11:12:26.738329177Z [err]      self.logger = frappe.logger("database")
+2026-08-16T11:12:26.738331897Z [err]                    ~~~~~~~~~~~~~^^^^^^^^^^^^
+2026-08-16T11:12:26.738334267Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:26.738336766Z [err]      return get_logger(
+2026-08-16T11:12:26.738339366Z [err]      	module=module,
+2026-08-16T11:12:26.738341776Z [err]      ...<4 lines>...
+2026-08-16T11:12:26.738344426Z [err]      	file_count=file_count,
+2026-08-16T11:12:26.738346856Z [err]      )
+2026-08-16T11:12:26.738349346Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:26.738351476Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:26.738353686Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:26.738356146Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:26.738371316Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:26.738373936Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:26.738376076Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.738379026Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:26.738381536Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.738390666Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:26.738392976Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:26.738395186Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.739327857Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 300, in handle
+2026-08-16T11:12:26.739330817Z [err]      keepalive = self.handle_request(req, conn)
+2026-08-16T11:12:26.739333567Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 372, in handle_request
+2026-08-16T11:12:26.739336187Z [err]      util.reraise(*sys.exc_info())
+2026-08-16T11:12:26.739341987Z [err]  
+2026-08-16T11:12:26.739342077Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:26.739349327Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:26.739350237Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.739356767Z [err]                                   errors=errors)
+2026-08-16T11:12:26.739357927Z [err]  
+2026-08-16T11:12:26.739363017Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:26.739363777Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:26.739369367Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:26.739373307Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:26.739376537Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:26.739380087Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:26.739383977Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:26.739386937Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:26.739390367Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/database.log'
+2026-08-16T11:12:26.740544116Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 84, in application
+2026-08-16T11:12:26.740549396Z [err]      app(environ, start_response),
+2026-08-16T11:12:26.740555626Z [err]      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.740560346Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/wrappers/request.py", line 193, in application
+2026-08-16T11:12:26.740563266Z [err]      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.740566056Z [err]      resp = f(*args[:-2] + (request,))
+2026-08-16T11:12:26.740569356Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/util.py", line 636, in reraise
+2026-08-16T11:12:26.740573066Z [err]      raise value
+2026-08-16T11:12:26.740576336Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 352, in handle_request
+2026-08-16T11:12:26.740578796Z [err]      respiter = self.wsgi(environ, resp.start_response)
+2026-08-16T11:12:26.740581315Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/middlewares.py", line 31, in __call__
+2026-08-16T11:12:26.740583965Z [err]      return super().__call__(environ, patch_start_response)
+2026-08-16T11:12:26.740586505Z [err]             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.740588865Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:26.740592245Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:26.740594865Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.740597675Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:26.740600065Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:26.740602405Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.741352828Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 145, in application
+2026-08-16T11:12:26.741357458Z [err]      response = e.get_response(request.environ) if isinstance(e, HTTPException) else handle_exception(e)
+2026-08-16T11:12:26.741361677Z [err]                                                                                      ~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:26.741365177Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/permissions.py", line 930, in wrapper
+2026-08-16T11:12:26.741368707Z [err]      return fn(e, *args, **kwargs)
+2026-08-16T11:12:26.741371978Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 413, in handle_exception
+2026-08-16T11:12:26.741377608Z [err]      log_error_snapshot(e)
+2026-08-16T11:12:26.741381568Z [err]      ~~~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:26.741385078Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/error.py", line 122, in log_error_snapshot
+2026-08-16T11:12:26.741389118Z [err]      logger = frappe.logger(with_more_info=True)
+2026-08-16T11:12:26.741392298Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:26.741395448Z [err]      return get_logger(
+2026-08-16T11:12:26.741398658Z [err]      	module=module,
+2026-08-16T11:12:26.741401518Z [err]      ...<4 lines>...
+2026-08-16T11:12:26.741405288Z [err]      	file_count=file_count,
+2026-08-16T11:12:26.741407998Z [err]      )
+2026-08-16T11:12:26.741411078Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:26.741414258Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:26.741417098Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:26.741420268Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:26.742668065Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.742669765Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:26.742670866Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:26.742673186Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:26.742673376Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:26.742674406Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.742680906Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:26.742681196Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:26.742681216Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:26.742686906Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:26.742687706Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:26.742691456Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.742693556Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:26.742694466Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:26.742699116Z [err]                                   errors=errors)
+2026-08-16T11:12:26.742703656Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:26.742707376Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:26.742710836Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:26.743542527Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/frappe.log'
+2026-08-16T11:12:28.912345145Z [err]      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.912352235Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1038, in setup_module_map
+2026-08-16T11:12:28.912367275Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:28.912368285Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+2026-08-16T11:12:28.912377554Z [err]      return _cache[func][args_key]
+2026-08-16T11:12:28.912382564Z [err]             ~~~~~~~~~~~~^^^^^^^^^^
+2026-08-16T11:12:28.912392094Z [err]  KeyError: ((), <object object at 0x7f3bbae79480>, frozenset({('_ensure_on_bench', True)}))
+2026-08-16T11:12:28.912392774Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+2026-08-16T11:12:28.912399664Z [err]  
+2026-08-16T11:12:28.912403124Z [err]      init_request(request)
+2026-08-16T11:12:28.912405364Z [err]  [2026-08-16 11:12:28 +0000] [7] [ERROR] Socket error processing request.
+2026-08-16T11:12:28.912408804Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:28.912413024Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:28.912416234Z [err]  
+2026-08-16T11:12:28.912416904Z [err]      ~~~~~~~~~~~~^^^^^^^^^
+2026-08-16T11:12:28.912424694Z [err]      frappe.init(site, sites_path=_sites_path, force=True)
+2026-08-16T11:12:28.912424744Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 184, in init_request
+2026-08-16T11:12:28.912443314Z [err]      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.912448424Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 210, in init
+2026-08-16T11:12:28.912453084Z [err]      setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+2026-08-16T11:12:28.913241177Z [err]      apps = get_installed_apps(_ensure_on_bench=True)
+2026-08-16T11:12:28.913243797Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+2026-08-16T11:12:28.913246147Z [err]      return_val = func(*args, **kwargs)
+2026-08-16T11:12:28.913248947Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+2026-08-16T11:12:28.913252347Z [err]      connect()
+2026-08-16T11:12:28.913255176Z [err]      ~~~~~~~^^
+2026-08-16T11:12:28.913258076Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 256, in connect
+2026-08-16T11:12:28.913260806Z [err]      local.db = get_db(
+2026-08-16T11:12:28.913263156Z [err]                 ~~~~~~^
+2026-08-16T11:12:28.913265436Z [err]      	socket=conf.db_socket,
+2026-08-16T11:12:28.913268246Z [err]       ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.913270956Z [err]      ...<4 lines>...
+2026-08-16T11:12:28.913273266Z [err]      	cur_db_name=db_name_,
+2026-08-16T11:12:28.913275576Z [err]       ^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.913278056Z [err]      )
+2026-08-16T11:12:28.913280456Z [err]      ^
+2026-08-16T11:12:28.913282866Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/__init__.py", line 81, in get_db
+2026-08-16T11:12:28.913285376Z [err]      return frappe.database.mariadb.mysqlclient.MariaDBDatabase(
+2026-08-16T11:12:28.913287666Z [err]             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-16T11:12:28.913290086Z [err]      	socket, host, user, password, port, cur_db_name
+2026-08-16T11:12:28.913292266Z [err]       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.913295076Z [err]      )
+2026-08-16T11:12:28.913297376Z [err]      ^
+2026-08-16T11:12:28.913299626Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 126, in __init__
+2026-08-16T11:12:28.913779411Z [err]      self.logger = frappe.logger("database")
+2026-08-16T11:12:28.913783041Z [err]                    ~~~~~~~~~~~~~^^^^^^^^^^^^
+2026-08-16T11:12:28.913786061Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:28.913788621Z [err]      return get_logger(
+2026-08-16T11:12:28.913791341Z [err]      	module=module,
+2026-08-16T11:12:28.913793841Z [err]      ...<4 lines>...
+2026-08-16T11:12:28.913796281Z [err]      	file_count=file_count,
+2026-08-16T11:12:28.913799001Z [err]      )
+2026-08-16T11:12:28.913801301Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:28.913803931Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:28.913806211Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:28.913808431Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:28.913810621Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:28.913813191Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:28.913815451Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.913817641Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:28.913819951Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.913823071Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:28.913826321Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:28.913828701Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.914900981Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:28.914908130Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.914912240Z [err]                                   errors=errors)
+2026-08-16T11:12:28.914915830Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:28.914920200Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:28.914923950Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:28.914929130Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:28.914932510Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:28.914935690Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:28.914939730Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:28.914942970Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/database.log'
+2026-08-16T11:12:28.914946750Z [err]  
+2026-08-16T11:12:28.914950280Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:28.914954370Z [err]  
+2026-08-16T11:12:28.914958370Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:28.914961700Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 300, in handle
+2026-08-16T11:12:28.914964780Z [err]      keepalive = self.handle_request(req, conn)
+2026-08-16T11:12:28.914968160Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 372, in handle_request
+2026-08-16T11:12:28.914971500Z [err]      util.reraise(*sys.exc_info())
+2026-08-16T11:12:28.917492406Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.917497186Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 84, in application
+2026-08-16T11:12:28.917501786Z [err]      app(environ, start_response),
+2026-08-16T11:12:28.917507876Z [err]      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.917508166Z [err]      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.917512935Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/wrappers/request.py", line 193, in application
+2026-08-16T11:12:28.917519785Z [err]      resp = f(*args[:-2] + (request,))
+2026-08-16T11:12:28.917521175Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/util.py", line 636, in reraise
+2026-08-16T11:12:28.917526095Z [err]      raise value
+2026-08-16T11:12:28.917529785Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 352, in handle_request
+2026-08-16T11:12:28.917533415Z [err]      respiter = self.wsgi(environ, resp.start_response)
+2026-08-16T11:12:28.917537495Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/middlewares.py", line 31, in __call__
+2026-08-16T11:12:28.917541315Z [err]      return super().__call__(environ, patch_start_response)
+2026-08-16T11:12:28.917545125Z [err]             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.917548385Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:28.917551685Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:28.917554995Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.917558385Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:28.917561175Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:28.918516126Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 145, in application
+2026-08-16T11:12:28.918519036Z [err]      response = e.get_response(request.environ) if isinstance(e, HTTPException) else handle_exception(e)
+2026-08-16T11:12:28.918522606Z [err]                                                                                      ~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:28.918525756Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/permissions.py", line 930, in wrapper
+2026-08-16T11:12:28.918528776Z [err]      return fn(e, *args, **kwargs)
+2026-08-16T11:12:28.918532256Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 413, in handle_exception
+2026-08-16T11:12:28.918534846Z [err]      log_error_snapshot(e)
+2026-08-16T11:12:28.918537336Z [err]      ~~~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:28.918540746Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/error.py", line 122, in log_error_snapshot
+2026-08-16T11:12:28.918543926Z [err]      logger = frappe.logger(with_more_info=True)
+2026-08-16T11:12:28.918546546Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:28.918549326Z [err]      return get_logger(
+2026-08-16T11:12:28.918551916Z [err]      	module=module,
+2026-08-16T11:12:28.918554516Z [err]      ...<4 lines>...
+2026-08-16T11:12:28.918557496Z [err]      	file_count=file_count,
+2026-08-16T11:12:28.918560406Z [err]      )
+2026-08-16T11:12:28.918562886Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:28.918565366Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:28.918567886Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:28.918570516Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:28.919478147Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:28.919499367Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:28.919500227Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:28.919505897Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.919510317Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:28.919514027Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.919518307Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:28.919522687Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:28.919526247Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.919529577Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:28.919533867Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:28.919537666Z [err]                                   errors=errors)
+2026-08-16T11:12:28.919557416Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:28.919561186Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:28.919564926Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:28.919568486Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:28.919572336Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:28.919576096Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:28.919803814Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/frappe.log'
+2026-08-16T11:12:33.077095738Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 184, in init_request
+2026-08-16T11:12:33.077099947Z [err]      frappe.init(site, sites_path=_sites_path, force=True)
+2026-08-16T11:12:33.077103797Z [err]      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.077107227Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 210, in init
+2026-08-16T11:12:33.077113657Z [err]      setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+2026-08-16T11:12:33.077118807Z [err]  [2026-08-16 11:12:33 +0000] [7] [ERROR] Socket error processing request.
+2026-08-16T11:12:33.077119497Z [err]      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.077124397Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1038, in setup_module_map
+2026-08-16T11:12:33.077127937Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:33.077131687Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+2026-08-16T11:12:33.077134997Z [err]      return _cache[func][args_key]
+2026-08-16T11:12:33.077138207Z [err]             ~~~~~~~~~~~~^^^^^^^^^^
+2026-08-16T11:12:33.077141757Z [err]  KeyError: ((), <object object at 0x7f3bbae79480>, frozenset({('_ensure_on_bench', True)}))
+2026-08-16T11:12:33.077144867Z [err]  
+2026-08-16T11:12:33.077147957Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:33.077151447Z [err]  
+2026-08-16T11:12:33.077154557Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:33.077158717Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+2026-08-16T11:12:33.077162917Z [err]      init_request(request)
+2026-08-16T11:12:33.077166557Z [err]      ~~~~~~~~~~~~^^^^^^^^^
+2026-08-16T11:12:33.077968428Z [err]       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.077973968Z [err]      )
+2026-08-16T11:12:33.077977138Z [err]      apps = get_installed_apps(_ensure_on_bench=True)
+2026-08-16T11:12:33.077978618Z [err]      ^
+2026-08-16T11:12:33.077988118Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+2026-08-16T11:12:33.077988428Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 126, in __init__
+2026-08-16T11:12:33.077993268Z [err]      return_val = func(*args, **kwargs)
+2026-08-16T11:12:33.077996928Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+2026-08-16T11:12:33.078000168Z [err]      connect()
+2026-08-16T11:12:33.078003258Z [err]      ~~~~~~~^^
+2026-08-16T11:12:33.078006098Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 256, in connect
+2026-08-16T11:12:33.078008888Z [err]      local.db = get_db(
+2026-08-16T11:12:33.078011938Z [err]                 ~~~~~~^
+2026-08-16T11:12:33.078015268Z [err]      	socket=conf.db_socket,
+2026-08-16T11:12:33.078018398Z [err]       ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.078021008Z [err]      ...<4 lines>...
+2026-08-16T11:12:33.078023918Z [err]      	cur_db_name=db_name_,
+2026-08-16T11:12:33.078027218Z [err]       ^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.078030308Z [err]      )
+2026-08-16T11:12:33.078033058Z [err]      ^
+2026-08-16T11:12:33.078035848Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/__init__.py", line 81, in get_db
+2026-08-16T11:12:33.078038728Z [err]      return frappe.database.mariadb.mysqlclient.MariaDBDatabase(
+2026-08-16T11:12:33.078042048Z [err]             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-16T11:12:33.078045358Z [err]      	socket, host, user, password, port, cur_db_name
+2026-08-16T11:12:33.079031308Z [err]      self.logger = frappe.logger("database")
+2026-08-16T11:12:33.079042088Z [err]                    ~~~~~~~~~~~~~^^^^^^^^^^^^
+2026-08-16T11:12:33.079047488Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:33.079059308Z [err]      return get_logger(
+2026-08-16T11:12:33.079063668Z [err]      	module=module,
+2026-08-16T11:12:33.079068068Z [err]      ...<4 lines>...
+2026-08-16T11:12:33.079071388Z [err]      	file_count=file_count,
+2026-08-16T11:12:33.079074738Z [err]      )
+2026-08-16T11:12:33.079078288Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:33.079082208Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:33.079086468Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:33.079089848Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:33.079093518Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:33.079096598Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:33.079100268Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.079103218Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:33.079106408Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.079109808Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:33.079113208Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:33.079116948Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.079702492Z [err]      keepalive = self.handle_request(req, conn)
+2026-08-16T11:12:33.079706242Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 372, in handle_request
+2026-08-16T11:12:33.079709772Z [err]      util.reraise(*sys.exc_info())
+2026-08-16T11:12:33.079716812Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:33.079721292Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.079724292Z [err]                                   errors=errors)
+2026-08-16T11:12:33.079728292Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:33.079731422Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:33.079734782Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:33.079737742Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:33.079740832Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:33.079745042Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:33.079747682Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:33.079750402Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/database.log'
+2026-08-16T11:12:33.079753022Z [err]  
+2026-08-16T11:12:33.079755692Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:33.079758572Z [err]  
+2026-08-16T11:12:33.079761012Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:33.079763952Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 300, in handle
+2026-08-16T11:12:33.080428645Z [err]      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.080435135Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/util.py", line 636, in reraise
+2026-08-16T11:12:33.080438415Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.080441215Z [err]      raise value
+2026-08-16T11:12:33.080446535Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 84, in application
+2026-08-16T11:12:33.080446725Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 352, in handle_request
+2026-08-16T11:12:33.080453995Z [err]      app(environ, start_response),
+2026-08-16T11:12:33.080454105Z [err]      respiter = self.wsgi(environ, resp.start_response)
+2026-08-16T11:12:33.080459795Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/middlewares.py", line 31, in __call__
+2026-08-16T11:12:33.080462245Z [err]      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.080465385Z [err]      return super().__call__(environ, patch_start_response)
+2026-08-16T11:12:33.080469115Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/wrappers/request.py", line 193, in application
+2026-08-16T11:12:33.080472065Z [err]             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.080475914Z [err]      resp = f(*args[:-2] + (request,))
+2026-08-16T11:12:33.080479054Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:33.080482144Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:33.080485244Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.080488314Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:33.080491164Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:33.081573964Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 145, in application
+2026-08-16T11:12:33.081580984Z [err]      ...<4 lines>...
+2026-08-16T11:12:33.081581504Z [err]      response = e.get_response(request.environ) if isinstance(e, HTTPException) else handle_exception(e)
+2026-08-16T11:12:33.081587104Z [err]                                                                                      ~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:33.081590204Z [err]      	file_count=file_count,
+2026-08-16T11:12:33.081592744Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:33.081594824Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/permissions.py", line 930, in wrapper
+2026-08-16T11:12:33.081599594Z [err]      )
+2026-08-16T11:12:33.081602034Z [err]      return fn(e, *args, **kwargs)
+2026-08-16T11:12:33.081603124Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:33.081608684Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:33.081609104Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 413, in handle_exception
+2026-08-16T11:12:33.081616934Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:33.081617664Z [err]      log_error_snapshot(e)
+2026-08-16T11:12:33.081622984Z [err]      ~~~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:33.081626244Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/error.py", line 122, in log_error_snapshot
+2026-08-16T11:12:33.081629104Z [err]      logger = frappe.logger(with_more_info=True)
+2026-08-16T11:12:33.081632353Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:33.081635333Z [err]      return get_logger(
+2026-08-16T11:12:33.081638243Z [err]      	module=module,
+2026-08-16T11:12:33.082210377Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:33.082215647Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:33.082219858Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:33.082223218Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:33.082226568Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:33.082241558Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:33.082246328Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:33.082249458Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.082252498Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:33.082255668Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.082258578Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:33.082261968Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:33.082264768Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.082268088Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:33.082271388Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:33.082296798Z [err]                                   errors=errors)
+2026-08-16T11:12:33.082302008Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:33.082307037Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:33.082986170Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/frappe.log'
+2026-08-16T11:12:41.253701488Z [err]  [2026-08-16 11:12:41 +0000] [6] [ERROR] Socket error processing request.
+2026-08-16T11:12:41.253704598Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:41.253707028Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:41.253707958Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+2026-08-16T11:12:41.253710908Z [err]      return _cache[func][args_key]
+2026-08-16T11:12:41.253713388Z [err]             ~~~~~~~~~~~~^^^^^^^^^^
+2026-08-16T11:12:41.253714968Z [err]  
+2026-08-16T11:12:41.253716088Z [err]  KeyError: ((), <object object at 0x7f3bbae79480>, frozenset({('_ensure_on_bench', True)}))
+2026-08-16T11:12:41.253718648Z [err]  
+2026-08-16T11:12:41.253724078Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:41.253727848Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+2026-08-16T11:12:41.253731048Z [err]      init_request(request)
+2026-08-16T11:12:41.253733748Z [err]      ~~~~~~~~~~~~^^^^^^^^^
+2026-08-16T11:12:41.253736348Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 184, in init_request
+2026-08-16T11:12:41.253739488Z [err]      frappe.init(site, sites_path=_sites_path, force=True)
+2026-08-16T11:12:41.253742188Z [err]      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.253744968Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 210, in init
+2026-08-16T11:12:41.253747308Z [err]      setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+2026-08-16T11:12:41.253749858Z [err]      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.253753258Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1038, in setup_module_map
+2026-08-16T11:12:41.255867287Z [err]      apps = get_installed_apps(_ensure_on_bench=True)
+2026-08-16T11:12:41.255871287Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+2026-08-16T11:12:41.255877287Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 126, in __init__
+2026-08-16T11:12:41.255877957Z [err]      return_val = func(*args, **kwargs)
+2026-08-16T11:12:41.255884087Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+2026-08-16T11:12:41.255890877Z [err]      connect()
+2026-08-16T11:12:41.255891277Z [err]      ...<4 lines>...
+2026-08-16T11:12:41.255891756Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 256, in connect
+2026-08-16T11:12:41.255898726Z [err]      ~~~~~~~^^
+2026-08-16T11:12:41.255901136Z [err]      	cur_db_name=db_name_,
+2026-08-16T11:12:41.255903386Z [err]      local.db = get_db(
+2026-08-16T11:12:41.255906636Z [err]       ^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.255907996Z [err]                 ~~~~~~^
+2026-08-16T11:12:41.255910466Z [err]      )
+2026-08-16T11:12:41.255912216Z [err]      	socket=conf.db_socket,
+2026-08-16T11:12:41.255914146Z [err]      ^
+2026-08-16T11:12:41.255915916Z [err]       ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.255918136Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/database/__init__.py", line 81, in get_db
+2026-08-16T11:12:41.255922276Z [err]      return frappe.database.mariadb.mysqlclient.MariaDBDatabase(
+2026-08-16T11:12:41.255937656Z [err]             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-16T11:12:41.255950046Z [err]      	socket, host, user, password, port, cur_db_name
+2026-08-16T11:12:41.255960666Z [err]       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.255965266Z [err]      )
+2026-08-16T11:12:41.255969106Z [err]      ^
+2026-08-16T11:12:41.256232693Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:41.256236703Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:41.256241153Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.256244903Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:41.256252463Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.256257903Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:41.256261303Z [err]      self.logger = frappe.logger("database")
+2026-08-16T11:12:41.256264623Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:41.256270913Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.256271633Z [err]                    ~~~~~~~~~~~~~^^^^^^^^^^^^
+2026-08-16T11:12:41.256277432Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:41.256281343Z [err]      return get_logger(
+2026-08-16T11:12:41.256285213Z [err]      	module=module,
+2026-08-16T11:12:41.256289073Z [err]      ...<4 lines>...
+2026-08-16T11:12:41.256295983Z [err]      	file_count=file_count,
+2026-08-16T11:12:41.256300433Z [err]      )
+2026-08-16T11:12:41.256304583Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:41.256308143Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:41.256311713Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:41.256315593Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:41.257598151Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:41.257601121Z [err]                                   errors=errors)
+2026-08-16T11:12:41.257605471Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.257610401Z [err]      util.reraise(*sys.exc_info())
+2026-08-16T11:12:41.257656630Z [err]  During handling of the above exception, another exception occurred:
+2026-08-16T11:12:41.257668460Z [err]  
+2026-08-16T11:12:41.257673740Z [err]  Traceback (most recent call last):
+2026-08-16T11:12:41.257677460Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 300, in handle
+2026-08-16T11:12:41.257682360Z [err]      keepalive = self.handle_request(req, conn)
+2026-08-16T11:12:41.257686170Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 372, in handle_request
+2026-08-16T11:12:41.257787069Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:41.257801589Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:41.257805519Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:41.257809759Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:41.257813899Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:41.257834098Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:41.257837528Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:41.257841608Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/database.log'
+2026-08-16T11:12:41.257846728Z [err]  
+2026-08-16T11:12:41.260433003Z [err]      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.260439153Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 84, in application
+2026-08-16T11:12:41.260441523Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/util.py", line 636, in reraise
+2026-08-16T11:12:41.260448813Z [err]      raise value
+2026-08-16T11:12:41.260449533Z [err]      app(environ, start_response),
+2026-08-16T11:12:41.260456803Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/gunicorn/workers/gthread.py", line 352, in handle_request
+2026-08-16T11:12:41.260457913Z [err]      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.260466353Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/wrappers/request.py", line 193, in application
+2026-08-16T11:12:41.260468323Z [err]      respiter = self.wsgi(environ, resp.start_response)
+2026-08-16T11:12:41.260472543Z [err]      resp = f(*args[:-2] + (request,))
+2026-08-16T11:12:41.260476703Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/middlewares.py", line 31, in __call__
+2026-08-16T11:12:41.260482083Z [err]      return super().__call__(environ, patch_start_response)
+2026-08-16T11:12:41.260486883Z [err]             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.260491993Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:41.260497822Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:41.260501802Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.260505572Z [err]    File "/home/frappe/frappe-bench/env/lib/python3.14/site-packages/werkzeug/middleware/shared_data.py", line 250, in __call__
+2026-08-16T11:12:41.260552122Z [err]      return self.app(environ, start_response)
+2026-08-16T11:12:41.260555582Z [err]             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261314304Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 145, in application
+2026-08-16T11:12:41.261317754Z [err]      response = e.get_response(request.environ) if isinstance(e, HTTPException) else handle_exception(e)
+2026-08-16T11:12:41.261322224Z [err]                                                                                      ~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:41.261325294Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/permissions.py", line 930, in wrapper
+2026-08-16T11:12:41.261328054Z [err]      return fn(e, *args, **kwargs)
+2026-08-16T11:12:41.261331484Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 413, in handle_exception
+2026-08-16T11:12:41.261333864Z [err]      log_error_snapshot(e)
+2026-08-16T11:12:41.261336224Z [err]      ~~~~~~~~~~~~~~~~~~^^^
+2026-08-16T11:12:41.261338664Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/error.py", line 122, in log_error_snapshot
+2026-08-16T11:12:41.261341414Z [err]      logger = frappe.logger(with_more_info=True)
+2026-08-16T11:12:41.261344054Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1467, in logger
+2026-08-16T11:12:41.261346994Z [err]      return get_logger(
+2026-08-16T11:12:41.261349674Z [err]      	module=module,
+2026-08-16T11:12:41.261352424Z [err]      ...<4 lines>...
+2026-08-16T11:12:41.261354703Z [err]      	file_count=file_count,
+2026-08-16T11:12:41.261357503Z [err]      )
+2026-08-16T11:12:41.261360503Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 83, in get_logger
+2026-08-16T11:12:41.261363513Z [err]      handlers = create_handler(module, site, max_size, file_count, stream_only)
+2026-08-16T11:12:41.261365883Z [err]    File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/logger.py", line 31, in create_handler
+2026-08-16T11:12:41.261368533Z [err]      site_handler = RotatingFileHandler(sitelog_filename, maxBytes=max_size, backupCount=file_count)
+2026-08-16T11:12:41.261848949Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 161, in __init__
+2026-08-16T11:12:41.261854719Z [err]      BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
+2026-08-16T11:12:41.261858789Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261862049Z [err]                                   delay=delay, errors=errors)
+2026-08-16T11:12:41.261865609Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261869169Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/handlers.py", line 64, in __init__
+2026-08-16T11:12:41.261872459Z [err]      logging.FileHandler.__init__(self, filename, mode=mode,
+2026-08-16T11:12:41.261875619Z [err]      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261878979Z [err]                                   encoding=encoding, delay=delay,
+2026-08-16T11:12:41.261881959Z [err]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261885099Z [err]                                   errors=errors)
+2026-08-16T11:12:41.261888369Z [err]                                   ^^^^^^^^^^^^^^
+2026-08-16T11:12:41.261892349Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1219, in __init__
+2026-08-16T11:12:41.261895689Z [err]      StreamHandler.__init__(self, self._open())
+2026-08-16T11:12:41.261899079Z [err]                                   ~~~~~~~~~~^^
+2026-08-16T11:12:41.261902639Z [err]    File "/home/frappe/.pyenv/versions/3.14.2/lib/python3.14/logging/__init__.py", line 1248, in _open
+2026-08-16T11:12:41.261906509Z [err]      return open_func(self.baseFilename, self.mode,
+2026-08-16T11:12:41.261909449Z [err]                       encoding=self.encoding, errors=self.errors)
+2026-08-16T11:12:41.262512272Z [err]  FileNotFoundError: [Errno 2] No such file or directory: '/home/frappe/frappe-bench/sites/educationerp-production.up.railway.app/logs/frappe.log'

@@ -31,6 +31,7 @@ $requiredEntrypointPatterns = @(
   'socketio_port="\$\{PORT:-\$\{socketio_port\}\}"',
   'university_erp\.wsgi:create_application\(\)',
   'web_bind="\[::\]:\$\{PORT:-8000\}"',
+  'for child in \("logs", "locks", "private", "public"\):',
   'bench worker --queue short,default',
   'bench worker --queue long'
 )

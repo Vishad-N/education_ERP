@@ -61,6 +61,11 @@ site = {
 if role != "bootstrap":
     site_dir = sites / site_name
     site_dir.mkdir(parents=True, exist_ok=True)
+    # Frappe RotatingFileHandler opens sites/<site>/logs/*.log on the first
+    # request. The web role does not run bench new-site, so create the
+    # directories a site needs to answer health probes.
+    for child in ("logs", "locks", "private", "public"):
+        (site_dir / child).mkdir(exist_ok=True)
     (site_dir / "site_config.json").write_text(json.dumps(site, indent=2) + "\n")
     (sites / "currentsite.txt").write_text(site_name + "\n")
 PY
