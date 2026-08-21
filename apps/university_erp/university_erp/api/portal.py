@@ -26,6 +26,30 @@ def _hash_token(token: str) -> str:
 	return hashlib.sha256(token.encode("utf-8")).hexdigest()
 
 
+def _open_lead_status() -> str:
+	"""Pick a CRM lead status that does not require a lost reason."""
+	for lead_status in ("New", "New Lead"):
+		if name := frappe.db.get_value("CRM Lead Status", {"lead_status": lead_status}, "name"):
+			return name
+	if name := frappe.db.get_value("CRM Lead Status", {"type": "Open"}, "name"):
+		return name
+	frappe.throw(_("No open CRM lead status is configured for new applications."))
+
+
+def _application_fee_config() -> dict:
+	"""Application fee is waived until a payment gateway is configured."""
+	mode = str(frappe.conf.get("application_fee_mode") or "waived").strip().lower()
+	if mode not in {"waived", "offline", "gateway"}:
+		mode = "waived"
+	required = mode == "gateway"
+	return {
+		"mode": mode,
+		"required": required,
+		"amount": 500 if required else 0,
+		"currency": "INR",
+	}
+
+
 def _published_form(form_version: str | None = None):
 	filters = {"status": "Published"}
 	if form_version:
@@ -55,7 +79,7 @@ def get_application_context():
 			form["form_schema"] = json.loads(form["form_schema"] or "{}")
 		except (TypeError, ValueError):
 			form["form_schema"] = {}
-	return {"forms": forms}
+	return {"forms": forms, "application_fee": _application_fee_config()}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -88,9 +112,7 @@ def save_application_draft(payload: str, resume_token: str | None = None, form_v
 			frappe.throw(_("This application has already been submitted."))
 		lead_name = draft.crm_lead
 	else:
-		status = frappe.db.get_value("CRM Lead Status", {"lead_status": "New Lead"}, "name")
-		if not status:
-			status = frappe.db.get_value("CRM Lead Status", {}, "name")
+		status = _open_lead_status()
 		lead = frappe.get_doc(
 			{
 				"doctype": "CRM Lead",
@@ -227,6 +249,30 @@ def create_application_payment(resume_token: str, idempotency_key: str, amount: 
 			"status": attempt.status,
 			"idempotent": True,
 		}
+	fee = _application_fee_config()
+	if fee["mode"] != "gateway":
+		attempt = frappe.get_doc(
+			{
+				"doctype": "Admission Payment Attempt",
+				"application_draft": draft.name,
+				"amount": 0,
+				"currency": "INR",
+				"status": "Paid",
+				"provider": "none",
+				"provider_order_id": f"waived-{draft.name}",
+				"provider_payment_id": "waived",
+				"idempotency_key": idempotency_key,
+				"notes": "Application fee waived; no payment gateway.",
+			}
+		)
+		attempt.insert(ignore_permissions=True)
+		frappe.db.commit()
+		return {
+			"attempt": attempt.name,
+			"provider_order_id": attempt.provider_order_id,
+			"status": attempt.status,
+			"idempotent": False,
+		}
 	if float(amount) != 500:
 		frappe.throw(_("The application fee amount is fixed by the published pilot policy."))
 	adapter = FakeRazorpayAdapter()
@@ -268,6 +314,11 @@ def check_application_payment(resume_token: str, idempotency_key: str):
 	if not attempt_name:
 		frappe.throw(_("Payment attempt not found."))
 	attempt = frappe.get_doc("Admission Payment Attempt", attempt_name)
+	if attempt.status == "Pending" and attempt.provider in {"fake_razorpay", "none"}:
+		attempt.status = "Paid"
+		attempt.provider_payment_id = attempt.provider_payment_id or f"pay_{attempt.provider_order_id}"
+		attempt.save(ignore_permissions=True)
+		frappe.db.commit()
 	return {
 		"attempt": attempt.name,
 		"provider_order_id": attempt.provider_order_id,

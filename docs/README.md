@@ -21,6 +21,7 @@
 | [Project implementation plan](../PROJECT_IMPLEMENTATION_PLAN.md) | Active execution plan; Phase 6.1 applicant and guardian PWA is next |
 | [Project execution roadmap](../PROJECT_EXECUTION_ROADMAP.md) | Current step, prerequisites, completion gates, next-step state machine |
 | [Current implementation status](current-implementation-status.md) | Honest inventory of scaffolded, missing, and production-blocking components |
+| [Remaining production build](../BUILD.md) | Gaps, remaining work, and sequence to make a real school production-ready |
 | [Phase 0 source baseline](releases/p0-source-baseline.md) | Pinned upstream repositories, Docker build refs, and local cleanup evidence |
 | [P1.1 repository-structure evidence](evidence/phase-1/p1.1/repository-structure-baseline.md) | Product repository layout, source/runtime separation, and local fake-provider baseline |
 | [P2.1 app compatibility evidence](evidence/phase-2/p2.1/app-compatibility-proof.md) | Fresh install, migration, app version, import, HTTP, and Desk route compatibility proof |
@@ -52,6 +53,8 @@
 | [P7.3 completion](evidence/phase-7/p7.3/completion.md) | Local migration/UAT gate result with human UAT deferred before production |
 | [P8.1 start](evidence/phase-8/p8.1/start.md) | Railway-first staging with portable Hostinger/AWS runtime artifacts |
 | [Pilot scope baseline](requirements/pilot-scope.md) | Phase 0 pilot scope, deferrals, workload reference, and acceptance baseline |
+| [User and admin guide](product/USER_AND_ADMIN_GUIDE.md) | Combined guardian/student user guide, staff admin guide, feature catalogue, and timed demo script |
+| [Client demo walkthrough](product/CLIENT_DEMO_WALKTHROUGH.md) | Live Railway links and click-by-click client presentation script |
 | [UX and localization](product/ux-and-localization.md) | Low-literacy, guardian-first, English/Hindi product requirements |
 | [Requirements traceability](requirements/traceability.md) | BRD-to-design-to-test coverage and evidence |
 | [Phase-1 delivery plan](requirements/phase-1-delivery-plan.md) | Workstreams, dependencies, gates, deliverables |

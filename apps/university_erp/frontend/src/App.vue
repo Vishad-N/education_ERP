@@ -124,17 +124,22 @@
 
         <section v-else-if="activeStep === 'payment'" class="form">
           <h2>{{ t.paymentTitle }}</h2>
-          <div class="amount">
-            <span>{{ t.applicationFee }}</span>
-            <strong>₹500</strong>
-          </div>
-          <p class="safe-message">{{ t.paymentSafety }}</p>
-          <button class="primary" type="button" @click="markPaid">
-            {{ application.paid ? t.paymentDone : paymentPending ? t.paymentPending : t.payNow }}
-          </button>
-          <button v-if="paymentPending && !application.paid" class="secondary" type="button" @click="checkPayment">
-            {{ t.checkPayment }}
-          </button>
+          <template v-if="!feeRequired">
+            <p class="safe-message">{{ t.paymentWaived }}</p>
+          </template>
+          <template v-else>
+            <div class="amount">
+              <span>{{ t.applicationFee }}</span>
+              <strong>₹500</strong>
+            </div>
+            <p class="safe-message">{{ t.paymentSafety }}</p>
+            <button class="primary" type="button" @click="markPaid">
+              {{ application.paid ? t.paymentDone : paymentPending ? t.paymentPending : t.payNow }}
+            </button>
+            <button v-if="paymentPending && !application.paid" class="secondary" type="button" @click="checkPayment">
+              {{ t.checkPayment }}
+            </button>
+          </template>
           <ActionBar :back-label="t.back" :next-label="t.next" @back="back" @next="next" />
         </section>
 
@@ -179,6 +184,7 @@ const syncState = ref<"local" | "syncing" | "synced" | "error">("local");
 const formVersion = ref("");
 const resumeToken = ref("");
 const paymentPending = ref(false);
+const feeRequired = ref(false);
 const formError = ref("");
 let syncTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -229,9 +235,13 @@ function next() {
     formError.value = t.value.requiredDocuments;
     return;
   }
-  if (activeStep.value === "payment" && !application.paid) {
-    formError.value = t.value.requiredPayment;
-    return;
+  if (activeStep.value === "payment") {
+    if (!feeRequired.value) {
+      application.paid = true;
+    } else if (!application.paid) {
+      formError.value = t.value.requiredPayment;
+      return;
+    }
   }
   const index = stepIndex(activeStep.value);
   activeStep.value = steps[Math.min(index + 1, steps.length - 1)].id;
@@ -266,18 +276,34 @@ async function markPaid() {
 
 async function checkPayment() {
   if (!resumeToken.value) return;
+  const idempotencyKey = `payment-${resumeToken.value.slice(0, 24)}-application-fee`;
   try {
-    const response = await fetch("/api/method/university_erp.api.portal.check_application_payment", {
+    const statusResponse = await fetch("/api/method/university_erp.api.portal.check_application_payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         resume_token: resumeToken.value,
-        idempotency_key: `payment-${resumeToken.value.slice(0, 24)}-application-fee`,
+        idempotency_key: idempotencyKey,
       }),
     });
-    const result = await response.json();
-    if (!response.ok || result.exc) throw new Error("Payment status failed");
-    application.paid = result.message.status === "Paid";
+    const statusResult = await statusResponse.json();
+    if (!statusResponse.ok || statusResult.exc) throw new Error("Payment status failed");
+    if (statusResult.message.status !== "Paid" && statusResult.message.provider_order_id) {
+      const confirmResponse = await fetch("/api/method/university_erp.api.portal.confirm_application_payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          resume_token: resumeToken.value,
+          idempotency_key: idempotencyKey,
+          provider_order_id: statusResult.message.provider_order_id,
+        }),
+      });
+      const confirmResult = await confirmResponse.json();
+      if (!confirmResponse.ok || confirmResult.exc) throw new Error("Payment confirm failed");
+      application.paid = confirmResult.message.status === "Paid";
+    } else {
+      application.paid = statusResult.message.status === "Paid";
+    }
     paymentPending.value = !application.paid;
   } catch {
     syncState.value = "error";
@@ -347,7 +373,10 @@ function fileAsBase64(file: File) {
 
 async function uploadDocument(documentType: string, file: File) {
   if (!resumeToken.value) await syncDraft();
-  if (!resumeToken.value) return;
+  if (!resumeToken.value) {
+    formError.value = t.value.uploadFailed;
+    return;
+  }
   try {
     const response = await fetch("/api/method/university_erp.api.portal.upload_application_document", {
       method: "POST",
@@ -361,7 +390,10 @@ async function uploadDocument(documentType: string, file: File) {
       }),
     });
     const result = await response.json();
-    if (!response.ok || result.exc || result.message.scan_status !== "Scan Passed") throw new Error("Upload failed");
+    if (!response.ok || result.exc || result.message?.scan_status !== "Scan Passed") {
+      formError.value = t.value.uploadFailed;
+      throw new Error("Upload failed");
+    }
     if (documentType === "Birth certificate") application.birthCertificate = true;
     if (documentType === "Child photo") application.photo = true;
   } catch {
@@ -379,6 +411,20 @@ onMounted(() => {
     formVersion.value = draft.formVersion || "";
     resumeToken.value = draft.resumeToken || "";
   }
+  fetch("/api/method/university_erp.api.portal.get_application_context", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: "{}",
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      feeRequired.value = Boolean(result.message?.application_fee?.required);
+      if (!feeRequired.value) application.paid = true;
+    })
+    .catch(() => {
+      feeRequired.value = false;
+      application.paid = true;
+    });
   online.value = navigator.onLine;
   window.addEventListener("online", () => (online.value = true));
   window.addEventListener("offline", () => (online.value = false));

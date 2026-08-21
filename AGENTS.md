@@ -2304,7 +2304,7 @@ Use `university_erp` for the institution-specific academic, NEP, reservation, me
 The project succeeds only when it remains upgradeable, permission-safe, transactionally correct, financially reconcilable, observable, recoverable, and usable under real admission peak load.
 
 <!-- SKILLGOD:START v1.1 -->
-# SkillGod Project Memory (auto-generated — do not edit; updated 2026-08-17 00:56)
+# SkillGod Project Memory (auto-generated — do not edit; updated 2026-08-21 23:14)
 
 # SkillGod Active
 
@@ -2330,13 +2330,13 @@ After completing **meaningful** work (decisions, architecture, non-obvious fixes
 ## Project memory
 
 ## Decisions
-- Decision: Railway web role does not run bench new-site, so start-service.sh must mkdir sites/$SITE_NAME/{logs,locks,private,public} before Gunicorn. Missing logs/ caused FileNotFou
-- Decision: Railway Metal healthchecks fail with 'service unavailable' when Gunicorn binds IPv4-only 0.0.0.0; bind [::]:$PORT when RAILWAY_ENVIRONMENT is set. Also pin SITE_NAME in u
-- Identified that Railway deployment was failing to sync the database because no Prisma migration file was created for the recent `schema.prisma` changes (e.g. `ClientProfile.legalNa
-- Fixed 404 and unhandled 401 promise rejections on the client app's `checkout` and `profile` pages. Changed the frontend's profile API call to correctly issue a `PUT` request to `/p
-- Fixed a critical bug across 5 dashboard pages (dashboard, meetings, tasks, projects, subscription) that were directly calling `fetch('/api/profile')` instead of using `mockApi.prof
-- Updated landing page websiteDesign and ecommerce packages to link to the checkout page instead of the contact form. Also added the packages to the client app checkout page packageD
-- Created `/api/orders` route in `apps/client` to fetch client's orders from the backend. Updated `dashboard/page.tsx` to use this endpoint instead of `mockApi.orders`. Also fixed a 
+- {"stdout": "warning: in the working copy of 'apps/admin/src/services/api.ts', LF will be replaced by CRLF the next time Git touches it\ndiff --git a/apps/admin/src/services/api.ts 
+- {"filePath": "c:\\Users\\visha\\simbolonew\\apps\\admin\\src\\services\\api.ts", "oldString": " if (!res.ok) {\n throw new Error(`API error (${res.status}): ${res.statusText}`);\n 
+- {"mode": "content", "numFiles": 0, "filenames": [], "content": "230: * `<DataTable data={...} />`, instead of an ad-hoc `(response.data || response)`", "numLines": 1, "totalLines":
+- {"filePath": "c:\\Users\\visha\\simbolonew\\apps\\admin\\src\\services\\api.ts", "oldString": "const emptyPage = <T,>(pageSize: number): Paginated<T> => ({ items: [], total: 0, pag
+- {"questions": [{"question": "How do you want to fix the remaining unsafe pages?", "header": "Fix approach", "options": [{"label": "Harden DataTable + fix each page (Recommended)", 
+- {"mode": "content", "numFiles": 0, "filenames": [], "content": "96:export interface Paginated<T> {\n97- items: T[];\n98- total: number;\n99- page: number;\n100- pageSize: number;\n
+- {"bytes": 0, "code": 401, "codeText": "Unauthorized", "result": "The server returned HTTP 401 Unauthorized.\n\nThe response body was not retrieved. If this URL requires authenticat
 
 ## Notes
 

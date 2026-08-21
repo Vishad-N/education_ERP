@@ -11,7 +11,11 @@ class CRMApplicationHandoff(Document):
 			{"crm_lead": self.crm_lead, "name": ["!=", self.name], "docstatus": ["<", 2]},
 		):
 			frappe.throw(_("This CRM Lead already has an active application handoff."))
-		if self.status == "Application Created" and not self.student_applicant:
+		if (
+			self.docstatus == 1
+			and self.status == "Application Created"
+			and not self.student_applicant
+		):
 			frappe.throw(_("Student Applicant is required once the handoff creates an application."))
 
 	def before_submit(self):

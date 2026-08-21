@@ -16,7 +16,7 @@ Production-oriented Education ERP for Indian institutions, beginning with a smal
 
 Phases 0–8 staging gates are complete, with human UAT and production signatures deferred. The next step is **P9.1** controlled pilot launch in [PROJECT_IMPLEMENTATION_PLAN.md](PROJECT_IMPLEMENTATION_PLAN.md).
 
-The product is **not production-ready**. A Railway staging stack is live for smoke checks. Real Razorpay, MSG91, SMTP, and Cloudflare R2 traffic remain blocked.
+The product is **not production-ready**. A Railway staging stack is live for smoke checks. Real Razorpay, MSG91, SMTP, and Cloudflare R2 traffic remain blocked. Remaining work for a real school is in [BUILD.md](BUILD.md).
 
 | Field | Value |
 |---|---|
