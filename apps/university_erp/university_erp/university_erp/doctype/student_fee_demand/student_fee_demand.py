@@ -15,11 +15,17 @@ class StudentFeeDemand(Document):
 		if flt(self.net_amount, 2) != flt(expected, 2):
 			frappe.throw(_("Net Amount must reconcile to demand components."))
 		if self.status == "Generated" and not self.sales_invoice:
-			frappe.throw(_("Sales Invoice is required for generated fee demands."))
+			mode = str(frappe.conf.get("application_fee_mode") or "waived").strip().lower()
+			if mode == "gateway":
+				frappe.throw(_("Sales Invoice is required for generated fee demands."))
 
 	def before_submit(self):
 		if not self.sales_invoice:
-			frappe.throw(_("Sales Invoice is required before submitting a fee demand."))
+			mode = str(frappe.conf.get("application_fee_mode") or "waived").strip().lower()
+			if mode == "gateway":
+				frappe.throw(_("Sales Invoice is required before submitting a fee demand."))
+			self.status = "Generated"
+			return
 		invoice = frappe.get_doc("Sales Invoice", self.sales_invoice)
 		if invoice.docstatus != 1:
 			frappe.throw(_("Linked Sales Invoice must be submitted."))

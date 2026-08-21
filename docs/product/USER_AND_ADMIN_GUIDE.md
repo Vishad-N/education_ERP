@@ -217,14 +217,11 @@ What happens in the background:
 
 If upload fails, stay on this step and try again. Do not create a second application.
 
-#### Step 5 — Payment (₹500)
+#### Step 5 — Application fee (currently no online pay)
 
-1. Read the safety message: **pay once**. If money is deducted, do not pay again.
-2. Tap **Pay ₹500**. This starts a payment order and does not create a second order if you tap again.
-3. If the button shows that payment has started, tap **Check payment status** instead of paying again.
-4. Continue only when the portal shows payment recorded.
+Online payment is **off** until Razorpay is connected. The screen says the school can collect at the counter. Tap **Next**.
 
-The amount is fixed at ₹500 by the published pilot policy. Other amounts are rejected by the server.
+When a gateway is enabled later (`application_fee_mode=gateway`), this step will collect ₹500 online.
 
 #### Step 6 — Status
 
@@ -331,7 +328,29 @@ Do not give routine school staff the **System Manager** role. Use the baseline r
 
 Site isolation is absolute: one institution = one Frappe site = one database.
 
-### B1.2 Suggested Desk search list (pin these)
+### B1.2 Office buttons (click these; do not type Status)
+
+Hard-refresh Desk after each deploy (`Ctrl+Shift+R`).
+
+| Screen | Button |
+|---|---|
+| CRM Lead | **Create Application** |
+| Admission Application Draft | **Create Application** |
+| CRM Application Handoff | **Create Application** |
+| Student Applicant | **Evaluate Eligibility**, **Admit Student** |
+| Eligibility Evaluation | **Evaluate** |
+| Merit Run | **Publish Merit**, **Allocate Seats** |
+| Seat Allocation Round | **Allocate Seats** |
+| Seat Offer | **Accept Seat**, **Confirm Admission** |
+| Admission Confirmation | **Confirm Admission**, **Create Student** |
+| Admission Student Conversion | **Create Student** |
+| Student | **Issue Portal Link** |
+| Student Document | **Verify** |
+| Student Fee Demand | **Record Counter Payment** |
+
+**Admit Student** on the applicant is the full remaining path without Razorpay.
+
+### B1.3 Suggested Desk search list (pin these)
 
 Institution: `Education Institution Node`, `Institution Structure Version`  
 Academic: `Academic Year`, `Academic Term`, `Academic Session Policy`, `Academic Calendar`, `Program`, `Program Version`, `Program Offering`, `Class Offering`, `Academic Section`, `Curriculum Version`, `Subject Offering`, `Program Intake`, `Faculty Assignment`, `Timetable Slot`, `Timetable Entry`  

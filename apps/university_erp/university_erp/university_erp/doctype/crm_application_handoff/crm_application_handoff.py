@@ -1,3 +1,5 @@
+import secrets
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
@@ -5,6 +7,12 @@ from frappe.utils import now_datetime
 
 
 class CRMApplicationHandoff(Document):
+	def before_insert(self):
+		if not self.idempotency_key:
+			self.idempotency_key = f"handoff-{secrets.token_hex(8)}"
+		if self.status == "Application Created":
+			self.status = "Pending"
+
 	def validate(self):
 		if frappe.db.exists(
 			"CRM Application Handoff",
@@ -53,6 +61,7 @@ class CRMApplicationHandoff(Document):
 				"program": self.program,
 				"academic_year": self.academic_year,
 				"academic_term": self.academic_term,
+				"student_category": frappe.db.exists("Student Category", "General") and "General" or None,
 				"application_date": self.handoff_date,
 			}
 		)

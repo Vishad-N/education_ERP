@@ -1,9 +1,20 @@
+import secrets
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils import add_to_date, now_datetime
 
 
 class SeatOffer(Document):
+	def before_insert(self):
+		if not self.offered_on:
+			self.offered_on = now_datetime()
+		if not self.expires_on:
+			self.expires_on = add_to_date(now_datetime(), days=14)
+		if not self.idempotency_key:
+			self.idempotency_key = f"offer-{secrets.token_hex(8)}"
+
 	def validate(self):
 		if self.status == "Accepted" and not self.accepted_on:
 			frappe.throw(_("Accepted On is required for accepted offers."))

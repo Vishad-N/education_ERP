@@ -10,8 +10,8 @@ class MeritEntry(Document):
 		if self.score < 0:
 			frappe.throw(_("Score cannot be negative."))
 		run_status = frappe.db.get_value("Merit Run", self.merit_run, "status")
-		if run_status != "Published":
-			frappe.throw(_("Merit entries require a published merit run."))
+		if run_status not in {"Draft", "Published"}:
+			frappe.throw(_("Merit entries require a draft or published merit run."))
 		if frappe.db.exists(
 			"Merit Entry",
 			{"merit_run": self.merit_run, "rank": self.rank, "name": ["!=", self.name]},

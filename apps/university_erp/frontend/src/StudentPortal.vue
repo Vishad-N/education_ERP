@@ -30,7 +30,7 @@
           <div v-for="due in snapshot.dues" :key="due.name" class="portal-row">
             <div><strong>{{ due.name }}</strong><span>{{ hi ? "अंतिम तारीख" : "Due" }}: {{ due.due_date }}</span></div>
             <button class="primary compact-button" type="button" @click="paymentAttempts[due.name] ? checkPayment(due.name) : startPayment(due.name)">
-              {{ paymentStates[due.name] || (hi ? "भुगतान" : "Pay") }}
+              {{ paymentStates[due.name] || (onlinePay ? (hi ? "भुगतान" : "Pay") : (hi ? "स्कूल में भुगतान" : "Pay at school")) }}
             </button>
             <strong>INR {{ due.net_amount }}</strong>
           </div>
@@ -98,6 +98,7 @@ const error = ref("");
 const snapshot = ref<Snapshot | null>(null);
 const paymentStates = ref<Record<string, string>>({});
 const paymentAttempts = ref<Record<string, string>>({});
+const onlinePay = ref(false);
 
 onMounted(async () => {
   const token = new URLSearchParams(window.location.search).get("access") || localStorage.getItem("university_erp_student_access");
@@ -116,6 +117,7 @@ onMounted(async () => {
     const result = await response.json();
     if (!response.ok || result.exc) throw new Error("Portal data could not be loaded.");
     snapshot.value = result.message;
+    onlinePay.value = Boolean(result.message?.application_fee?.required);
   } catch {
     error.value = "Portal data could not be loaded. Request a new access link.";
   } finally {
@@ -141,6 +143,10 @@ async function downloadReceipt(receipt: string) {
 }
 
 async function startPayment(demand: string) {
+  if (!onlinePay.value) {
+    paymentStates.value[demand] = hi.value ? "स्कूल काउंटर" : "Pay at school";
+    return;
+  }
   const token = localStorage.getItem("university_erp_student_access");
   if (!token) return;
   const key = `student-payment-${demand}`;

@@ -1,9 +1,18 @@
+import secrets
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils import nowdate
 
 
 class AdmissionStudentConversion(Document):
+	def before_insert(self):
+		if not self.conversion_date:
+			self.conversion_date = nowdate()
+		if not self.idempotency_key:
+			self.idempotency_key = f"convert-{secrets.token_hex(8)}"
+
 	def validate(self):
 		confirmation = frappe.get_doc("Admission Confirmation", self.admission_confirmation)
 		if confirmation.status != "Confirmed" or confirmation.docstatus != 1:
@@ -118,7 +127,7 @@ class AdmissionStudentConversion(Document):
 				"enrollment_number": f"P43-ENR-{applicant.name}",
 				"issued_on": self.conversion_date,
 				"status": "Draft",
-				"notes": "Synthetic P4.3 conversion identity issuance",
+				"notes": "Issued at admission conversion",
 			}
 		)
 		issuance.insert(ignore_permissions=True)

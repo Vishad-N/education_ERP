@@ -77,10 +77,7 @@
           <label>
             {{ t.classApplying }}
             <select v-model="application.classApplying">
-              <option value="Class 6">{{ t.class6 }}</option>
-              <option value="Class 7">{{ t.class7 }}</option>
-              <option value="Class 8">{{ t.class8 }}</option>
-              <option value="Class 9">{{ t.class9 }}</option>
+              <option v-for="program in programs" :key="program" :value="program">{{ program }}</option>
             </select>
           </label>
           <label>
@@ -185,6 +182,7 @@ const formVersion = ref("");
 const resumeToken = ref("");
 const paymentPending = ref(false);
 const feeRequired = ref(false);
+const programs = ref(["Class 6", "Class 7", "Class 8", "Class 9"]);
 const formError = ref("");
 let syncTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -345,7 +343,10 @@ async function syncDraft() {
       }),
     });
     const result = await response.json();
-    if (!response.ok || result.exc) throw new Error("Draft sync failed");
+    if (!response.ok || result.exc) {
+      formError.value = t.value.syncError;
+      throw new Error("Draft sync failed");
+    }
     const data = result.message;
     formVersion.value = data.form_version;
     resumeToken.value = data.resume_token || resumeToken.value;
@@ -420,6 +421,12 @@ onMounted(() => {
     .then((result) => {
       feeRequired.value = Boolean(result.message?.application_fee?.required);
       if (!feeRequired.value) application.paid = true;
+      if (Array.isArray(result.message?.programs) && result.message.programs.length) {
+        programs.value = result.message.programs;
+        if (!programs.value.includes(application.classApplying)) {
+          application.classApplying = programs.value[0];
+        }
+      }
     })
     .catch(() => {
       feeRequired.value = false;

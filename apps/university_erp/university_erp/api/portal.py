@@ -79,7 +79,21 @@ def get_application_context():
 			form["form_schema"] = json.loads(form["form_schema"] or "{}")
 		except (TypeError, ValueError):
 			form["form_schema"] = {}
-	return {"forms": forms, "application_fee": _application_fee_config()}
+	offerings = frappe.get_all(
+		"Program Offering",
+		filters={"status": "Open"},
+		fields=["program", "academic_year"],
+		order_by="program asc",
+	)
+	programs = []
+	seen = set()
+	for row in offerings:
+		if row.program and row.program not in seen:
+			seen.add(row.program)
+			programs.append(row.program)
+	if not programs:
+		programs = ["Class 6", "Class 7", "Class 8", "Class 9"]
+	return {"forms": forms, "application_fee": _application_fee_config(), "programs": programs}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -411,7 +425,15 @@ def get_student_portal_snapshot(access_token: str):
 		order_by="published_on desc",
 	)
 	frappe.db.commit()
-	return {"student": student, "expires_on": access.expires_on, "dues": dues, "receipts": receipts, "documents": documents, "notices": notices}
+	return {
+		"student": student,
+		"expires_on": access.expires_on,
+		"dues": dues,
+		"receipts": receipts,
+		"documents": documents,
+		"notices": notices,
+		"application_fee": _application_fee_config(),
+	}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -465,6 +487,14 @@ def create_student_payment(access_token: str, student_fee_demand: str, idempoten
 	)
 	if not demand:
 		frappe.throw(_("This fee demand is not available for the student."))
+	if _application_fee_config()["mode"] != "gateway":
+		return {
+			"attempt": None,
+			"provider_order_id": None,
+			"status": "Counter",
+			"message": "Pay this fee at the school counter. Online payment is not enabled.",
+			"idempotent": True,
+		}
 	if existing := frappe.db.exists("Student Portal Payment Attempt", {"idempotency_key": idempotency_key}):
 		attempt = frappe.get_doc("Student Portal Payment Attempt", existing)
 		return {"attempt": attempt.name, "provider_order_id": attempt.provider_order_id, "status": attempt.status, "idempotent": True}
